@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.pick-best-moment.com
+
+# Sitemaps
+Sitemap: https://www.pick-best-moment.com/sitemap.xml

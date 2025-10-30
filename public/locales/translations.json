@@ -1,0 +1,385 @@
+{
+  "EN": {
+    "home": {
+      "header": ["HOME", "FAVORITE SPOTS", "ABOUT", "LOVE STORIES", "BOOKING INFO", "BOOKING", "ALL",
+        "Gothic Quarter", "Cathedral of Barcelona", "Sagrada Família", "Ciutadella Park", 
+        "Parc del Laberint",  "Parc de Montjuïc"
+      ],
+    
+      "hero": ["PHOTOSHOOT IN BARCELONA", " NOW"],
+      "about": [
+        "ABOUT US:",
+        "I'm YASS, a passionate photographer based in Barcelona's heart. Specializing in weddings, love story sessions, and tourist photography",
+        "I transform your moments into timeless keepsakes. From romantic garden portraits to iconic cityscapes and adventurous tourist shots",
+        "Let's create your perfect story—contact me today!"
+        
+      ],
+      "top_products": ["GALLERY", "Moments & Emotions"],
+      "Our_Products": ["Our Products"],
+      "special_offers": [
+        "LOVE STORY",
+        "IN BARCELONA",
+        "Feel the romance of Barcelona's gardens and historic charm in our Love Story in BarcelonaA photos. See the magic of love captured—explore our gallery now!"
+      ],
+      "follow_us": ["FOLLOW US ON INSTAGRAM"],
+      "Footer": ["BARCELONA", "Made By", " el Mejor tech "]
+    },
+    "products": {
+      "header": ["Catalogues", "About", "Contact", "Conditions"]
+    },
+    "contact": {
+      "header": [
+        "Contact", "Catalogues", "About", "Conditions"
+      ],
+      "hero": [
+        "Contact Us", "We'd love to hear from you! Whether you have questions, comments, or simply want to learn more about what we offer, feel free to get in touch. Our team is here to assist you with any inquiries and help bring your vision to life. Don't hesitate to reach out—we're just a message away!",
+        "Kharkiv, Poltavskyi Shlyakh Street, 144-A, Obruch Shopping Center\n| | Ivano-Frankivsk, Semena Vysotsana Street, 18, Kyivskyi Shopping Center"
+      ],
+      "heroTitle": [
+        "Let's Create Timeless Moments",
+        "Створюймо вічні моменти",
+        "Créons des moments intemporels"
+      ],
+      "heroSubtitle": [
+        "Whether it's your wedding, a portrait session, or creative brand story — I'm here to capture what matters. Let's connect and bring your vision to life.",
+        "Чи це ваше весілля, портретна зйомка або креативна історія бренду — я тут, щоб зберегти найважливіше. Давайте зв'яжемося та втілимо вашу ідею в життя.",
+        "Que ce soit votre mariage, une séance portrait ou une histoire de marque créative — je suis là pour capturer l'essentiel. Connectons-nous et donnons vie à votre vision."
+      ],
+      "input": ["First Name", "Last Name", "Phone Number", "Email", "Message", "Send", "Thanks for submitting!", " Your form has been successfully submitted!"],
+      "openninghours": ["Opening Hours", "Mon - Fri", "Saturday", "Sunday"]
+
+    },
+    "toppro": {
+      "header": ["Contact", "Catalogues", "About", "Conditions"]
+    },
+    "BookingTerms": {
+      "hero": [
+        "Booking and Session Terms",
+        "GENERAL BOOKING CONDITIONS:",
+        "To confirm your booking, a deposit is required.",
+        "The remaining balance is paid on the day of the shoot.",
+        "Cancellation is free up to 48 hours before the session. Later cancellations are non-refundable.",
+        "In case of rain or force majeure, rescheduling is free of charge.",
+        "DELIVERY AND USAGE OF PHOTOS:",
+        "Photos are delivered digitally within 7–10 business days.",
+        "Urgent delivery is available upon request (additional fee).",
+        "All photos are for personal use only, unless otherwise agreed.",
+        "COMMERCIAL USAGE AND COPYRIGHT:",
+        "Photographer retains copyright to all images.",
+        "Commercial usage requires written agreement and separate licensing."
+      ]
+    },
+    
+    "Catalogues": {
+      "header" :["All Products", "Explore our diverse range of products tailored to your needs.", " products", "Product List"]
+    },
+    
+    "SizeTable": {
+      "header": ["Size Chart", "Size (UA)", "Size (EU)", "Chest (cm)", "Waist (cm)", "Hips (cm)", "Close"]
+    },
+    
+    "SortMenu": {
+      "header": ["Sort by", "recommended", "Price (low to high)", "Price (high to low)"]
+    },
+    "Filtersidebar": {
+      "header": [
+        "Sort by", 
+        "All products", 
+        "Filter by", 
+        "Price", 
+        "Size", 
+        "Selected", 
+        "All", 
+        "Category",
+        "Filter",
+        "Confirm"
+      ],
+      "SizeCatalogue": [ "All", "S", "M", "L", "XL" ],
+      "Categories": [
+        "All", "Costumes", "Dresses", "Shirts", "Skirts", 
+        "Sweaters",  "Pants", "Jackets", "Tops", "Outerwear", "Shorts "
+      ],
+      "PaginatedProducts": ["Prev", "Next"]
+    },
+    
+    
+    "SpecialOffers": {
+      "header": ["Special Offers Collection", "Discover our exclusive deals and discounts.", "Special Offers", "Selected Product Details"]
+    },
+    
+    "Infoform":{
+      "header": ["Category", " Color", "Select", "Size", "Quantity", "Contact Us", "Clothing Size Chart", "PRODUCT INFO", "Price" ]
+    }
+  },
+  "FR": {
+    "home": {
+      "header": ["Accueil", "Catalogues", "À propos", "Contact", "Conditions",    "Tout",
+      "Costumes", "Robes", "Chemises", "Jupes", 
+    "Pulls","Pantalons", "Vestes", "Tops", "Vêtements d'extérieur","Shorts"
+  ],
+      
+      "hero": ["Marque ukrainienne de vêtements pour femmes.", "Marque ukrainienne", "De vêtements pour femmes"],
+      "about": [
+        "À propos",
+        "LATORE – une marque ukrainienne de vêtements pour femmes avec sa propre production, plus de 10 ans d'expérience, et deux showrooms à Ivano-Frankivsk et Kharkiv.",
+        "Nous sommes l'incarnation des modèles basiques et d'une approche créative et design pour chaque pièce.",
+        "Nous sommes l'incarnation des modèles basiques et d'une approche créative et design pour chaque pièce."
+      ],
+      "top_products": ["Moments et émotions", "Moments et émotions"],
+      "Our_Products": ["Nos Produits"],
+      "special_offers": [
+        "Offres Spéciales",
+        "Offre Limitée",
+        "Ne manquez pas nos offres exclusives. Profitez-en tant qu'elles sont disponibles \net bénéficiez de réductions qui ne dureront pas éternellement !",
+        "Achetez Maintenant"
+      ],
+      "follow_us": ["Suivez-nous"]
+    },
+    
+    "contact":{
+      "hero": [
+        "Contactez-nous",
+        "Nous serions ravis de vous entendre ! Que vous ayez des questions, des commentaires ou que vous souhaitiez simplement en savoir plus sur ce que nous proposons, n'hésitez pas à nous contacter. Notre équipe est là pour répondre à vos demandes et vous aider à concrétiser vos idées. N'hésitez pas à nous écrire – nous sommes à un message de vous !",
+        "Kharkiv, Poltavskyi Shlyakh Street, 144-A, Obruch Shopping Center\n| | Ivano-Frankivsk, Semena Vysotsana Street, 18, Kyivskyi Shopping Center"
+      ],
+      "heroTitle": [
+        "Створюймо вічні моменти",
+        "Створюймо вічні моменти",
+        "Créons des moments intemporels"
+      ],
+      "heroSubtitle": [
+        "Чи це ваше весілля, портретна зйомка або креативна історія бренду — я тут, щоб зберегти найважливіше. Давайте зв'яжемося та втілимо вашу ідею в життя.",
+        "Чи це ваше весілля, портретна зйомка або креативна історія бренду — я тут, щоб зберегти найважливіше. Давайте зв'яжемося та втілимо вашу ідею в життя.",
+        "Que ce soit votre mariage, une séance portrait ou une histoire de marque créative — je suis là pour capturer l'essentiel. Connectons-nous et donnons vie à votre vision."
+      ],
+      "input": [
+        "Prénom",
+        "Nom",
+        "Numéro de téléphone",
+        "Email",
+        "Message",
+        "Envoyer",
+        "Merci pour votre soumission !",
+        "Votre formulaire a été soumis avec succès !"
+      ],
+      "openninghours": [
+        "Heures d'ouverture",
+        "Lun - Ven",
+        "Samedi",
+        "Dimanche"
+      ]
+    },
+    "BookingTerms": {
+      "hero": [
+        "Conditions de réservation et de séance",
+        "CONDITIONS GÉNÉRALES DE RÉSERVATION :",
+        "Un acompte est requis pour confirmer votre réservation.",
+        "Le solde est payé le jour de la séance.",
+        "L'annulation est gratuite jusqu'à 48 heures avant la séance. Passé ce délai, l'acompte n'est pas remboursé.",
+        "En cas de pluie ou de force majeure, le report est gratuit.",
+        "LIVRAISON ET UTILISATION DES PHOTOS :",
+        "Les photos sont livrées numériquement sous 7 à 10 jours ouvrables.",
+        "La livraison urgente est possible sur demande (frais supplémentaires).",
+        "Toutes les photos sont destinées à un usage personnel uniquement, sauf accord contraire.",
+        "UTILISATION COMMERCIALE ET DROITS D'AUTEUR :",
+        "Le photographe conserve les droits d'auteur sur toutes les images.",
+        "L'utilisation commerciale nécessite un accord écrit et une licence séparée."
+      ]
+    },
+
+    "Catalogues": {
+      "header": ["Tous les produits", "Découvrez notre gamme variée de produits adaptés à vos besoins.", " produits", "Liste des produits"]
+    },
+
+    "SizeTable": {
+      "header": ["Tableau des tailles", "Taille (UA)", "Taille (EU)", "Poitrine (cm)", "Taille (cm)", "Hanches (cm)", "Fermer"]
+    },
+
+    "SortMenu": {
+      "header": ["Trier par", "Recommandé", "Prix (du plus bas au plus élevé)", "Prix (du plus élevé au plus bas)"]
+      
+    },
+    "Filtersidebar": {
+  "header": [
+    "Trier par", 
+    "Tous les produits", 
+    "Filtrer par", 
+    "Prix", 
+    "Taille", 
+    "Sélectionné", 
+    "Tous", 
+    "Catégorie",
+    "Filtre",
+    "Confirmer"
+  ],
+  "SizeCatalogue": [ "Tous", "S", "M", "L", "XL" ],
+  "Categories": [
+    "Tous", "Costumes", "Robes", "Chemises", "Jupes", 
+    "Pulls","Pantalons", "Vestes", "Tops", "Vêtements d'extérieur","Shorts "
+  ],
+  "PaginatedProducts": ["Précédent", "Suivant"]
+},
+
+  "SpecialOffers": {
+    "header": [
+      "Collection d'offres spéciales",
+      "Découvrez nos offres et réductions exclusives.",
+      "offres spéciales",
+      "Détails du produit sélectionné"
+    ]
+  },
+
+  "Infoform": {
+    "header": [
+      "Catégorie",
+      "Couleur",
+      "Sélectionner",
+      "Taille",
+      "Quantité",
+      "Contactez-nous",
+      "Tableau des tailles",
+      "INFORMATIONS SUR LE PRODUIT",
+      "Prix"
+    ]
+  }
+
+
+
+
+    
+},
+  
+  "UA": {
+    "home": {
+      "header": ["Головна", "Каталог", "Про нас", "Бронювання", "Інформація про бронювання",  "Усі",
+      "Костюми", "Сукні", "Сорочки", "Спідниці", 
+        "Светри", "Брюки", "Жакети", "Топи", "Верхній одяг", "Шорти"
+      ],
+      
+      "hero": ["Український бренд жіночого одягу.","Український бренд", "жіночого одягу"],
+      "about": [
+        "ПPO НАС",
+        "LATORE - український бренд жіночого одягу з власним виробництвом, з досвідом понад 10 років, з двома шоурумами в Івано-Франківську та Харкові.",
+        "Ми - втілення базових моделей та авторського, дизайнерського підходу до всіх виробів.",
+        "Наш одяг - це поєднання класики та комфорту, жіночності та гармонії. Завдяки власному виробництву ми гарантуємо високу якість кожного виробу."
+      ],
+      "top_products": ["Популярні продукти","Моменти й емоції"],
+      "Our_Products": ["Наші продукти"],
+      "special_offers": [
+        "Спеціальні пропозиції",
+        "Обмежена пропозиція",
+        "Лімітовані вироби в останніх кольорах та розмірах   \nв обмеженій кількості за собівартістю!",
+        "Купуйте зараз"
+      ],
+      "follow_us": ["Слідкуйте за нами"],
+      "Footer": ["Вул.Полтавський шлях 144А Харків", "Торговий центр", "Київський Івано-Франківськ"]
+      
+    },
+    "contact": {
+      "hero": [
+        "Зворотній зв'язок",
+        "Ви можете заповнити форму нижче, і ми зв'яжемося з вами найближчим часом",
+        "М. Харків , вул. Полтавський шлях, 144-а ТЦ Обруч \n| | М. Івано-Франківськ, вул. Семена Височана , 18  ТЦ Київський"
+      ],
+      "heroTitle": [
+        "Створюймо вічні моменти",
+        "Створюймо вічні моменти",
+        "Créons des moments intemporels"
+      ],
+      "heroSubtitle": [
+        "Чи це ваше весілля, портретна зйомка або креативна історія бренду — я тут, щоб зберегти найважливіше. Давайте зв'яжемося та втілимо вашу ідею в життя.",
+        "Чи це ваше весілля, портретна зйомка або креативна історія бренду — я тут, щоб зберегти найважливіше. Давайте зв'яжемося та втілимо вашу ідею в життя.",
+        "Que ce soit votre mariage, une séance portrait ou une histoire de marque créative — je suis là pour capturer l'essentiel. Connectons-nous et donnons vie à votre vision."
+      ],
+      "input": [
+        "Ім'я",
+        "Прізвище",
+        "Номер телефону",
+        "Електронна пошта",
+        "Повідомлення",
+        "Відправити",
+        "Дякуємо за відправку!",
+        "Ваша форма була успішно надіслана!"
+      ],
+      "openninghours": [
+        "Години роботи",
+        "Пон - П'ят",
+        "Субота",
+        "Неділя"
+      ]
+    },
+    "BookingTerms": {
+      "hero": [
+        "Умови бронювання та фотосесії",
+        "ЗАГАЛЬНІ УМОВИ БРОНЮВАННЯ:",
+        "Для підтвердження бронювання потрібна передоплата.",
+        "Решта суми оплачується в день зйомки.",
+        "Скасування безкоштовне за 48 годин до фотосесії. Пізніше – без повернення коштів.",
+        "У разі дощу чи форс-мажору — безкоштовне перенесення.",
+        "ДОСТАВКА ТА ВИКОРИСТАННЯ ФОТО:",
+        "Фотографії надсилаються в цифровому вигляді протягом 7–10 робочих днів.",
+        "Термінова обробка можлива за запитом (додаткова оплата).",
+        "Всі фото призначені лише для особистого використання, якщо не погоджено інше.",
+        "КОМЕРЦІЙНЕ ВИКОРИСТАННЯ ТА АВТОРСЬКІ ПРАВА:",
+        "Авторське право на всі зображення належить фотографу.",
+        "Комерційне використання потребує письмової угоди та окремої ліцензії."
+      ]
+    },
+    "Catalogues": {
+      "header": ["Всі товари", "Ознайомтеся з нашим різноманітним асортиментом товарів, створеним для ваших потреб.", " товарів", "Список товарів"]
+    },
+    
+    "SizeTable": {
+      "header": ["Розмірна сітка", "Розмір (UA", "Розмір (EU)", "Груди (см)", "Талія (см)", "Стегна (см)","Закрити"]
+    },
+    "SortMenu": {
+  "header": ["Сортувати за", "Рекомендовані","Ціна (від низької до високої)", "Ціна (від високої до низької)"
+    
+  ]
+},
+
+    "Filtersidebar": {
+      "header": [
+        "Перегляд за", 
+        "Усі продукти", 
+        "Фільтрувати за", 
+        "Ціна", 
+        "Розмір", 
+        "Вибрано", 
+        "Усі", 
+        "Категорія",
+        "Фільтр",
+        "Підтвердити"
+      ],
+      "SizeCatalogue": [ "Усі", "S", "M", "L", "XL" ],
+      "Categories": [
+        "Усі", "Костюми", "Сукні", "Сорочки", "Спідниці", 
+        "Светри", "Брюки", "Жакети", "Топи", "Верхній одяг", "Шорти"
+      ],
+      "PaginatedProducts": ["Попередня", "Наступна"]
+    },
+    
+    "SpecialOffers": {
+    "header": [
+      "Колекція спеціальних пропозицій",
+      "Відкрийте для себе наші ексклюзивні пропозиції та знижки.",
+      "спеціальних пропозицій",
+      "Деталі вибраного продукту"
+    ]
+  },
+  
+  "Infoform": {
+    "header": [
+      "Категорія",
+      "Колір",
+      "Вибрати",
+      "Розмір",
+      "Кількість",
+      "Зв'язатися з нами",
+      "Розмірна сітка одягу",
+      "ІНФОРМАЦІЯ ПРО ПРОДУКТ",
+      "Ціна"
+    ]
+  }
+}
+}
