@@ -15,6 +15,11 @@ export const metadata = {
   title: "Pic Best Moments — Photographer in Barcelona",
   description:
     "Professional photographer in Barcelona capturing love stories, family moments and portraits. Easy booking and transparent pricing.",
+
+  verification: {
+    google: "Ym-lDSsvY4ph2BQ0M7nKfXEBTvyBK2GtZVov3YvwnsU",
+  },
+
   applicationName: "Pic Best Moments",
   keywords: [
     "Barcelona photographer",
@@ -26,6 +31,7 @@ export const metadata = {
   authors: [{ name: "Pic Best Moments", url: SITE_URL }],
   creator: "Pic Best Moments",
   publisher: "Pic Best Moments",
+
   openGraph: {
     type: "website",
     url: SITE_URL,
@@ -33,8 +39,11 @@ export const metadata = {
     title: "Pic Best Moments — Photographer in Barcelona",
     description:
       "Professional photo sessions in Barcelona: couples, love stories, families, portraits.",
-    images: [{ url: "/logo-social.jpg", width: 1200, height: 628, alt: "Pic Best Moments" }],
+    images: [
+      { url: "/logo-social.jpg", width: 1200, height: 628, alt: "Pic Best Moments" }
+    ],
   },
+
   twitter: {
     card: "summary_large_image",
     title: "Pic Best Moments — Photographer in Barcelona",
@@ -42,9 +51,9 @@ export const metadata = {
       "Professional photo sessions in Barcelona: couples, love stories, families, portraits.",
     images: ["/logo-social.jpg"],
   },
+
   robots: { index: true, follow: true },
-  // Якщо треба верифікація Google:
-  // verification: { google: "g_0gD_liwrkkTj-WviMVpLi56EWXTq9nEfPl-uJU72s" },
+
   icons: {
     icon: [
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
