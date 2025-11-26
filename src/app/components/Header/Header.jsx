@@ -66,14 +66,14 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
         <Link href="/" aria-label="Go to Home">
           <span className="flex items-center">
             <h1 className="sr-only">PBM — Pic Best Moments</h1>
-            <Image
-              src="/logo.jpg"
-              alt="PBM Logo"
-              width={80}
-              height={40}
-              priority
-              className={`w-auto h-auto sm:w-16 md:w-18 lg:w-24 ${isDarkMode ? 'invert' : ''}`}
-            />
+                        <Image
+  src="/logo.jpg"
+  alt="PBM Logo"
+  width={60}
+  height={30}
+  priority
+  className={`w-12 h-auto sm:w-16 md:w-20 lg:w-24 transition-all duration-300 ${isDarkMode ? 'invert' : ''}`}
+/>
           </span>
         </Link>
       </div>
