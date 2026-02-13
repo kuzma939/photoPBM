@@ -5,28 +5,9 @@ import { useState, useEffect, createContext, useContext } from "react";
 const LanguageContext = createContext();
 
 export function LanguageProvider({ children }) {
+    // English is the default language
     const [language, setLanguage] = useState("EN");
     const [translations, setTranslations] = useState({});
-
-    // Визначення мови за допомогою API
-    useEffect(() => {
-      const setDefaultLanguage = async () => {
-          try {
-              const res = await fetch("/api/geolocation");
-              if (!res.ok) throw new Error("Failed to fetch geolocation data");
-              const data = await res.json();
-  
-              // Встановлюємо мову залежно від країни
-              setLanguage(data.country === "UA" ? "UA" : "EN");
-          } catch (error) {
-              console.error("Failed to fetch geolocation. Defaulting to English.");
-              setLanguage("EN");
-          }
-      };
-  
-      setDefaultLanguage();
-  }, []);
-  
 
     // Завантаження перекладів
     useEffect(() => {

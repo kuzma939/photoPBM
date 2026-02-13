@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "../../Functions/useLanguage";
 import useImageFollow from "../../hooks/useImageFollow";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import useKeyboardNavigation from "../../hooks/useKeyboardNavigation";
 
 export default function FollowUs() {
@@ -72,18 +71,19 @@ export default function FollowUs() {
         <div className="border-t border-gray-700"></div>
       </div>
 
-      <div className="flex items-center justify-center space-x-4 mt-8">
+      <div className="flex items-center justify-center mt-8">
         {/* Ліва кнопка */}
-        <div
+        <button
           onClick={handlePrev}
-          className="text-white text-2xl sm:text-3xl cursor-pointer mx-2 sm:mx-4 hover:text-gray-500 transition-all duration-300"
+          className="follow-btn-prev cursor-pointer mx-2 sm:mx-4 transition-all duration-500 text-white text-2xl sm:text-3xl font-extrabold bg-transparent border-0 flex-shrink-0"
+          style={{ padding: 0, display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
         >
-          <FaChevronLeft />
-        </div>
+          ‹
+        </button>
 
         {/* Карусель */}
         <div
-        className="flex overflow-hidden w-full px-4 sm:gap-6 md:gap-8"
+        className="flex overflow-hidden w-full px-4 sm:gap-6 md:gap-8 mx-2 sm:mx-4"
         
           style={{
             height: "300px",
@@ -121,13 +121,44 @@ export default function FollowUs() {
         </div>
 
         {/* Права кнопка */}
-        <div
+        <button
           onClick={handleNext}
-          className="text-white text-2xl sm:text-3xl cursor-pointer mx-2 sm:mx-4 hover:text-gray-500 transition-all duration-300"
+          className="follow-btn-next cursor-pointer mx-2 sm:mx-4 transition-all duration-500 text-white text-2xl sm:text-3xl font-extrabold bg-transparent border-0 flex-shrink-0"
+          style={{ padding: 0, display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
         >
-          <FaChevronRight />
-        </div>
+          ›
+        </button>
       </div>
+
+      <style jsx>{`
+        .follow-btn-prev,
+        .follow-btn-next {
+          color: #fff;
+          font-size: 2.5rem;
+          line-height: 1;
+          transition: all 0.5s ease;
+        }
+        
+        @media (min-width: 640px) {
+          .follow-btn-prev,
+          .follow-btn-next {
+            font-size: 3rem;
+          }
+        }
+        
+        .follow-btn-prev:hover,
+        .follow-btn-prev:active,
+        .follow-btn-next:hover,
+        .follow-btn-next:active {
+          background: linear-gradient(135deg, #be123c, #db2777, #7c3aed);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          color: transparent;
+          filter: drop-shadow(0 0 20px rgba(219, 39, 119, 0.9));
+          transform: scale(1.5);
+        }
+      `}</style>
     </section>
   );
 }

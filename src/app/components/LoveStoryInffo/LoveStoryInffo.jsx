@@ -313,11 +313,14 @@ const selId = selectedProduct?.id ?? null;
       >
         <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight drop-shadow-[0_10px_30px_rgba(199,70,255,0.15)]">
           <span className="bg-gradient-to-r from-rose-600 via-fuchsia-600 to-indigo-600 bg-clip-text text-transparent">
-            Love Story
+            Love Story Photography
           </span>
         </h1>
-        <p className="mt-4 text-base sm:text-lg text-gray-700/90 dark:text-gray-300/90">
-          Explore our couples’ romantic journeys captured across Europe — intimate moments, timeless frames, and living emotions.
+        <p className="text-sm sm:text-base font-bold text-gray-600 dark:text-gray-400 mt-2">
+          📍 Barcelona, Spain
+        </p>
+        <p className="mt-4 text-lg sm:text-xl font-bold text-transparent bg-gradient-to-r from-rose-700 via-pink-600 to-purple-700 dark:from-rose-400 dark:via-pink-400 dark:to-purple-400 bg-clip-text">
+          Romantic love story sessions at Barcelona's most iconic locations — Gothic Quarter, Sagrada Família, Barceloneta Beach, Park Güell. Intimate moments, timeless memories. 💕
         </p>
       </motion.header>
 
@@ -336,7 +339,7 @@ const selId = selectedProduct?.id ?? null;
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 24 }}
             transition={{ duration: 0.4 }}
-            className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
           >
             {gridItems.map((product, idx) => (
               <motion.article

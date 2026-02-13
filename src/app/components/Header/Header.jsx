@@ -95,7 +95,7 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
         </button>
 
         <ul
-          className="hidden lg:flex space-x-4 text-xs sm:text-sm md:text-base lg:text-lg font-bold tracking-wide"
+          className="hidden lg:flex space-x-4 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-black tracking-wide"
           role="menubar"
         >
           {/* HOME */}
@@ -256,7 +256,7 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
         </div>
 
         {/* Menu list */}
-        <ul className="flex flex-col items-start space-y-4 p-6 text-xs sm:text-sm md:text-base lg:text-lg font-bold" role="menubar">
+        <ul className="flex flex-col items-start space-y-4 p-6 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-black" role="menubar">
           {/* HOME */}
           <li role="none">
             <Link href="/" role="menuitem" aria-label={`Go to ${menuItems[0]} page`} onClick={closeMenu}>

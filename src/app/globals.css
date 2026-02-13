@@ -86,10 +86,23 @@ input, textarea {
     @apply max-w-7xl mx-auto;
   }
   
-  /* Make all headings bolder and more visible */
+  /* Make all headings bolder and more visible with romantic gradient */
   h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     letter-spacing: -0.02em;
+    background: linear-gradient(to right, #be123c, #db2777, #7c3aed);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease;
+  }
+  
+  /* Dark mode gradient for headings */
+  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    background: linear-gradient(to right, #fb7185, #f9a8d4, #c084fc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   
   /* Make paragraphs more readable */
@@ -97,9 +110,28 @@ input, textarea {
     font-weight: 500;
   }
   
-  /* Make buttons and links more prominent */
+  /* Make buttons and links more prominent with gradient hover */
   button, a {
     font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  /* Gradient hover effect for links and buttons (except buttons with bg-gradient class) */
+  a:hover:not(.cta):not(.bg-gradient-romantic), 
+  button:hover:not(.cta):not(.bg-gradient-romantic):not([class*="bg-"]) {
+    background: linear-gradient(to right, #be123c, #db2777, #7c3aed);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: translateY(-2px);
+  }
+  
+  .dark a:hover:not(.cta):not(.bg-gradient-romantic), 
+  .dark button:hover:not(.cta):not(.bg-gradient-romantic):not([class*="bg-"]) {
+    background: linear-gradient(to right, #fb7185, #f9a8d4, #c084fc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
 @layer utilities {
@@ -107,6 +139,50 @@ input, textarea {
     .mobile-320 {
       @apply text-sm leading-relaxed p-2;
     }
+  }
+  
+  /* Romantic gradient text utility */
+  .text-gradient-romantic {
+    background: linear-gradient(to right, #be123c, #db2777, #7c3aed);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .dark .text-gradient-romantic {
+    background: linear-gradient(to right, #fb7185, #f9a8d4, #c084fc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Gradient background for CTA buttons */
+  .bg-gradient-romantic {
+    background: linear-gradient(135deg, #be123c, #db2777, #7c3aed);
+    transition: all 0.3s ease;
+  }
+  
+  .bg-gradient-romantic:hover {
+    background: linear-gradient(135deg, #7c3aed, #db2777, #be123c);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(219, 39, 119, 0.4);
+  }
+  
+  .dark .bg-gradient-romantic {
+    background: linear-gradient(135deg, #fb7185, #f9a8d4, #c084fc);
+  }
+  
+  .dark .bg-gradient-romantic:hover {
+    background: linear-gradient(135deg, #c084fc, #f9a8d4, #fb7185);
+    box-shadow: 0 10px 25px rgba(249, 168, 212, 0.4);
+  }
+  
+  /* Override gradient for specific elements that need regular text */
+  .text-no-gradient {
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: currentColor !important;
   }
 }
 

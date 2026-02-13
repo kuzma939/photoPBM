@@ -6,7 +6,7 @@
         "Park Güell", "Montjuïc"
       ],
     
-      "hero": ["PHOTOSHOOT IN BARCELONA", "BOOK NOW"],
+      "hero": ["PHOTOSHOOT IN BARCELONA", "BOOK NOW", "Book Your Barcelona Session", "Barceloneta Beach", "Sagrada Família", "Gothic Quarter", "Park Güell", "Capture stunning sunset moments at Barcelona's iconic beach. Perfect for romantic couple sessions and engagement photos.", "Create timeless memories with Gaudí's masterpiece as your backdrop. Ideal for love story and wedding photography in Barcelona.", "Step into medieval Barcelona's enchanting streets. Authentic and atmospheric photoshoots in the heart of historic Barcelona.", "Vibrant colors and Gaudí's artistic vision. Unique and creative photography sessions with panoramic Barcelona city views."],
       "about": [
         "ABOUT ME",
         "I'm a passionate photographer based in the heart of Barcelona. Specializing in love stories, weddings, family sessions, and portrait photography",
@@ -18,9 +18,11 @@
       "special_offers": [
         "LOVE STORY",
         "PHOTOGRAPHY IN BARCELONA",
-        "Experience the romance of Barcelona with our love story photography. Capture your special moments at iconic locations like Gothic Quarter, Park Güell, and Sagrada Família. Explore our portfolio now!"
+        "Experience the romance of Barcelona with our love story photography. Capture your special moments at iconic locations like Gothic Quarter, Park Güell, and Sagrada Família. Explore our portfolio now!",
+        "View Portfolio"
       ],
       "follow_us": ["FOLLOW US ON INSTAGRAM"],
+      "map": ["📍 Based in Barcelona — Available Worldwide", "Professional photographer based in Barcelona, Spain — available for photoshoots throughout Barcelona and destination sessions worldwide."],
       "Footer": ["BARCELONA", "Professional Photography", "© 2026 Pic Best Moments"]
     },
     "products": {
@@ -117,7 +119,7 @@
         "Park Güell", "Montjuïc"
       ],
       
-      "hero": ["SESIÓN DE FOTOS EN BARCELONA", "RESERVAR AHORA"],
+      "hero": ["SESIÓN DE FOTOS EN BARCELONA", "RESERVAR AHORA", "Reserva tu Sesión en Barcelona", "Playa Barceloneta", "Sagrada Família", "Barrio Gótico", "Park Güell", "Captura impresionantes momentos al atardecer en la playa icónica de Barcelona. Perfecto para sesiones románticas de pareja y fotos de compromiso.", "Crea recuerdos eternos con la obra maestra de Gaudí como telón de fondo. Ideal para fotografía de historia de amor y bodas en Barcelona.", "Adéntrate en las encantadoras calles medievales de Barcelona. Fotografías auténticas y atmosféricas en el corazón de la Barcelona histórica.", "Colores vibrantes y la visión artística de Gaudí. Sesiones de fotografía únicas y creativas con vistas panorámicas de la ciudad de Barcelona."],
       "about": [
         "SOBRE MÍ",
         "Soy un fotógrafo apasionado ubicado en el corazón de Barcelona. Especializado en historias de amor, bodas, sesiones familiares y fotografía de retrato",
@@ -129,9 +131,11 @@
       "special_offers": [
         "FOTOGRAFÍA",
         "DE HISTORIAS DE AMOR EN BARCELONA",
-        "Vive el romance de Barcelona con nuestra fotografía de historias de amor. Captura tus momentos especiales en lugares emblemáticos como el Barrio Gótico, Park Güell y la Sagrada Família. ¡Explora nuestro portafolio ahora!"
+        "Vive el romance de Barcelona con nuestra fotografía de historias de amor. Captura tus momentos especiales en lugares emblemáticos como el Barrio Gótico, Park Güell y la Sagrada Família. ¡Explora nuestro portafolio ahora!",
+        "Ver Portafolio"
       ],
       "follow_us": ["SÍGUENOS EN INSTAGRAM"],
+      "map": ["📍 Con sede en Barcelona — Disponible en todo el mundo", "Fotógrafo profesional con sede en Barcelona, España — disponible para sesiones fotográficas en toda Barcelona y sesiones de destino en todo el mundo."],
       "Footer": ["BARCELONA", "Fotografía Profesional", "© 2026 Pic Best Moments"]
     },
     
@@ -244,7 +248,7 @@
         "Park Güell", "Montjuïc"
       ],
       
-      "hero": ["SÉANCE PHOTO À BARCELONE", "RÉSERVER MAINTENANT"],
+      "hero": ["SÉANCE PHOTO À BARCELONE", "RÉSERVER MAINTENANT", "Réservez votre Séance à Barcelone", "Plage Barceloneta", "Sagrada Família", "Quartier Gothique", "Park Güell", "Capturez des moments époustouflants au coucher du soleil sur la plage emblématique de Barcelone. Parfait pour les séances romantiques de couple et les photos de fiançailles.", "Créez des souvenirs intemporels avec le chef-d'œuvre de Gaudí en toile de fond. Idéal pour la photographie d'histoire d'amour et de mariage à Barcelone.", "Plongez dans les rues médiévales enchanteresses de Barcelone. Séances photo authentiques et atmosphériques au cœur du Barcelone historique.", "Couleurs vibrantes et vision artistique de Gaudí. Séances de photographie uniques et créatives avec des vues panoramiques sur la ville de Barcelone."],
       "about": [
         "À PROPOS DE MOI",
         "Je suis un photographe passionné basé au cœur de Barcelone. Spécialisé dans les histoires d'amour, les mariages, les séances familiales et la photographie de portrait",
@@ -256,9 +260,11 @@
       "special_offers": [
         "PHOTOGRAPHIE",
         "D'HISTOIRES D'AMOUR À BARCELONE",
-        "Vivez la romance de Barcelone avec notre photographie d'histoires d'amour. Capturez vos moments spéciaux dans des lieux emblématiques comme le Quartier Gothique, le Park Güell et la Sagrada Família. Explorez notre portfolio dès maintenant!"
+        "Vivez la romance de Barcelone avec notre photographie d'histoires d'amour. Capturez vos moments spéciaux dans des lieux emblématiques comme le Quartier Gothique, le Park Güell et la Sagrada Família. Explorez notre portfolio dès maintenant!",
+        "Voir le Portfolio"
       ],
       "follow_us": ["SUIVEZ-NOUS SUR INSTAGRAM"],
+      "map": ["📍 Basé à Barcelone — Disponible dans le monde entier", "Photographe professionnel basé à Barcelone, Espagne — disponible pour des séances photo à Barcelone et des sessions de destination dans le monde entier."],
       "Footer": ["BARCELONE", "Photographie Professionnelle", "© 2026 Pic Best Moments"]
     },
     
@@ -382,7 +388,7 @@
         "Парк Гуель", "Монжуїк"
       ],
       
-      "hero": ["ФОТОСЕСІЯ У БАРСЕЛОНІ", "ЗАБРОНЮВАТИ ЗАРАЗ"],
+      "hero": ["ФОТОСЕСІЯ У БАРСЕЛОНІ", "ЗАБРОНЮВАТИ ЗАРАЗ", "Забронюйте свою Фотосесію в Барселоні", "Пляж Барселонета", "Саграда Фамілія", "Готичний квартал", "Парк Гуель", "Зафіксуйте приголомшливі моменти на заході сонця на культовому пляжі Барселони. Ідеально для романтичних парних сесій та фото заручин.", "Створіть вічні спогади з шедевром Гауді як фоном. Ідеально для фотографії історії кохання та весілля в Барселоні.", "Зануртеся в зачаровуючі середньовічні вулички Барселони. Автентичні та атмосферні фотосесії в серці історичної Барселони.", "Яскраві кольори та художнє бачення Гауді. Унікальні та креативні фотосесії з панорамним видом на місто Барселона."],
       "about": [
         "ПРО МЕНЕ",
         "Я пристрасний фотограф у серці Барселони. Спеціалізуюсь на історіях кохання, весіллях, сімейних сесіях та портретній фотографії",
@@ -394,9 +400,11 @@
       "special_offers": [
         "ФОТОГРАФІЯ",
         "ІСТОРІЙ КОХАННЯ У БАРСЕЛОНІ",
-        "Відчуйте романтику Барселони з нашою фотографією історій кохання. Зафіксуйте свої особливі моменти в культових місцях, таких як Готичний квартал, Парк Гуель та Саграда Фамілія. Перегляньте наше портфоліо зараз!"
+        "Відчуйте романтику Барселони з нашою фотографією історій кохання. Зафіксуйте свої особливі моменти в культових місцях, таких як Готичний квартал, Парк Гуель та Саграда Фамілія. Перегляньте наше портфоліо зараз!",
+        "Переглянути Портфоліо"
       ],
       "follow_us": ["СЛІДКУЙТЕ ЗА НАМИ В INSTAGRAM"],
+      "map": ["📍 Базується в Барселоні — Доступний по всьому світу", "Професійний фотограф з Барселони, Іспанія — доступний для фотосесій по всій Барселоні та виїзних сесій по всьому світу."],
       "Footer": ["БАРСЕЛОНА", "Професійна Фотографія", "© 2026 Pic Best Moments"]
     },
     "contact": {

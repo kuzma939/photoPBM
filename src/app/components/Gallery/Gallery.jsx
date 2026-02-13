@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/navigation';
 import gsap from 'gsap';
@@ -25,6 +25,7 @@ export default function Gallery() {
   const nextBtnRef = useRef(null);
   const prevBtnRef = useRef(null);
   const router = useRouter();
+  const [isPaused, setIsPaused] = useState(false);
 
   const { translateList } = useLanguage();
   const menuItems = translateList('home', 'top_products');
@@ -98,49 +99,80 @@ export default function Gallery() {
     return () => ctx.revert();
   }, []);
 
+  // Auto-advance every 2 seconds
+  useEffect(() => {
+    if (isPaused) return;
+    
+    const interval = setInterval(() => {
+      nextBtnRef.current?.click();
+    }, 2000); // 2 seconds
+    
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
   return (
     <>
       <Head>
         <link rel="preload" as="image" href={IMAGES[0]?.src || ''} type="image/avif" />
       </Head>
 
-      <section className="gallery-wrap">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-16 text-center tracking-tight">
+      <div className="gallery-container">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold -mb-4 text-center tracking-tight">
           {menuItems[0]}
         </h2>
 
-        {/* кнопки по боках */}
-        <button ref={prevBtnRef} className="nav-btn side left" aria-label="Previous">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="15 18 9 12 15 6" />
+        <section 
+          className="gallery-wrap"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {/* кнопки по боках */}
+          <svg width="0" height="0" style={{ position: 'absolute' }}>
+            <defs>
+              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#be123c" />
+                <stop offset="50%" stopColor="#db2777" />
+                <stop offset="100%" stopColor="#7c3aed" />
+              </linearGradient>
+            </defs>
           </svg>
-        </button>
-        <button ref={nextBtnRef} className="nav-btn side right" aria-label="Next">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="9 18 15 12 9 6" />
-          </svg>
-        </button>
+          <button ref={prevBtnRef} className="nav-btn side left" aria-label="Previous">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+          <button ref={nextBtnRef} className="nav-btn side right" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
 
-        {/* сцена */}
-        <div ref={boxesRef} className="boxes" aria-label="GSAP gallery">
-          {images.map((img) => (
-            <div
-              key={img.id}
-              className="box"
-              style={{ ['--src']: `url(${img.src})` }}
-              onClick={() => router.push(`/Gallery?product=${img.id}`)}
-              role="button"
-              aria-label={`Open photo ${img.id}`}
-            >
-              <img src={img.src} alt={`Professional photography Barcelona - Love story couple photoshoot portfolio ${img.id}`} loading="lazy" />
-            </div>
-          ))}
-        </div>
-      </section>
+          {/* сцена */}
+          <div ref={boxesRef} className="boxes" aria-label="GSAP gallery">
+            {[...images, ...images, ...images].map((img, idx) => (
+              <div
+                key={`${img.id}-${idx}`}
+                className="box"
+                style={{ ['--src']: `url(${img.src})` }}
+                onClick={() => router.push(`/Gallery?product=${img.id}`)}
+                role="button"
+                aria-label={`Open photo ${img.id}`}
+              >
+                <img src={img.src} alt={`Professional photography Barcelona - Love story couple photoshoot portfolio ${img.id}`} loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
 
       <style jsx>{`
         .boxes { will-change: transform; }
         .box   { will-change: transform; }
+
+        .gallery-container {
+          width: 100%;
+          padding: 2rem 0;
+        }
 
         .gallery-wrap {
           position: relative;
@@ -171,10 +203,14 @@ export default function Gallery() {
           min-height: 200px;
           min-width: 200px;
           display: block;
-          background: hsl(90, 80%, 70%);
+          background: linear-gradient(135deg, rgba(190, 18, 60, 0.15), rgba(219, 39, 119, 0.15), rgba(124, 58, 237, 0.15));
           cursor: pointer;
+          border-radius: 12px;
+          overflow: hidden;
         }
-        .box:nth-of-type(even) { background: hsl(90, 80%, 40%); }
+        .box:nth-of-type(even) { 
+          background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(219, 39, 119, 0.15), rgba(190, 18, 60, 0.15));
+        }
 
         .box::after {
           content: '';
@@ -187,7 +223,7 @@ export default function Gallery() {
           background-size: cover;
           background-position: 50% 50%;
           transform: translate(-50%, -50%) rotate(180deg) translate(0, -100%) translate(0, -0.5vmin);
-          opacity: 0.75;
+          opacity: 0.3;
         }
         .box::before {
           content: '';
@@ -196,7 +232,7 @@ export default function Gallery() {
           left: 50%;
           height: 100%;
           width: 100%;
-          background: linear-gradient(hsl(0,0%,10%) 50%, transparent);
+          background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, transparent 50%);
           transform: translate(-50%, -50%) rotate(180deg) translate(0, -100%) translate(0, -0.5vmin) scale(1.01);
           z-index: 2;
         }
@@ -207,6 +243,13 @@ export default function Gallery() {
           top: 0;
           left: 0;
           object-fit: cover;
+          transition: transform 0.3s ease;
+        }
+        .box:hover img {
+          transform: scale(1.05);
+        }
+        .box:hover {
+          box-shadow: 0 0 30px rgba(219, 39, 119, 0.5);
         }
 
         /* кнопки по боках */
@@ -215,28 +258,41 @@ export default function Gallery() {
           top: 50%;
           transform: translateY(-50%);
           z-index: 10;
-          background: rgba(0,0,0,0.55);
-          border: 1px solid rgba(255,255,255,0.35);
+          background: transparent;
+          border: none;
           color: #fff;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
+          width: auto;
+          height: auto;
           display: flex;
           align-items: center;
           justify-content: center;
           cursor: pointer;
-          transition: all .25s ease;
-          backdrop-filter: blur(4px);
+          transition: all 0.5s ease;
         }
         .nav-btn.side.left  { left: 1rem; }
         .nav-btn.side.right { right: 1rem; }
 
-        .nav-btn.side:hover {
-          background: rgba(255,255,255,0.9);
-          color: #000;
-          transform: translateY(-50%) scale(1.08);
+        .nav-btn.side:hover,
+        .nav-btn.side:active {
+          filter: drop-shadow(0 0 20px rgba(219, 39, 119, 0.9));
+          transform: translateY(-50%) scale(1.4);
         }
-        .nav-btn svg { width: 22px; height: 22px; }
+        .nav-btn.side:hover svg,
+        .nav-btn.side:active svg {
+          stroke: url(#gradient);
+        }
+        .nav-btn svg { 
+          width: 48px; 
+          height: 48px; 
+          stroke-width: 2.5;
+          transition: all 0.5s ease;
+        }
+        .nav-btn.side:hover svg,
+        .nav-btn.side:active svg {
+          width: 64px;
+          height: 64px;
+          stroke-width: 3;
+        }
       `}</style>
     </>
   );

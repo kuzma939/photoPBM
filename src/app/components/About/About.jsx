@@ -26,10 +26,10 @@ export default function About() {
             <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6 uppercase tracking-tight">
               {menuItems[0]}
             </h2>
-            <p className="text-lg md:text-xl font-medium leading-relaxed mb-4">
+            <p className="text-lg md:text-xl font-bold leading-relaxed mb-4 text-transparent bg-gradient-to-r from-rose-700 via-pink-600 to-purple-700 bg-clip-text">
               {menuItems[1]}
             </p>
-            <p className="text-lg md:text-xl font-medium leading-relaxed mb-4">
+            <p className="text-lg md:text-xl font-bold leading-relaxed mb-4 text-transparent bg-gradient-to-r from-rose-700 via-pink-600 to-purple-700 bg-clip-text">
               {menuItems[2]}
             </p>
             <p className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white uppercase tracking-wide">
@@ -72,10 +72,10 @@ export default function About() {
               <h2 className="text-xl font-extrabold text-gray-900 dark:text-white mb-3 uppercase tracking-tight">
                 {menuItems[0]}
               </h2>
-              <p className="text-gray-800 dark:text-gray-200 text-sm font-medium leading-relaxed">
+              <p className="text-sm font-bold leading-relaxed text-transparent bg-gradient-to-r from-rose-700 via-pink-600 to-purple-700 bg-clip-text">
                 {menuItems[1]}
               </p>
-              <p className="text-gray-800 dark:text-gray-200 text-sm font-medium leading-relaxed mt-2">
+              <p className="text-sm font-bold leading-relaxed mt-2 text-transparent bg-gradient-to-r from-rose-700 via-pink-600 to-purple-700 bg-clip-text">
                 {menuItems[2]}
               </p>
             </div>
