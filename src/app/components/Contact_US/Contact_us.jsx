@@ -96,11 +96,11 @@ const ContactUs = () => {
               Available worldwide · Based in <strong className="font-bold">Barcelona</strong>
               <br />
               📧{" "}
-              <a href="mailto:photographbusiness01@gmail.com" className="text-blue-500 dark:text-blue-400 hover:underline font-bold">
+              <a href="mailto:photographbusiness01@gmail.com" className="text-transparent bg-gradient-to-r from-rose-700 via-pink-600 to-purple-700 bg-clip-text hover:drop-shadow-[0_0_10px_rgba(219,39,119,0.9)] font-bold transition-all duration-300">
                 photographbusiness01@gmail.com
               </a>
               <br />
-              📱 <a href="tel:+34654909621" className="font-bold hover:underline">+34 65 490 96 21</a>
+              📱 <a href="tel:+34654909621" className="font-bold hover:text-transparent hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:bg-clip-text transition-all duration-300">+34 65 490 96 21</a>
             </address>
 
             {searchParams.get("productName") && (

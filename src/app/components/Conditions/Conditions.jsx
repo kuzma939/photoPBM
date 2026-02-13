@@ -28,7 +28,7 @@ const Conditions = () => {
 
       {/* Розділ 2 */}
       <section className="mb-10">
-        <h2 className="text-2xl font-bold mb-4 text-blue-600 dark:text-blue-400">
+        <h2 className="text-2xl font-bold mb-4 text-transparent bg-gradient-to-r from-rose-700 via-pink-600 to-purple-700 bg-clip-text">
           {menuItems[6]}
         </h2>
         <ul className="list-disc list-inside space-y-2 text-lg font-medium leading-relaxed">

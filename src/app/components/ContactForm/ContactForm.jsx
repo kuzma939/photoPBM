@@ -80,7 +80,7 @@ const ContactForm = ({
               placeholder="First name"
               value={formValues.firstName}
               onChange={onInputChange}
-              className="w-full p-3 bg-transparent border-b-2 border-gray-700 dark:border-gray-300 text-black dark:text-white font-semibold placeholder-gray-600 dark:placeholder-gray-400 focus:outline-none focus:border-lime-500"
+              className="w-full p-3 bg-transparent border-b-2 border-gray-700 dark:border-gray-300 text-black dark:text-white font-semibold placeholder-gray-600 dark:placeholder-gray-400 focus:outline-none focus:border-pink-600"
               required
             />
             {errors.firstName && (
@@ -95,7 +95,7 @@ const ContactForm = ({
               placeholder="Last name"
               value={formValues.lastName}
               onChange={onInputChange}
-              className="w-full p-3 bg-transparent border-b-2 border-gray-700 dark:border-gray-300 text-black dark:text-white font-semibold placeholder-gray-600 dark:placeholder-gray-400 focus:outline-none focus:border-lime-500"
+              className="w-full p-3 bg-transparent border-b-2 border-gray-700 dark:border-gray-300 text-black dark:text-white font-semibold placeholder-gray-600 dark:placeholder-gray-400 focus:outline-none focus:border-pink-600"
               required
             />
             {errors.lastName && (
@@ -112,7 +112,7 @@ const ContactForm = ({
             placeholder="Phone number"
             value={formValues.phone}
             onChange={onInputChange}
-            className="w-full p-3 bg-transparent border-b border-black dark:border-white text-black dark:text-white placeholder-gray-500 focus:outline-none focus:border-lime-500"
+            className="w-full p-3 bg-transparent border-b border-black dark:border-white text-black dark:text-white placeholder-gray-500 focus:outline-none focus:border-pink-600"
             required
           />
           {errors.phone && (
@@ -128,7 +128,7 @@ const ContactForm = ({
             placeholder="Email"
             value={formValues.email}
             onChange={onInputChange}
-            className="w-full p-3 bg-transparent border-b border-black dark:border-white text-black dark:text-white placeholder-gray-500 focus:outline-none focus:border-lime-500"
+            className="w-full p-3 bg-transparent border-b border-black dark:border-white text-black dark:text-white placeholder-gray-500 focus:outline-none focus:border-pink-600"
             required
           />
           {errors.email && (
@@ -215,7 +215,7 @@ const ContactForm = ({
             rows="4"
             value={formValues.message}
             onChange={onInputChange}
-            className="w-full p-3 bg-transparent border-b border-black dark:border-white text-black dark:text-white placeholder-gray-500 focus:outline-none focus:border-lime-500"
+            className="w-full p-3 bg-transparent border-b border-black dark:border-white text-black dark:text-white placeholder-gray-500 focus:outline-none focus:border-pink-600"
           />
         </div>
 
@@ -223,7 +223,7 @@ const ContactForm = ({
         <div className="flex items-center justify-between">
           <p className="text-lg font-bold">
             Total:{" "}
-            <span className="text-lime-600 dark:text-lime-500 font-extrabold text-xl">€{totalPrice}</span>{" "}
+            <span className="text-transparent bg-gradient-to-r from-rose-700 via-pink-600 to-purple-700 bg-clip-text font-extrabold text-xl">€{totalPrice}</span>{" "}
             <span className="text-gray-900 dark:text-white font-semibold">
               ({pluralHours(hours)}{priceNote ? ` — ${priceNote}` : ""})
             </span>
@@ -231,7 +231,7 @@ const ContactForm = ({
 
           <button
             type="submit"
-            className="dark:bg-lime-500 text-white bg-[#3a2719] hover:bg-[#3a271970] font-bold py-3 px-10 rounded-lg dark:hover:bg-lime-600 text-base tracking-wide shadow-lg"
+            className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 font-bold py-3 px-10 rounded-lg hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:text-white hover:shadow-[0_0_40px_rgba(219,39,119,0.9)] transition-all duration-500 text-base tracking-wide shadow-lg"
           >
             Send
           </button>

@@ -5,20 +5,21 @@ import { useState, useEffect, createContext, useContext } from "react";
 const LanguageContext = createContext();
 
 export function LanguageProvider({ children }) {
-    // Initialize language from localStorage or default to English
-    const [language, setLanguage] = useState(() => {
-        if (typeof window !== "undefined") {
-            return localStorage.getItem("preferredLanguage") || "EN";
-        }
-        return "EN";
-    });
+    // Always initialize with EN to avoid hydration mismatch
+    const [language, setLanguage] = useState("EN");
     const [translations, setTranslations] = useState({});
+
+    // Load saved language from localStorage after hydration
+    useEffect(() => {
+        const savedLanguage = localStorage.getItem("preferredLanguage");
+        if (savedLanguage && savedLanguage !== language) {
+            setLanguage(savedLanguage);
+        }
+    }, []);
 
     // Save language to localStorage whenever it changes
     useEffect(() => {
-        if (typeof window !== "undefined") {
-            localStorage.setItem("preferredLanguage", language);
-        }
+        localStorage.setItem("preferredLanguage", language);
     }, [language]);
 
     // Завантаження перекладів

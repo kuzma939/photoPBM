@@ -102,22 +102,22 @@ function ActionsToolbar({ onPrev, onNext, onBack, onLike, liked, count, onShare,
         <div className="flex flex-wrap gap-3">
           <button
             onClick={onPrev}
-            className="rounded-full border border-black/10 bg-white/70 px-4 py-2 text-sm font-semibold hover:bg-white transition
-                       dark:bg-white/10 dark:hover:bg-white/15 dark:border-white/10"
+            className="rounded-full border border-pink-600/20 bg-white/70 px-4 py-2 text-sm font-semibold hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:text-white hover:border-pink-600 transition-all duration-500
+                       dark:bg-white/10 dark:hover:bg-gradient-to-r dark:hover:from-rose-700 dark:hover:via-pink-600 dark:hover:to-purple-700 dark:border-white/10"
           >
             ← Previous
           </button>
           <button
             onClick={onNext}
-            className="rounded-full border border-black/10 bg-white/70 px-4 py-2 text-sm font-semibold hover:bg-white transition
-                       dark:bg-white/10 dark:hover:bg-white/15 dark:border-white/10"
+            className="rounded-full border border-pink-600/20 bg-white/70 px-4 py-2 text-sm font-semibold hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:text-white hover:border-pink-600 transition-all duration-500
+                       dark:bg-white/10 dark:hover:bg-gradient-to-r dark:hover:from-rose-700 dark:hover:via-pink-600 dark:hover:to-purple-700 dark:border-white/10"
           >
             Next →
           </button>
           <button
             onClick={onBack}
-            className="rounded-full bg-gray-900 px-4 py-2 text-sm font-semibold text-white hover:bg-gray-800 transition
-                       dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-white"
+            className="rounded-full bg-gray-900 px-4 py-2 text-sm font-semibold text-white hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:shadow-[0_0_40px_rgba(219,39,119,0.9)] transition-all duration-500
+                       dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-gradient-to-r dark:hover:from-rose-700 dark:hover:via-pink-600 dark:hover:to-purple-700 dark:hover:text-white"
           >
             ← Back to Gallery
           </button>
@@ -128,8 +128,8 @@ function ActionsToolbar({ onPrev, onNext, onBack, onLike, liked, count, onShare,
           <motion.button
             whileTap={{ scale: 0.96 }}
             onClick={onShare}
-            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-fuchsia-600 to-indigo-600
-                       px-4 py-2 text-sm font-semibold text-white hover:opacity-90 transition"
+            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-rose-700 via-pink-600 to-purple-700
+                       px-4 py-2 text-sm font-semibold text-white hover:shadow-[0_0_40px_rgba(219,39,119,0.9)] transition-all duration-500"
           >
             📤 {copied ? "Link Copied!" : "Share"}
           </motion.button>
@@ -311,8 +311,8 @@ const selId = selectedProduct?.id ?? null;
         transition={{ duration: 0.6 }}
         className="mx-auto mb-4 max-w-5xl text-center"
       >
-        <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight drop-shadow-[0_10px_30px_rgba(199,70,255,0.15)]">
-          <span className="bg-gradient-to-r from-rose-600 via-fuchsia-600 to-indigo-600 bg-clip-text text-transparent">
+        <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight drop-shadow-[0_10px_30px_rgba(219,39,119,0.3)]">
+          <span className="bg-gradient-to-r from-rose-700 via-pink-600 to-purple-700 bg-clip-text text-transparent">
             Love Story Photography
           </span>
         </h1>
@@ -327,7 +327,7 @@ const selId = selectedProduct?.id ?? null;
       {/* Прогрес-бар скролу */}
       <motion.div
         style={{ scaleX }}
-        className="origin-left mx-auto mb-6 h-1 max-w-6xl rounded-full bg-gradient-to-r from-rose-500 via-fuchsia-600 to-indigo-600"
+        className="origin-left mx-auto mb-6 h-1 max-w-6xl rounded-full bg-gradient-to-r from-rose-700 via-pink-600 to-purple-700"
       />
 
       {/* Сітка карток (коли не вибрано продукт) */}
