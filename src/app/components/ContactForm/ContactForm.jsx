@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { validateForm } from "../../utils/validationContactForm";
+import { useLanguage } from "../../Functions/useLanguage";
 
 // Package pricing (EUR)
 const PRICE_TABLE = {
@@ -31,6 +32,8 @@ const ContactForm = ({
   formSubmitted,
   successMessageVisible,
 }) => {
+  const { translateList, language } = useLanguage();
+  const t = translateList("contact", "input");
   const [errors, setErrors] = useState({});
 
   const hours = useMemo(() => {
@@ -45,9 +48,9 @@ const ContactForm = ({
 
   const priceNote =
     PRICE_TABLE[String(hours)] != null
-      ? "fixed package"
+      ? t[12] // "fixed package"
       : hours > 0
-      ? `€${BASE_RATE}/hour (custom)`
+      ? `€${BASE_RATE}/${t[13]} (custom)` // "hour"
       : "";
 
   const handleSubmit = (e) => {
@@ -77,7 +80,7 @@ const ContactForm = ({
             <input
               type="text"
               name="firstName"
-              placeholder="First name"
+              placeholder={t[0]}
               value={formValues.firstName}
               onChange={onInputChange}
               className="w-full p-3 bg-transparent border-b-2 border-gray-700 dark:border-gray-300 text-black dark:text-white font-semibold placeholder-gray-600 dark:placeholder-gray-400 focus:outline-none focus:border-pink-600"
@@ -92,7 +95,7 @@ const ContactForm = ({
             <input
               type="text"
               name="lastName"
-              placeholder="Last name"
+              placeholder={t[1]}
               value={formValues.lastName}
               onChange={onInputChange}
               className="w-full p-3 bg-transparent border-b-2 border-gray-700 dark:border-gray-300 text-black dark:text-white font-semibold placeholder-gray-600 dark:placeholder-gray-400 focus:outline-none focus:border-pink-600"
@@ -109,7 +112,7 @@ const ContactForm = ({
           <input
             type="tel"
             name="phone"
-            placeholder="Phone number"
+            placeholder={t[2]}
             value={formValues.phone}
             onChange={onInputChange}
             className="w-full p-3 bg-transparent border-b border-black dark:border-white text-black dark:text-white placeholder-gray-500 focus:outline-none focus:border-pink-600"
@@ -125,7 +128,7 @@ const ContactForm = ({
           <input
             type="email"
             name="email"
-            placeholder="Email"
+            placeholder={t[3]}
             value={formValues.email}
             onChange={onInputChange}
             className="w-full p-3 bg-transparent border-b border-black dark:border-white text-black dark:text-white placeholder-gray-500 focus:outline-none focus:border-pink-600"
@@ -142,7 +145,7 @@ const ContactForm = ({
             <input
               type="date"
               name="bookingDate"
-              placeholder="Date"
+              placeholder={t[8]}
               value={formValues.bookingDate}
               onChange={onInputChange}
               className="w-full p-3 bg-transparent border-b-2 border-gray-700 dark:border-gray-300 text-black dark:text-white font-semibold focus:outline-none focus:border-lime-500"
@@ -156,7 +159,7 @@ const ContactForm = ({
             <input
               type="time"
               name="bookingTime"
-              placeholder="Time"
+              placeholder={t[9]}
               value={formValues.bookingTime}
               onChange={onInputChange}
               className="w-full p-3 bg-transparent border-b-2 border-gray-700 dark:border-gray-300 text-black dark:text-white font-semibold focus:outline-none focus:border-lime-500"
@@ -198,7 +201,7 @@ const ContactForm = ({
                 step="0.5"
                 min="0.5"
                 name="customHours"
-                placeholder="How many hours?"
+                placeholder={t[11]}
                 value={formValues.customHours}
                 onChange={onInputChange}
                 className="w-full p-3 bg-transparent border-b-2 border-gray-700 dark:border-gray-300 text-black dark:text-white font-semibold focus:outline-none focus:border-lime-500"
@@ -211,7 +214,7 @@ const ContactForm = ({
         <div>
           <textarea
             name="message"
-            placeholder="Message"
+            placeholder={t[4]}
             rows="4"
             value={formValues.message}
             onChange={onInputChange}
@@ -222,7 +225,7 @@ const ContactForm = ({
         {/* Price summary */}
         <div className="flex items-center justify-between">
           <p className="text-lg font-bold">
-            Total:{" "}
+            {t[10]}:{" "}
             <span className="text-transparent bg-gradient-to-r from-rose-700 via-pink-600 to-purple-700 bg-clip-text font-extrabold text-xl">€{totalPrice}</span>{" "}
             <span className="text-gray-900 dark:text-white font-semibold">
               ({pluralHours(hours)}{priceNote ? ` — ${priceNote}` : ""})
@@ -233,20 +236,20 @@ const ContactForm = ({
             type="submit"
             className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 font-bold py-3 px-10 rounded-lg hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:text-white hover:shadow-[0_0_40px_rgba(219,39,119,0.9)] transition-all duration-500 text-base tracking-wide shadow-lg"
           >
-            Send
+            {t[5]}
           </button>
         </div>
 
         {!formSubmitted && (
           <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">
-            Thanks for submitting!
+            {t[6]}
           </p>
         )}
       </form>
 
       {successMessageVisible && (
-        <p className="mt-4 text-green-600 dark:text-green-500 font-extrabold text-lg">
-          Your request was sent successfully!
+        <p className="mt-4 text-transparent bg-gradient-to-r from-rose-700 via-pink-600 to-purple-700 bg-clip-text font-extrabold text-lg">
+          {t[14]}
         </p>
       )}
     </div>

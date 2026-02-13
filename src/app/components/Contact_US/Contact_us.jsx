@@ -17,6 +17,7 @@ const ContactUs = () => {
   const menuItems = translateList("contact", "hero");
   const heroTitle = translateList("contact", "heroTitle");
   const heroSubtitle = translateList("contact", "heroSubtitle");
+  const t = translateList("contact", "input");
 
   const searchParams = useSearchParams();
   const initialProductData = getInitialProductData(searchParams);
@@ -93,7 +94,7 @@ const ContactUs = () => {
           {/* Контактна інформація + форма */}
           <article className="w-full sm:w-1/2 lg:w-1/3 space-y-6">
             <address className="not-italic text-base md:text-lg font-semibold leading-relaxed">
-              Available worldwide · Based in <strong className="font-bold">Barcelona</strong>
+              {t[15]} <strong className="font-bold">{t[16]}</strong>
               <br />
               📧{" "}
               <a href="mailto:photographbusiness01@gmail.com" className="text-transparent bg-gradient-to-r from-rose-700 via-pink-600 to-purple-700 bg-clip-text hover:drop-shadow-[0_0_10px_rgba(219,39,119,0.9)] font-bold transition-all duration-300">

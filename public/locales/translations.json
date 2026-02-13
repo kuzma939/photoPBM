@@ -46,7 +46,7 @@
         "Чи це ваше весілля, портретна зйомка або креативна історія бренду — я тут, щоб зберегти найважливіше. Давайте зв'яжемося та втілимо вашу ідею в життя.",
         "Que ce soit votre mariage, une séance portrait ou une histoire de marque créative — je suis là pour capturer l'essentiel. Connectons-nous et donnons vie à votre vision."
       ],
-      "input": ["First Name", "Last Name", "Phone Number", "Email", "Message", "Send", "Thanks for submitting!", " Your form has been successfully submitted!"],
+      "input": ["First Name", "Last Name", "Phone Number", "Email", "Message", "Send", "Thanks for submitting!", "Your form has been successfully submitted!", "Date", "Time", "Total", "How many hours?", "fixed package", "hour", "Your request was sent successfully!", "Available worldwide · Based in", "Barcelona"],
       "openninghours": ["Opening Hours", "Mon - Fri", "Saturday", "Sunday"]
 
     },
@@ -163,7 +163,16 @@
         "Mensaje",
         "Enviar",
         "¡Gracias por tu envío!",
-        "¡Tu formulario ha sido enviado con éxito!"
+        "¡Tu formulario ha sido enviado con éxito!",
+        "Fecha",
+        "Hora",
+        "Total",
+        "¿Cuántas horas?",
+        "paquete fijo",
+        "hora",
+        "¡Tu solicitud fue enviada con éxito!",
+        "Disponible en todo el mundo · Con sede en",
+        "Barcelona"
       ],
       "openninghours": [
         "Horario de atención",
@@ -292,7 +301,16 @@
         "Message",
         "Envoyer",
         "Merci pour votre soumission !",
-        "Votre formulaire a été soumis avec succès !"
+        "Votre formulaire a été soumis avec succès !",
+        "Date",
+        "Heure",
+        "Total",
+        "Combien d'heures ?",
+        "forfait fixe",
+        "heure",
+        "Votre demande a été envoyée avec succès !",
+        "Disponible dans le monde entier · Basé à",
+        "Barcelone"
       ],
       "openninghours": [
         "Heures d'ouverture",
