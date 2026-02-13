@@ -67,8 +67,8 @@ export default function SpecialOffers() {
               onClick={handleClick}
               className={`py-2 px-4 sm:py-3 sm:px-6 md:py-4 md:px-8 lg:py-5 lg:px-10 xl:py-6 xl:px-12 rounded-full 
               text-sm sm:text-lg md:text-xl lg:text-2xl 2xl:text-3xl font-bold transition-all duration-500 
-              dark:bg-[#f5e8d6] dark:text-[#2e1f14] dark:hover:bg-gradient-to-r dark:hover:from-rose-700 dark:hover:via-pink-600 dark:hover:to-purple-700 dark:hover:text-white dark:hover:shadow-[0_0_40px_rgba(219,39,119,0.9)]
-              bg-gray-900 text-white hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:shadow-[0_0_40px_rgba(219,39,119,0.9)] hover:scale-105 active:scale-105`}
+              dark:bg-[#f5e8d6] dark:text-[#2e1f14] dark:hover:bg-gradient-to-r dark:hover:from-rose-700 dark:hover:via-pink-600 dark:hover:to-purple-700 dark:hover:text-white dark:hover:shadow-[0_0_40px_rgba(219,39,119,0.9)] dark:active:bg-gradient-to-r dark:active:from-rose-700 dark:active:via-pink-600 dark:active:to-purple-700 dark:active:text-white dark:active:shadow-[0_0_40px_rgba(219,39,119,0.9)]
+              bg-gray-900 text-white hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:shadow-[0_0_40px_rgba(219,39,119,0.9)] hover:scale-105 active:bg-gradient-to-r active:from-rose-700 active:via-pink-600 active:to-purple-700 active:shadow-[0_0_40px_rgba(219,39,119,0.9)] active:scale-105`}
               aria-label="View Barcelona love story photography portfolio"
             >
               {menuItems[3]}
