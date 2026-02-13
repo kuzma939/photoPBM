@@ -97,11 +97,11 @@ const ContactUs = () => {
               {t[15]} <strong className="font-bold">{t[16]}</strong>
               <br />
               📧{" "}
-              <a href="mailto:photographbusiness01@gmail.com" className="text-transparent bg-gradient-to-r from-rose-700 via-pink-600 to-purple-700 bg-clip-text hover:drop-shadow-[0_0_10px_rgba(219,39,119,0.9)] font-bold transition-all duration-300">
+              <a href="mailto:photographbusiness01@gmail.com" className="text-transparent bg-gradient-to-r from-rose-700 via-pink-600 to-purple-700 bg-clip-text hover:drop-shadow-[0_0_10px_rgba(219,39,119,0.9)] active:drop-shadow-[0_0_10px_rgba(219,39,119,0.9)] font-bold transition-all duration-300">
                 photographbusiness01@gmail.com
               </a>
               <br />
-              📱 <a href="tel:+34654909621" className="font-bold hover:text-transparent hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:bg-clip-text transition-all duration-300">+34 65 490 96 21</a>
+              📱 <a href="tel:+34654909621" className="font-bold hover:text-transparent hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:bg-clip-text active:text-transparent active:bg-gradient-to-r active:from-rose-700 active:via-pink-600 active:to-purple-700 active:bg-clip-text transition-all duration-300">+34 65 490 96 21</a>
             </address>
 
             {searchParams.get("productName") && (

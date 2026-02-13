@@ -186,11 +186,11 @@ export default function AllProducts({ locationSlug }) {
       {/* Modal */}
       {modalImageIndex !== null && (
         <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center">
-          <button className="absolute top-4 right-4 text-5xl font-bold text-white hover:text-transparent hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:bg-clip-text transition-all duration-500 hover:drop-shadow-[0_0_20px_rgba(219,39,119,0.9)] hover:scale-125" onClick={closeModal} aria-label="Close">
+          <button className="absolute top-4 right-4 text-5xl font-bold text-white hover:text-transparent hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:bg-clip-text active:text-transparent active:bg-gradient-to-r active:from-rose-700 active:via-pink-600 active:to-purple-700 active:bg-clip-text transition-all duration-500 hover:drop-shadow-[0_0_20px_rgba(219,39,119,0.9)] active:drop-shadow-[0_0_20px_rgba(219,39,119,0.9)] hover:scale-125 active:scale-125" onClick={closeModal} aria-label="Close">
             &times;
           </button>
           <button
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-5xl font-bold hover:text-transparent hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:bg-clip-text transition-all duration-500 hover:drop-shadow-[0_0_20px_rgba(219,39,119,0.9)] hover:scale-150"
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-5xl font-bold hover:text-transparent hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:bg-clip-text active:text-transparent active:bg-gradient-to-r active:from-rose-700 active:via-pink-600 active:to-purple-700 active:bg-clip-text transition-all duration-500 hover:drop-shadow-[0_0_20px_rgba(219,39,119,0.9)] active:drop-shadow-[0_0_20px_rgba(219,39,119,0.9)] hover:scale-150 active:scale-150"
             onClick={goPrev}
             aria-label="Previous"
           >
@@ -204,7 +204,7 @@ export default function AllProducts({ locationSlug }) {
             className="max-w-full max-h-[90vh] object-contain"
           />
           <button
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-white text-5xl font-bold hover:text-transparent hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:bg-clip-text transition-all duration-500 hover:drop-shadow-[0_0_20px_rgba(219,39,119,0.9)] hover:scale-150"
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-white text-5xl font-bold hover:text-transparent hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:bg-clip-text active:text-transparent active:bg-gradient-to-r active:from-rose-700 active:via-pink-600 active:to-purple-700 active:bg-clip-text transition-all duration-500 hover:drop-shadow-[0_0_20px_rgba(219,39,119,0.9)] active:drop-shadow-[0_0_20px_rgba(219,39,119,0.9)] hover:scale-150 active:scale-150"
             onClick={goNext}
             aria-label="Next"
           >

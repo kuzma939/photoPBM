@@ -83,7 +83,7 @@ const ContactForm = ({
               placeholder={t[0]}
               value={formValues.firstName}
               onChange={onInputChange}
-              className="w-full p-3 bg-transparent border-b-2 border-gray-700 dark:border-gray-300 text-black dark:text-white font-semibold placeholder-gray-600 dark:placeholder-gray-400 focus:outline-none focus:border-pink-600"
+              className="w-full p-3 bg-transparent border-b-2 border-gray-700 dark:border-gray-300 text-black dark:text-white font-semibold placeholder-gray-600 dark:placeholder-gray-400 focus:outline-none focus:border-pink-600 active:border-pink-600"
               required
             />
             {errors.firstName && (
@@ -98,7 +98,7 @@ const ContactForm = ({
               placeholder={t[1]}
               value={formValues.lastName}
               onChange={onInputChange}
-              className="w-full p-3 bg-transparent border-b-2 border-gray-700 dark:border-gray-300 text-black dark:text-white font-semibold placeholder-gray-600 dark:placeholder-gray-400 focus:outline-none focus:border-pink-600"
+              className="w-full p-3 bg-transparent border-b-2 border-gray-700 dark:border-gray-300 text-black dark:text-white font-semibold placeholder-gray-600 dark:placeholder-gray-400 focus:outline-none focus:border-pink-600 active:border-pink-600"
               required
             />
             {errors.lastName && (
@@ -115,7 +115,7 @@ const ContactForm = ({
             placeholder={t[2]}
             value={formValues.phone}
             onChange={onInputChange}
-            className="w-full p-3 bg-transparent border-b border-black dark:border-white text-black dark:text-white placeholder-gray-500 focus:outline-none focus:border-pink-600"
+            className="w-full p-3 bg-transparent border-b border-black dark:border-white text-black dark:text-white placeholder-gray-500 focus:outline-none focus:border-pink-600 active:border-pink-600"
             required
           />
           {errors.phone && (
@@ -131,7 +131,7 @@ const ContactForm = ({
             placeholder={t[3]}
             value={formValues.email}
             onChange={onInputChange}
-            className="w-full p-3 bg-transparent border-b border-black dark:border-white text-black dark:text-white placeholder-gray-500 focus:outline-none focus:border-pink-600"
+            className="w-full p-3 bg-transparent border-b border-black dark:border-white text-black dark:text-white placeholder-gray-500 focus:outline-none focus:border-pink-600 active:border-pink-600"
             required
           />
           {errors.email && (
@@ -218,7 +218,7 @@ const ContactForm = ({
             rows="4"
             value={formValues.message}
             onChange={onInputChange}
-            className="w-full p-3 bg-transparent border-b border-black dark:border-white text-black dark:text-white placeholder-gray-500 focus:outline-none focus:border-pink-600"
+            className="w-full p-3 bg-transparent border-b border-black dark:border-white text-black dark:text-white placeholder-gray-500 focus:outline-none focus:border-pink-600 active:border-pink-600"
           />
         </div>
 
@@ -234,7 +234,7 @@ const ContactForm = ({
 
           <button
             type="submit"
-            className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 font-bold py-3 px-10 rounded-lg hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:text-white hover:shadow-[0_0_40px_rgba(219,39,119,0.9)] transition-all duration-500 text-base tracking-wide shadow-lg"
+            className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 font-bold py-3 px-10 rounded-lg hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:text-white hover:shadow-[0_0_40px_rgba(219,39,119,0.9)] active:bg-gradient-to-r active:from-rose-700 active:via-pink-600 active:to-purple-700 active:text-white active:shadow-[0_0_40px_rgba(219,39,119,0.9)] transition-all duration-500 text-base tracking-wide shadow-lg"
           >
             {t[5]}
           </button>

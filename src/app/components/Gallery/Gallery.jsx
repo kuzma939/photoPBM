@@ -117,7 +117,7 @@ export default function Gallery() {
       </Head>
 
       <div className="gallery-container">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold -mb-4 text-center tracking-tight">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-0 text-center tracking-tight">
           {menuItems[0]}
         </h2>
 
@@ -180,6 +180,7 @@ export default function Gallery() {
           height: min(70vh, 800px);
           overflow: hidden;
           background: transparent;
+          margin-top: -1rem;
         }
 
         .boxes {

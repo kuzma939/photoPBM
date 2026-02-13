@@ -102,22 +102,22 @@ function ActionsToolbar({ onPrev, onNext, onBack, onLike, liked, count, onShare,
         <div className="flex flex-wrap gap-3">
           <button
             onClick={onPrev}
-            className="rounded-full border border-pink-600/20 bg-white/70 px-4 py-2 text-sm font-semibold hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:text-white hover:border-pink-600 transition-all duration-500
-                       dark:bg-white/10 dark:hover:bg-gradient-to-r dark:hover:from-rose-700 dark:hover:via-pink-600 dark:hover:to-purple-700 dark:border-white/10"
+            className="rounded-full border border-pink-600/20 bg-white/70 px-4 py-2 text-sm font-semibold hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:text-white hover:border-pink-600 active:bg-gradient-to-r active:from-rose-700 active:via-pink-600 active:to-purple-700 active:text-white active:border-pink-600 transition-all duration-500
+                       dark:bg-white/10 dark:hover:bg-gradient-to-r dark:hover:from-rose-700 dark:hover:via-pink-600 dark:hover:to-purple-700 dark:active:bg-gradient-to-r dark:active:from-rose-700 dark:active:via-pink-600 dark:active:to-purple-700 dark:border-white/10"
           >
             ← Previous
           </button>
           <button
             onClick={onNext}
-            className="rounded-full border border-pink-600/20 bg-white/70 px-4 py-2 text-sm font-semibold hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:text-white hover:border-pink-600 transition-all duration-500
-                       dark:bg-white/10 dark:hover:bg-gradient-to-r dark:hover:from-rose-700 dark:hover:via-pink-600 dark:hover:to-purple-700 dark:border-white/10"
+            className="rounded-full border border-pink-600/20 bg-white/70 px-4 py-2 text-sm font-semibold hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:text-white hover:border-pink-600 active:bg-gradient-to-r active:from-rose-700 active:via-pink-600 active:to-purple-700 active:text-white active:border-pink-600 transition-all duration-500
+                       dark:bg-white/10 dark:hover:bg-gradient-to-r dark:hover:from-rose-700 dark:hover:via-pink-600 dark:hover:to-purple-700 dark:active:bg-gradient-to-r dark:active:from-rose-700 dark:active:via-pink-600 dark:active:to-purple-700 dark:border-white/10"
           >
             Next →
           </button>
           <button
             onClick={onBack}
-            className="rounded-full bg-gray-900 px-4 py-2 text-sm font-semibold text-white hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:shadow-[0_0_40px_rgba(219,39,119,0.9)] transition-all duration-500
-                       dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-gradient-to-r dark:hover:from-rose-700 dark:hover:via-pink-600 dark:hover:to-purple-700 dark:hover:text-white"
+            className="rounded-full bg-gray-900 px-4 py-2 text-sm font-semibold text-white hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:shadow-[0_0_40px_rgba(219,39,119,0.9)] active:bg-gradient-to-r active:from-rose-700 active:via-pink-600 active:to-purple-700 active:shadow-[0_0_40px_rgba(219,39,119,0.9)] transition-all duration-500
+                       dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-gradient-to-r dark:hover:from-rose-700 dark:hover:via-pink-600 dark:hover:to-purple-700 dark:hover:text-white dark:active:bg-gradient-to-r dark:active:from-rose-700 dark:active:via-pink-600 dark:active:to-purple-700 dark:active:text-white"
           >
             ← Back to Gallery
           </button>
@@ -129,7 +129,7 @@ function ActionsToolbar({ onPrev, onNext, onBack, onLike, liked, count, onShare,
             whileTap={{ scale: 0.96 }}
             onClick={onShare}
             className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-rose-700 via-pink-600 to-purple-700
-                       px-4 py-2 text-sm font-semibold text-white hover:shadow-[0_0_40px_rgba(219,39,119,0.9)] transition-all duration-500"
+                       px-4 py-2 text-sm font-semibold text-white hover:shadow-[0_0_40px_rgba(219,39,119,0.9)] active:shadow-[0_0_40px_rgba(219,39,119,0.9)] transition-all duration-500"
           >
             📤 {copied ? "Link Copied!" : "Share"}
           </motion.button>
