@@ -35,7 +35,7 @@ const ProductBanner = ({
       <div className="relative w-full h-full max-w-5xl bg-gray-300 dark:bg-black rounded-lg shadow-lg overflow-hidden p-4">
         {/* Закрити */}
         <button
-          className="absolute top-4 right-4 text-5xl text-black dark:text-white hover:text-red-500 transition z-[200]"
+          className="absolute top-4 right-4 text-6xl font-extrabold text-black dark:text-white hover:text-red-500 transition z-[200]"
           onClick={onClose}
         >
           &times;
@@ -65,7 +65,7 @@ const ProductBanner = ({
   ) : (
     <Image
       src={getSrc(currentMedia)}
-      alt="Product"
+      alt={`${selectedProduct?.name || "Professional photography"} Barcelona - Full size portfolio image`}
       fill // ❗️цей проп робить зображення повністю заповненим
       className="object-contain"
       priority
@@ -78,7 +78,7 @@ const ProductBanner = ({
           {images.length > 1 && (
             <button
               onClick={goNext}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-40 text-white p-2 rounded-full z-20 hover:bg-opacity-70"
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white text-2xl font-bold p-3 rounded-full z-20 hover:bg-opacity-80 transition"
             >
               &rarr;
             </button>

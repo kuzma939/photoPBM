@@ -15,7 +15,7 @@ const ProductCard = ({ product, onClick }) => {
       <figure className="w-full overflow-hidden rounded relative aspect-[3/4]">
         <Image
           src={product.image || `https://via.placeholder.com/300x220?text=${product.name}`}
-          alt={product.name || "Product Image"}
+          alt={`${product.name || "Professional photography"} - ${product.location || "Barcelona"} photoshoot`}
           width={300}
           height={400}
           className="w-full h-full object-cover rounded transform transition-transform duration-300 ease-in-out group-hover:scale-110"
@@ -28,13 +28,13 @@ const ProductCard = ({ product, onClick }) => {
 
       {/* Локація під фото */}
       {product.location && (
-        <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-400 mt-2 text-center sm:text-left">
+        <p className="text-xs sm:text-sm font-semibold text-gray-800 dark:text-gray-300 mt-2 text-center sm:text-left">
           {product.location}
         </p>
       
       )}
         {product.type && (
-          <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-400 text-center sm:text-left">
+          <p className="text-xs sm:text-sm font-semibold text-gray-800 dark:text-gray-300 text-center sm:text-left">
             {product.type}
           </p>
         )}

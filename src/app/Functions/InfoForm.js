@@ -63,17 +63,17 @@ export default function InfoForm({
 
   return (
     <div className="flex flex-col px-4 md:px-0">
-      <h1 className="text-2xl md:text-3xl font-semibold mb-2 text-center md:text-left">
+      <h1 className="text-2xl md:text-3xl font-extrabold mb-2 text-center md:text-left tracking-tight">
         {translatedName}
       </h1>
-      <p className="text-gray-700 dark:text-gray-400 text-sm md:text-base mb-2 text-center md:text-left">
-        {menuItems[0]}: <span className="font-semibold">{product.category || "Unknown Category"}</span>
+      <p className="text-gray-800 dark:text-gray-300 text-sm md:text-base font-semibold mb-2 text-center md:text-left">
+        {menuItems[0]}: <span className="font-bold">{product.category || "Unknown Category"}</span>
       </p>
-      <p className="text-gray-800 dark:text-gray-500 text-xs md:text-sm mb-4 text-center md:text-left">
+      <p className="text-gray-900 dark:text-gray-400 text-xs md:text-sm font-semibold mb-4 text-center md:text-left">
         SKU: {product.sku}
       </p>
 
-      <div className="text-xl md:text-2xl font-bold mb-4 text-center md:text-left">
+      <div className="text-xl md:text-2xl font-extrabold mb-4 text-center md:text-left">
         {showDiscount && product.discountPrice ? (
           <>
             <span className="text-red-600">{product.discountPrice}₴</span>
@@ -100,31 +100,31 @@ export default function InfoForm({
             <option key={color} value={color}>{color}</option>
           ))}
         </select>
-        {colorError && <p className="text-red-500 text-sm mt-2">{colorError}</p>}
+        {colorError && <p className="text-red-600 dark:text-red-500 text-sm font-bold mt-2">{colorError}</p>}
       </div>
 
       {/* Size */}
       <div className="mb-6 md:mb-8">
-        <label htmlFor="size" className="block text-sm font-medium mb-2 text-center md:text-left">
+        <label htmlFor="size" className="block text-sm font-bold mb-2 text-center md:text-left">
           {menuItems[3] || "Size"}
         </label>
         <select
           id="size"
           value={selectedSize}
           onChange={(e) => setSelectedSize(e.target.value)}
-          className={`w-full md:w-1/2 p-2 border ${sizeError ? "border-red-500" : "border-gray-300"} bg-gray-200 rounded dark:bg-gray-800 dark:text-gray-300`}
+          className={`w-full md:w-1/2 p-3 border-2 ${sizeError ? "border-red-500" : "border-gray-400 dark:border-gray-600"} bg-gray-200 rounded font-semibold dark:bg-gray-800 dark:text-gray-200`}
         >
           <option value="">{menuItems[2] || "Select"}</option>
           {product.sizes?.map((size) => (
             <option key={size} value={size}>{size}</option>
           ))}
         </select>
-        {sizeError && <p className="text-red-500 text-sm mt-2">{sizeError}</p>}
+        {sizeError && <p className="text-red-600 dark:text-red-500 text-sm font-bold mt-2">{sizeError}</p>}
       </div>
 
       {/* Quantity */}
       <div className="mb-6 md:mb-8">
-        <label htmlFor="quantity" className="block text-sm font-medium mb-2 text-center md:text-left">
+        <label htmlFor="quantity" className="block text-sm font-bold mb-2 text-center md:text-left">
           {menuItems[4] || "Quantity"}
         </label>
         <div className="flex items-center w-full md:w-1/4 bg-gray-200 dark:bg-gray-700 rounded">
@@ -151,14 +151,14 @@ export default function InfoForm({
             +
           </button>
         </div>
-        {quantityError && <p className="text-red-500 text-sm mt-2">{quantityError}</p>}
+        {quantityError && <p className="text-red-600 dark:text-red-500 text-sm font-bold mt-2">{quantityError}</p>}
       </div>
 
       <div className="flex space-x-4 mt-4">
     
         <button
           onClick={handleContactClick}
-          className="w-full md:w-1/2 bg-gray-700 hover:bg-gray-500 text-white dark:bg-lime-500 dark:hover:bg-lime-600 dark:text-black font-semibold py-2 rounded transition duration-300"
+          className="w-full md:w-1/2 bg-gray-700 hover:bg-gray-500 text-white dark:bg-lime-500 dark:hover:bg-lime-600 dark:text-black font-bold py-3 rounded transition duration-300 text-base shadow-lg"
         >
           {menuItems[5] || "Contact Us"}
         </button>
@@ -168,7 +168,7 @@ export default function InfoForm({
       <div className="mb-6 md:mb-2 mt-4">
         <button
           onClick={() => setShowSizeChart(true)}
-          className="text-xl text-black dark:text-white underline transition-colors duration-300 hover:text-blue-500 focus-visible:text-blue-900 dark:hover:text-blue-500 dark:focus-visible:text-blue-500 focus-visible:outline-none"
+          className="text-xl font-bold text-black dark:text-white underline transition-colors duration-300 hover:text-blue-600 focus-visible:text-blue-700 dark:hover:text-blue-400 dark:focus-visible:text-blue-400 focus-visible:outline-none"
         >
           {menuItems[6] || "Clothing Size Chart"}
         </button>
@@ -177,10 +177,10 @@ export default function InfoForm({
 
       {/* Description */}
       <div className="mt-10">
-        <h2 className="text-lg md:text-xl font-semibold text-black dark:text-white mb-4 text-center md:text-left">
+        <h2 className="text-lg md:text-xl font-extrabold text-black dark:text-white mb-4 text-center md:text-left tracking-tight">
           {menuItems[7] || "PRODUCT INFO"}
         </h2>
-        <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base text-center md:text-left">
+        <p className="text-gray-700 dark:text-gray-300 font-medium text-sm md:text-base text-center md:text-left leading-relaxed">
           {translatedDescription}
         </p>
       </div>

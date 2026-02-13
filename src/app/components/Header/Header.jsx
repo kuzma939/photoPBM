@@ -9,6 +9,7 @@ import { useHeaderState } from '../../hooks/useHeader';
 import { useLanguage } from '../../Functions/useLanguage';
 import { useRouter } from 'next/navigation';
 import location from '../../data/location';
+import { getLocationUrl } from '../../utils/slugs';
 
 const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
   const router = useRouter();
@@ -21,12 +22,13 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
 
   const toggleLanguage = () => {
     setLanguage(prev =>
-      prev === 'EN' ? 'FR' : prev === 'FR' ? 'UA' : 'EN'
+      prev === 'EN' ? 'ES' : prev === 'ES' ? 'FR' : prev === 'FR' ? 'UA' : 'EN'
     );
   };
 
+  // Updated to use new SEO-friendly URL
   const goToCatalog = () => {
-    router.push('/GalleryLocationsPage');
+    router.push('/favorite-spots');
   };
 
   const categories = [
@@ -37,8 +39,10 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
     })),
   ];
 
+  // Updated to use SEO-friendly URLs with slugs
   const handleCategoryClick = (locationPath) => {
-    router.push(`/GalleryLocationsPage?location=${locationPath}`);
+    const url = getLocationUrl(locationPath);
+    router.push(url);
     setIsCategoriesOpen(false);
     closeMenu();
   };
@@ -68,7 +72,7 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
             <h1 className="sr-only">PBM — Pic Best Moments</h1>
                         <Image
   src="/logo.jpg"
-  alt="PBM Logo"
+  alt="Pic Best Moments - Professional Photographer in Barcelona - Love Story, Wedding, Family Photography"
   width={60}
   height={30}
   priority
@@ -91,16 +95,24 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
         </button>
 
         <ul
-          className="hidden lg:flex space-x-4 text-xs sm:text-sm md:text-base lg:text-lg"
+          className="hidden lg:flex space-x-4 text-xs sm:text-sm md:text-base lg:text-lg font-bold tracking-wide"
           role="menubar"
         >
+          {/* HOME */}
           <li className="min-w-[80px] text-center" role="none">
             <Link href="/" role="menuitem" aria-label={`Go to ${menuItems[0]} page`}>
               {menuItems[0]}
             </Link>
           </li>
 
-          {/* Catalog + Categories dropdown */}
+          {/* GALLERY */}
+          <li className="min-w-[80px] text-center" role="none">
+            <Link href="/Gallery" role="menuitem" aria-label={`Go to ${menuItems[1]} page`}>
+              {menuItems[1]}
+            </Link>
+          </li>
+
+          {/* FAVORITE SPOTS + Categories dropdown */}
           <li
             className="relative flex items-center group"
             role="none"
@@ -112,14 +124,14 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
               }
             }}
           >
-            {/* Catalog button */}
+            {/* Favorite Spots button */}
             <button
               onClick={goToCatalog}
               className="flex-grow text-left"
               role="menuitem"
-              aria-label="Go to Catalog"
+              aria-label="Go to Favorite Spots"
             >
-              {menuItems[1]}
+              {menuItems[2]}
             </button>
 
             {/* Dropdown toggle */}
@@ -130,7 +142,7 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
               }}
               className="ml-2 p-1"
               role="button"
-              aria-label="Toggle categories list"
+              aria-label="Toggle location categories"
               aria-haspopup="true"
               aria-expanded={isCategoriesOpen}
             >
@@ -142,7 +154,7 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
               <ul
                 className="absolute left-0 top-full mt-2 bg-white dark:bg-gray-800 rounded-md shadow-md p-2 w-56 z-50"
                 role="menu"
-                aria-label="Categories"
+                aria-label="Photo Locations"
               >
                 {categories.map((category) => (
                   <li key={category.path} role="none">
@@ -159,21 +171,21 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
             )}
           </li>
 
-          <li className="min-w-[80px] text-center" role="none">
-            <Link href="/#about" role="menuitem" aria-label={`Learn more: ${menuItems[2]}`}>
-              {menuItems[2]}
-            </Link>
-          </li>
+          {/* LOVE STORIES */}
           <li className="min-w-[80px] text-center" role="none">
             <Link href="/love-story" role="menuitem" aria-label={`Go to ${menuItems[3]} page`}>
               {menuItems[3]}
             </Link>
           </li>
+
+          {/* ABOUT */}
           <li className="min-w-[80px] text-center" role="none">
-            <Link href="/Conditions" role="menuitem" aria-label={`View ${menuItems[4]}`}>
+            <Link href="/#about" role="menuitem" aria-label={`Learn more: ${menuItems[4]}`}>
               {menuItems[4]}
             </Link>
           </li>
+
+          {/* CONTACT */}
           <li className="min-w-[80px] text-center" role="none">
             <Link href="/contact" role="menuitem" aria-label={`Go to ${menuItems[5]} page`}>
               {menuItems[5]}
@@ -189,7 +201,7 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
           aria-label={`Switch language (current: ${language})`}
           className="p-1 sm:p-2 rounded-full border border-gray-300 hover:bg-gray-200 dark:border-gray-700 dark:hover:bg-gray-600 transition text-xs sm:text-sm md:text-base lg:text-lg"
         >
-          {language === 'EN' ? '🇬🇧 EN' : language === 'FR' ? '🇫🇷 FR' : '🇺🇦 UA'}
+          {language === 'EN' ? '🇬🇧 EN' : language === 'ES' ? '🇪🇸 ES' : language === 'FR' ? '🇫🇷 FR' : '🇺🇦 UA'}
         </button>
 
         <button
@@ -231,7 +243,7 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
             aria-label={`Switch language (current: ${language})`}
             className="p-1 sm:p-2 rounded-full border border-gray-300 hover:bg-gray-200 dark:border-gray-700 dark:hover:bg-gray-600 transition text-xs sm:text-sm md:text-base lg:text-lg"
           >
-            {language === 'EN' ? '🇬🇧 EN' : language === 'FR' ? '🇫🇷 FR' : '🇺🇦 UA'}
+            {language === 'EN' ? '🇬🇧 EN' : language === 'ES' ? '🇪🇸 ES' : language === 'FR' ? '🇫🇷 FR' : '🇺🇦 UA'}
           </button>
 
           <button
@@ -244,14 +256,22 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
         </div>
 
         {/* Menu list */}
-        <ul className="flex flex-col items-start space-y-4 p-6 text-xs sm:text-sm md:text-base lg:text-lg" role="menubar">
+        <ul className="flex flex-col items-start space-y-4 p-6 text-xs sm:text-sm md:text-base lg:text-lg font-bold" role="menubar">
+          {/* HOME */}
           <li role="none">
-            <Link href="/" role="menuitem" aria-label={`Go to ${menuItems[0]} page`}>
+            <Link href="/" role="menuitem" aria-label={`Go to ${menuItems[0]} page`} onClick={closeMenu}>
               {menuItems[0]}
             </Link>
           </li>
 
-          {/* Catalog with categories (mobile) */}
+          {/* GALLERY */}
+          <li role="none">
+            <Link href="/Gallery" role="menuitem" aria-label={`Go to ${menuItems[1]} page`} onClick={closeMenu}>
+              {menuItems[1]}
+            </Link>
+          </li>
+
+          {/* FAVORITE SPOTS with categories (mobile) */}
           <li role="none" className="w-full">
             <button
               onClick={() => setIsCategoriesOpen(prev => !prev)}
@@ -259,14 +279,14 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
               role="button"
               aria-haspopup="true"
               aria-expanded={isCategoriesOpen}
-              aria-label="Toggle categories list"
+              aria-label="Toggle location categories"
             >
-              {menuItems[1]}
+              {menuItems[2]}
               <FaChevronDown className={`ml-2 transition-transform ${isCategoriesOpen ? 'rotate-180' : ''}`} />
             </button>
 
             {isCategoriesOpen && (
-              <ul role="menu" aria-label="Categories" className="mt-2 bg-gray-100 dark:bg-gray-800 rounded-md shadow-md p-2">
+              <ul role="menu" aria-label="Photo Locations" className="mt-2 bg-gray-100 dark:bg-gray-800 rounded-md shadow-md p-2">
                 {categories.map(category => (
                   <li key={category.path} role="none">
                     <button
@@ -282,23 +302,23 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
             )}
           </li>
 
+          {/* LOVE STORIES */}
           <li role="none">
-            <Link href="/#about" role="menuitem" aria-label={`Learn more: ${menuItems[2]}`}>
-              {menuItems[2]}
-            </Link>
-          </li>
-          <li role="none">
-            <Link href="/love-story" role="menuitem" aria-label={`Go to ${menuItems[3]} page`}>
+            <Link href="/love-story" role="menuitem" aria-label={`Go to ${menuItems[3]} page`} onClick={closeMenu}>
               {menuItems[3]}
             </Link>
           </li>
+
+          {/* ABOUT */}
           <li role="none">
-            <Link href="/Conditions" role="menuitem" aria-label={`View ${menuItems[4]}`}>
+            <Link href="/#about" role="menuitem" aria-label={`Learn more: ${menuItems[4]}`} onClick={closeMenu}>
               {menuItems[4]}
             </Link>
           </li>
+
+          {/* CONTACT */}
           <li role="none">
-            <Link href="/contact" role="menuitem" aria-label={`Go to ${menuItems[5]} page`}>
+            <Link href="/contact" role="menuitem" aria-label={`Go to ${menuItems[5]} page`} onClick={closeMenu}>
               {menuItems[5]}
             </Link>
           </li>

@@ -3,33 +3,49 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Script from "next/script";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
 
 import locationData from "../../data/location";
 import { useLanguage } from "../../Functions/useLanguage";
 import generateGalleryLocationsJsonLd from "../../seo/gallery-locations-jsonld";
+import { locationToSlug, slugToLocation, getLocationUrl } from "../../utils/slugs";
 
-export default function AllProducts() {
+export default function AllProducts({ locationSlug }) {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const pathname = usePathname();
 
   const { translateList, language } = useLanguage();
   const headerTexts = translateList("home", "header");
 
-  // read location from query (?location=...)
-  const locationParam = searchParams.get("location") || "all";
-  const [selectedLocation, setSelectedLocation] = useState(locationParam);
+  // Determine initial location from slug or query parameter
+  const getInitialLocation = () => {
+    // If locationSlug is provided (from dynamic route), use it
+    if (locationSlug) {
+      const location = slugToLocation(locationSlug, locationData);
+      return location?.location || "all";
+    }
+    
+    // Fallback to old query parameter for backward compatibility
+    const locationParam = searchParams.get("location");
+    return locationParam || "all";
+  };
 
-  // keep state in sync with URL
+  const [selectedLocation, setSelectedLocation] = useState(getInitialLocation());
+
+  // Update state when slug changes
   useEffect(() => {
-    setSelectedLocation(locationParam);
-  }, [locationParam]);
+    const newLocation = getInitialLocation();
+    setSelectedLocation(newLocation);
+  }, [locationSlug, searchParams]);
 
-  // update URL when user changes select
+  // Update URL when user changes select - use new SEO-friendly URLs
   const onChangeLocation = (value) => {
     setSelectedLocation(value);
-    const q = value === "all" ? "" : `?location=${encodeURIComponent(value)}`;
-    router.push(`/GalleryLocationsPage${q}`);
+    
+    // Use new SEO-friendly URL structure
+    const newUrl = getLocationUrl(value);
+    router.push(newUrl);
   };
 
   // helpers
@@ -100,9 +116,15 @@ export default function AllProducts() {
       <div className="px-4 py-6 w-full max-w-7xl mx-auto">
         {/* Banner */}
         <div className="w-full h-72 sm:h-[500px] relative mb-6 overflow-hidden fade-in">
-          <Image src={currentBanner} alt="Banner" fill priority className="object-cover rounded-lg" />
-          <div className="absolute inset-0 bg-black/15 flex items-center justify-center rounded-lg">
-            <h1 className="text-white text-2xl sm:text-4xl font-bold text-center px-4 drop-shadow-lg">
+          <Image 
+            src={currentBanner} 
+            alt={`Professional photography ${selectedLocation !== "all" ? `at ${getTranslatedName(selectedLocation)}` : "Barcelona"} - Love story and couple photoshoot locations`} 
+            fill 
+            priority 
+            className="object-cover rounded-lg" 
+          />
+          <div className="absolute inset-0 bg-black/30 flex items-center justify-center rounded-lg">
+            <h1 className="text-white text-2xl sm:text-4xl font-extrabold text-center px-4 drop-shadow-2xl tracking-tight">
               {selectedLocation === "all"
                 ? "Gallery of All Locations"
                 : getTranslatedName(selectedLocation)}
@@ -112,11 +134,11 @@ export default function AllProducts() {
 
         {/* Filter */}
         <div className="mb-6 w-full max-w-md">
-          <label className="block mb-1 font-medium text-lg">Location</label>
+          <label className="block mb-2 font-bold text-lg">Location</label>
           <select
             value={selectedLocation}
             onChange={(e) => onChangeLocation(e.target.value)}
-            className="w-full p-2 border border-gray-300 rounded bg-white text-black dark:bg-gray-800 dark:text-white"
+            className="w-full p-3 border-2 border-gray-400 dark:border-gray-600 rounded bg-white text-black font-semibold dark:bg-gray-800 dark:text-white"
           >
             <option value="all">All</option>
             {locationData.map((loc) => (
@@ -130,10 +152,10 @@ export default function AllProducts() {
         {/* Heading */}
         {selectedLocation !== "all" && (
           <>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-2">
+            <h2 className="text-3xl sm:text-4xl font-extrabold mb-2 tracking-tight">
               {getTranslatedName(selectedLocation)}
             </h2>
-            <p className="text-gray-700 dark:text-gray-400 mb-8">
+            <p className="text-gray-800 dark:text-gray-300 font-semibold mb-8 text-lg">
               {currentImages.length} {currentImages.length === 1 ? "photo" : "photos"}
             </p>
           </>
@@ -151,7 +173,7 @@ export default function AllProducts() {
             >
               <Image
                 src={src}
-                alt={`Photo ${i + 1}`}
+                alt={`Professional photography ${selectedLocation !== "all" ? `at ${getTranslatedName(selectedLocation)}` : "Barcelona locations"} - Couple photoshoot ${i + 1}`}
                 width={300}
                 height={400}
                 className="object-cover w-full h-[400px]"
@@ -164,11 +186,11 @@ export default function AllProducts() {
       {/* Modal */}
       {modalImageIndex !== null && (
         <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center">
-          <button className="absolute top-4 right-4 text-3xl text-white" onClick={closeModal} aria-label="Close">
+          <button className="absolute top-4 right-4 text-5xl font-bold text-white hover:text-red-500 transition" onClick={closeModal} aria-label="Close">
             &times;
           </button>
           <button
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-3xl"
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-5xl font-bold hover:scale-110 transition"
             onClick={goPrev}
             aria-label="Previous"
           >
@@ -176,13 +198,13 @@ export default function AllProducts() {
           </button>
           <Image
             src={currentImages[modalImageIndex]}
-            alt={`Photo ${modalImageIndex + 1}`}
+            alt={`Professional couple photoshoot ${selectedLocation !== "all" ? `at ${getTranslatedName(selectedLocation)}` : "Barcelona"} - Portfolio ${modalImageIndex + 1}`}
             width={1000}
             height={800}
             className="max-w-full max-h-[90vh] object-contain"
           />
           <button
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-white text-3xl"
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-white text-5xl font-bold hover:scale-110 transition"
             onClick={goNext}
             aria-label="Next"
           >

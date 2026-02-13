@@ -80,11 +80,11 @@ const ContactForm = ({
               placeholder="First name"
               value={formValues.firstName}
               onChange={onInputChange}
-              className="w-full p-3 bg-transparent border-b border-black dark:border-white text-black dark:text-white placeholder-gray-500 focus:outline-none focus:border-lime-500"
+              className="w-full p-3 bg-transparent border-b-2 border-gray-700 dark:border-gray-300 text-black dark:text-white font-semibold placeholder-gray-600 dark:placeholder-gray-400 focus:outline-none focus:border-lime-500"
               required
             />
             {errors.firstName && (
-              <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>
+              <p className="text-red-600 dark:text-red-500 text-sm font-bold mt-1">{errors.firstName}</p>
             )}
           </div>
 
@@ -95,7 +95,7 @@ const ContactForm = ({
               placeholder="Last name"
               value={formValues.lastName}
               onChange={onInputChange}
-              className="w-full p-3 bg-transparent border-b border-black dark:border-white text-black dark:text-white placeholder-gray-500 focus:outline-none focus:border-lime-500"
+              className="w-full p-3 bg-transparent border-b-2 border-gray-700 dark:border-gray-300 text-black dark:text-white font-semibold placeholder-gray-600 dark:placeholder-gray-400 focus:outline-none focus:border-lime-500"
               required
             />
             {errors.lastName && (
@@ -145,7 +145,7 @@ const ContactForm = ({
               placeholder="Date"
               value={formValues.bookingDate}
               onChange={onInputChange}
-              className="w-full p-3 bg-transparent border-b border-black dark:border-white text-black dark:text-white focus:outline-none focus:border-lime-500"
+              className="w-full p-3 bg-transparent border-b-2 border-gray-700 dark:border-gray-300 text-black dark:text-white font-semibold focus:outline-none focus:border-lime-500"
               required
             />
             {errors.bookingDate && (
@@ -159,7 +159,7 @@ const ContactForm = ({
               placeholder="Time"
               value={formValues.bookingTime}
               onChange={onInputChange}
-              className="w-full p-3 bg-transparent border-b border-black dark:border-white text-black dark:text-white focus:outline-none focus:border-lime-500"
+              className="w-full p-3 bg-transparent border-b-2 border-gray-700 dark:border-gray-300 text-black dark:text-white font-semibold focus:outline-none focus:border-lime-500"
               required
             />
             {errors.bookingTime && (
@@ -175,7 +175,7 @@ const ContactForm = ({
               name="durationOption"
               value={formValues.durationOption}
               onChange={onInputChange}
-              className="w-full p-3 bg-transparent border-b border-black dark:border-white text-black dark:text-white focus:outline-none focus:border-lime-500"
+              className="w-full p-3 bg-transparent border-b-2 border-gray-700 dark:border-gray-300 text-black dark:text-white font-semibold focus:outline-none focus:border-lime-500"
             >
               <option value="0.5">30 min</option>
               <option value="1">1 hour</option>
@@ -201,7 +201,7 @@ const ContactForm = ({
                 placeholder="How many hours?"
                 value={formValues.customHours}
                 onChange={onInputChange}
-                className="w-full p-3 bg-transparent border-b border-black dark:border-white text-black dark:text-white focus:outline-none focus:border-lime-500"
+                className="w-full p-3 bg-transparent border-b-2 border-gray-700 dark:border-gray-300 text-black dark:text-white font-semibold focus:outline-none focus:border-lime-500"
               />
             </div>
           )}
@@ -221,32 +221,32 @@ const ContactForm = ({
 
         {/* Price summary */}
         <div className="flex items-center justify-between">
-          <p className="text-lg font-semibold">
+          <p className="text-lg font-bold">
             Total:{" "}
-            <span className="text-lime-600 font-bold">€{totalPrice}</span>{" "}
-            <span className="text-black dark:text-white">
+            <span className="text-lime-600 dark:text-lime-500 font-extrabold text-xl">€{totalPrice}</span>{" "}
+            <span className="text-gray-900 dark:text-white font-semibold">
               ({pluralHours(hours)}{priceNote ? ` — ${priceNote}` : ""})
             </span>
           </p>
 
           <button
             type="submit"
-            className="dark:bg-lime-500 text-white bg-[#3a2719] hover:bg-[#3a271970] font-semibold py-2 px-8 rounded-lg dark:hover:bg-lime-600"
+            className="dark:bg-lime-500 text-white bg-[#3a2719] hover:bg-[#3a271970] font-bold py-3 px-10 rounded-lg dark:hover:bg-lime-600 text-base tracking-wide shadow-lg"
           >
             Send
           </button>
         </div>
 
         {!formSubmitted && (
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">
             Thanks for submitting!
           </p>
         )}
       </form>
 
       {successMessageVisible && (
-        <p className="mt-4 text-green-500 font-bold">
-          Your request was sent successfully.
+        <p className="mt-4 text-green-600 dark:text-green-500 font-extrabold text-lg">
+          Your request was sent successfully!
         </p>
       )}
     </div>

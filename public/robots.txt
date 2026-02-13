@@ -1,5 +1,30 @@
-# *
+# Robots.txt for Pic Best Moments - Barcelona Photography
+# www.pick-best-moment.com
+
+# Allow all search engines to crawl the site
 User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /private/
+
+# Google Image Bot - Allow all images
+User-agent: Googlebot-Image
+Allow: /
+Allow: /Barceloneta/
+Allow: /Gothic/
+Allow: /Sagrada/
+Allow: /Parc*
+Allow: /Manjuic/
+
+# Google Main Bot
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+
+# Bing Bot
+User-agent: Bingbot
 Allow: /
 
 # Host
@@ -7,3 +32,7 @@ Host: https://www.pick-best-moment.com
 
 # Sitemaps
 Sitemap: https://www.pick-best-moment.com/sitemap.xml
+Sitemap: https://www.pick-best-moment.com/sitemap-0.xml
+
+# Crawl delay for polite bots
+Crawl-delay: 1

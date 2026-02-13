@@ -1,28 +1,27 @@
 {
   "EN": {
     "home": {
-      "header": ["HOME", "FAVORITE SPOTS", "ABOUT", "LOVE STORIES", "BOOKING INFO", "BOOKING", "ALL",
-        "Gothic Quarter", "Cathedral of Barcelona", "Sagrada Família", "Ciutadella Park", 
-        "Parc del Laberint",  "Parc de Montjuïc"
+      "header": ["HOME", "GALLERY", "FAVORITE SPOTS", "LOVE STORIES", "ABOUT", "CONTACT", "ALL",
+        "Gothic Quarter", "Sagrada Família", "Barceloneta Beach", "Ciutadella Park", 
+        "Park Güell", "Montjuïc"
       ],
     
-      "hero": ["PHOTOSHOOT IN BARCELONA", " NOW"],
+      "hero": ["PHOTOSHOOT IN BARCELONA", "BOOK NOW"],
       "about": [
-        "ABOUT US:",
-        "I'm YASS, a passionate photographer based in Barcelona's heart. Specializing in weddings, love story sessions, and tourist photography",
-        "I transform your moments into timeless keepsakes. From romantic garden portraits to iconic cityscapes and adventurous tourist shots",
-        "Let's create your perfect story—contact me today!"
-        
+        "ABOUT ME",
+        "I'm a passionate photographer based in the heart of Barcelona. Specializing in love stories, weddings, family sessions, and portrait photography",
+        "I transform your moments into timeless memories. From romantic sessions in Gothic Quarter to iconic shots at Sagrada Família and beach portraits at Barceloneta",
+        "Let's capture your Barcelona story—contact me today!"
       ],
       "top_products": ["GALLERY", "Moments & Emotions"],
-      "Our_Products": ["Our Products"],
+      "Our_Products": ["Our Services"],
       "special_offers": [
         "LOVE STORY",
-        "IN BARCELONA",
-        "Feel the romance of Barcelona's gardens and historic charm in our Love Story in BarcelonaA photos. See the magic of love captured—explore our gallery now!"
+        "PHOTOGRAPHY IN BARCELONA",
+        "Experience the romance of Barcelona with our love story photography. Capture your special moments at iconic locations like Gothic Quarter, Park Güell, and Sagrada Família. Explore our portfolio now!"
       ],
       "follow_us": ["FOLLOW US ON INSTAGRAM"],
-      "Footer": ["BARCELONA", "Made By", " el Mejor tech "]
+      "Footer": ["BARCELONA", "Professional Photography", "© 2026 Pic Best Moments"]
     },
     "products": {
       "header": ["Catalogues", "About", "Contact", "Conditions"]
@@ -111,29 +110,156 @@
       "header": ["Category", " Color", "Select", "Size", "Quantity", "Contact Us", "Clothing Size Chart", "PRODUCT INFO", "Price" ]
     }
   },
+  "ES": {
+    "home": {
+      "header": ["INICIO", "GALERÍA", "LUGARES FAVORITOS", "HISTORIAS DE AMOR", "SOBRE MÍ", "CONTACTO", "TODO",
+        "Barrio Gótico", "Sagrada Família", "Playa Barceloneta", "Parque de la Ciutadella", 
+        "Park Güell", "Montjuïc"
+      ],
+      
+      "hero": ["SESIÓN DE FOTOS EN BARCELONA", "RESERVAR AHORA"],
+      "about": [
+        "SOBRE MÍ",
+        "Soy un fotógrafo apasionado ubicado en el corazón de Barcelona. Especializado en historias de amor, bodas, sesiones familiares y fotografía de retrato",
+        "Transformo tus momentos en recuerdos eternos. Desde sesiones románticas en el Barrio Gótico hasta fotos icónicas en la Sagrada Família y retratos en la playa de Barceloneta",
+        "Capturemos tu historia en Barcelona—¡contáctame hoy!"
+      ],
+      "top_products": ["GALERÍA", "Momentos y Emociones"],
+      "Our_Products": ["Nuestros Servicios"],
+      "special_offers": [
+        "FOTOGRAFÍA",
+        "DE HISTORIAS DE AMOR EN BARCELONA",
+        "Vive el romance de Barcelona con nuestra fotografía de historias de amor. Captura tus momentos especiales en lugares emblemáticos como el Barrio Gótico, Park Güell y la Sagrada Família. ¡Explora nuestro portafolio ahora!"
+      ],
+      "follow_us": ["SÍGUENOS EN INSTAGRAM"],
+      "Footer": ["BARCELONA", "Fotografía Profesional", "© 2026 Pic Best Moments"]
+    },
+    
+    "contact": {
+      "hero": [
+        "Contáctanos",
+        "¡Nos encantaría saber de ti! Ya sea que tengas preguntas, comentarios o simplemente quieras saber más sobre lo que ofrecemos, no dudes en ponerte en contacto. Nuestro equipo está aquí para ayudarte con cualquier consulta y hacer realidad tu visión. ¡No dudes en escribirnos, estamos a un mensaje de distancia!",
+        "Barcelona, España"
+      ],
+      "heroTitle": [
+        "Creemos Momentos Inolvidables",
+        "Створюймо вічні моменти",
+        "Créons des moments intemporels"
+      ],
+      "heroSubtitle": [
+        "Ya sea tu boda, una sesión de retratos o una historia de marca creativa — estoy aquí para capturar lo que importa. Conectémonos y demos vida a tu visión.",
+        "Чи це ваше весілля, портретна зйомка або креативна історія бренду — я тут, щоб зберегти найважливіше. Давайте зв'яжемося та втілимо вашу ідею в життя.",
+        "Que ce soit votre mariage, une séance portrait ou une histoire de marque créative — je suis là pour capturer l'essentiel. Connectons-nous et donnons vie à votre vision."
+      ],
+      "input": [
+        "Nombre",
+        "Apellido",
+        "Número de teléfono",
+        "Correo electrónico",
+        "Mensaje",
+        "Enviar",
+        "¡Gracias por tu envío!",
+        "¡Tu formulario ha sido enviado con éxito!"
+      ],
+      "openninghours": [
+        "Horario de atención",
+        "Lun - Vie",
+        "Sábado",
+        "Domingo"
+      ]
+    },
+    "BookingTerms": {
+      "hero": [
+        "Términos de reserva y sesión",
+        "CONDICIONES GENERALES DE RESERVA:",
+        "Se requiere un depósito para confirmar tu reserva.",
+        "El saldo restante se paga el día de la sesión.",
+        "La cancelación es gratuita hasta 48 horas antes de la sesión. Cancelaciones posteriores no son reembolsables.",
+        "En caso de lluvia o fuerza mayor, el cambio de fecha es gratuito.",
+        "ENTREGA Y USO DE FOTOS:",
+        "Las fotos se entregan digitalmente en 7-10 días hábiles.",
+        "La entrega urgente está disponible bajo petición (tarifa adicional).",
+        "Todas las fotos son solo para uso personal, a menos que se acuerde lo contrario.",
+        "USO COMERCIAL Y DERECHOS DE AUTOR:",
+        "El fotógrafo retiene los derechos de autor de todas las imágenes.",
+        "El uso comercial requiere un acuerdo por escrito y licencia separada."
+      ]
+    },
+    "Catalogues": {
+      "header": ["Todos los Servicios", "Explora nuestra diversa gama de servicios fotográficos adaptados a tus necesidades.", " servicios", "Lista de Servicios"]
+    },
+    "SizeTable": {
+      "header": ["Tabla de Tamaños", "Tamaño (UA)", "Tamaño (EU)", "Pecho (cm)", "Cintura (cm)", "Caderas (cm)", "Cerrar"]
+    },
+    "SortMenu": {
+      "header": ["Ordenar por", "Recomendado", "Precio (de menor a mayor)", "Precio (de mayor a menor)"]
+    },
+    "Filtersidebar": {
+      "header": [
+        "Ordenar por", 
+        "Todos los servicios", 
+        "Filtrar por", 
+        "Precio", 
+        "Tipo", 
+        "Seleccionado", 
+        "Todo", 
+        "Categoría",
+        "Filtro",
+        "Confirmar"
+      ],
+      "SizeCatalogue": [ "Todo", "S", "M", "L", "XL" ],
+      "Categories": [
+        "Todo", "Historia de amor", "Familia", "Boda", "Retrato", 
+        "Maternidad", "Compromiso", "Parejas", "Eventos", "Corporativo", "Playa"
+      ],
+      "PaginatedProducts": ["Anterior", "Siguiente"]
+    },
+    "SpecialOffers": {
+      "header": [
+        "Ofertas Especiales",
+        "Descubre nuestras ofertas exclusivas y descuentos.",
+        "Ofertas especiales",
+        "Detalles del servicio seleccionado"
+      ]
+    },
+    "Infoform": {
+      "header": [
+        "Categoría",
+        "Ubicación",
+        "Seleccionar",
+        "Duración",
+        "Personas",
+        "Contáctanos",
+        "Información de Precios",
+        "INFORMACIÓN DEL SERVICIO",
+        "Precio"
+      ]
+    }
+  },
+  
   "FR": {
     "home": {
-      "header": ["Accueil", "Catalogues", "À propos", "Contact", "Conditions",    "Tout",
-      "Costumes", "Robes", "Chemises", "Jupes", 
-    "Pulls","Pantalons", "Vestes", "Tops", "Vêtements d'extérieur","Shorts"
-  ],
+      "header": ["ACCUEIL", "GALERIE", "LIEUX FAVORIS", "HISTOIRES D'AMOUR", "À PROPOS", "CONTACT", "TOUT",
+        "Quartier Gothique", "Sagrada Família", "Plage Barceloneta", "Parc de la Ciutadella", 
+        "Park Güell", "Montjuïc"
+      ],
       
-      "hero": ["Marque ukrainienne de vêtements pour femmes.", "Marque ukrainienne", "De vêtements pour femmes"],
+      "hero": ["SÉANCE PHOTO À BARCELONE", "RÉSERVER MAINTENANT"],
       "about": [
-        "À propos",
-        "LATORE – une marque ukrainienne de vêtements pour femmes avec sa propre production, plus de 10 ans d'expérience, et deux showrooms à Ivano-Frankivsk et Kharkiv.",
-        "Nous sommes l'incarnation des modèles basiques et d'une approche créative et design pour chaque pièce.",
-        "Nous sommes l'incarnation des modèles basiques et d'une approche créative et design pour chaque pièce."
+        "À PROPOS DE MOI",
+        "Je suis un photographe passionné basé au cœur de Barcelone. Spécialisé dans les histoires d'amour, les mariages, les séances familiales et la photographie de portrait",
+        "Je transforme vos moments en souvenirs intemporels. Des séances romantiques dans le Quartier Gothique aux photos emblématiques à la Sagrada Família et portraits sur la plage de Barceloneta",
+        "Capturons votre histoire à Barcelone—contactez-moi aujourd'hui!"
       ],
-      "top_products": ["Moments et émotions", "Moments et émotions"],
-      "Our_Products": ["Nos Produits"],
+      "top_products": ["GALERIE", "Moments et Émotions"],
+      "Our_Products": ["Nos Services"],
       "special_offers": [
-        "Offres Spéciales",
-        "Offre Limitée",
-        "Ne manquez pas nos offres exclusives. Profitez-en tant qu'elles sont disponibles \net bénéficiez de réductions qui ne dureront pas éternellement !",
-        "Achetez Maintenant"
+        "PHOTOGRAPHIE",
+        "D'HISTOIRES D'AMOUR À BARCELONE",
+        "Vivez la romance de Barcelone avec notre photographie d'histoires d'amour. Capturez vos moments spéciaux dans des lieux emblématiques comme le Quartier Gothique, le Park Güell et la Sagrada Família. Explorez notre portfolio dès maintenant!"
       ],
-      "follow_us": ["Suivez-nous"]
+      "follow_us": ["SUIVEZ-NOUS SUR INSTAGRAM"],
+      "Footer": ["BARCELONE", "Photographie Professionnelle", "© 2026 Pic Best Moments"]
     },
     
     "contact":{
@@ -251,29 +377,27 @@
   
   "UA": {
     "home": {
-      "header": ["Головна", "Каталог", "Про нас", "Бронювання", "Інформація про бронювання",  "Усі",
-      "Костюми", "Сукні", "Сорочки", "Спідниці", 
-        "Светри", "Брюки", "Жакети", "Топи", "Верхній одяг", "Шорти"
+      "header": ["ГОЛОВНА", "ГАЛЕРЕЯ", "УЛЮБЛЕНІ МІСЦЯ", "ІСТОРІЇ КОХАННЯ", "ПРО МЕНЕ", "КОНТАКТ", "ВСІ",
+        "Готичний квартал", "Саграда Фамілія", "Пляж Барселонета", "Парк Сіутаделла", 
+        "Парк Гуель", "Монжуїк"
       ],
       
-      "hero": ["Український бренд жіночого одягу.","Український бренд", "жіночого одягу"],
+      "hero": ["ФОТОСЕСІЯ У БАРСЕЛОНІ", "ЗАБРОНЮВАТИ ЗАРАЗ"],
       "about": [
-        "ПPO НАС",
-        "LATORE - український бренд жіночого одягу з власним виробництвом, з досвідом понад 10 років, з двома шоурумами в Івано-Франківську та Харкові.",
-        "Ми - втілення базових моделей та авторського, дизайнерського підходу до всіх виробів.",
-        "Наш одяг - це поєднання класики та комфорту, жіночності та гармонії. Завдяки власному виробництву ми гарантуємо високу якість кожного виробу."
+        "ПРО МЕНЕ",
+        "Я пристрасний фотограф у серці Барселони. Спеціалізуюсь на історіях кохання, весіллях, сімейних сесіях та портретній фотографії",
+        "Я перетворюю ваші моменти на вічні спогади. Від романтичних сесій у Готичному кварталі до культових знімків біля Саграда Фамілія та портретів на пляжі Барселонета",
+        "Давайте створимо вашу історію в Барселоні—зв'яжіться зі мною сьогодні!"
       ],
-      "top_products": ["Популярні продукти","Моменти й емоції"],
-      "Our_Products": ["Наші продукти"],
+      "top_products": ["ГАЛЕРЕЯ", "Моменти і Емоції"],
+      "Our_Products": ["Наші Послуги"],
       "special_offers": [
-        "Спеціальні пропозиції",
-        "Обмежена пропозиція",
-        "Лімітовані вироби в останніх кольорах та розмірах   \nв обмеженій кількості за собівартістю!",
-        "Купуйте зараз"
+        "ФОТОГРАФІЯ",
+        "ІСТОРІЙ КОХАННЯ У БАРСЕЛОНІ",
+        "Відчуйте романтику Барселони з нашою фотографією історій кохання. Зафіксуйте свої особливі моменти в культових місцях, таких як Готичний квартал, Парк Гуель та Саграда Фамілія. Перегляньте наше портфоліо зараз!"
       ],
-      "follow_us": ["Слідкуйте за нами"],
-      "Footer": ["Вул.Полтавський шлях 144А Харків", "Торговий центр", "Київський Івано-Франківськ"]
-      
+      "follow_us": ["СЛІДКУЙТЕ ЗА НАМИ В INSTAGRAM"],
+      "Footer": ["БАРСЕЛОНА", "Професійна Фотографія", "© 2026 Pic Best Moments"]
     },
     "contact": {
       "hero": [

@@ -84,7 +84,7 @@ useEffect(() => {
     <Image
       key={index}
       src={src}
-      alt={`Banner ${index}`}
+      alt={`Professional photography Barcelona - Love story and couple photoshoot portfolio banner ${index + 1}`}
       fill
        className={`absolute object-cover transition-opacity duration-1000 ease-in-out ${
       index === currentBannerIndex
@@ -97,8 +97,8 @@ useEffect(() => {
   ))}
 
   {/* затемнення + текст */}
-<div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center z-20">
-  <h1 className="text-3xl sm:text-5xl font-bold text-white drop-shadow-lg">
+<div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-20">
+  <h1 className="text-3xl sm:text-5xl font-extrabold text-white drop-shadow-2xl tracking-tight">
     {language === "EN" ? "Gallery" : language === "FR" ? "Galerie" : "Галерея"}
   </h1>
 </div>
@@ -111,10 +111,10 @@ useEffect(() => {
     <button
       key={item.type}
       onClick={() => setSelectedType(item.type)}
-      className={`px-4 py-2 rounded-full border transition-all duration-300 ${
+      className={`px-5 py-3 rounded-full border-2 font-bold text-base transition-all duration-300 ${
         selectedType === item.type
-          ? "bg-black text-white scale-105"
-          : "bg-white dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600"
+          ? "bg-black text-white scale-105 border-black"
+          : "bg-white dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 border-gray-400 dark:border-gray-500"
       }`}
     >
       {item.label?.[language] || item.type}
@@ -136,7 +136,7 @@ useEffect(() => {
             >
               <Image
                 src={src}
-                alt={`Photo ${i + 1}`}
+                alt={`Professional ${selectedType !== "All" ? selectedType.toLowerCase() : "photography"} Barcelona - Portfolio ${i + 1}`}
                 width={300}
                 height={400}
                 className="object-cover w-full h-[400px] transition-opacity duration-700 opacity-0 animate-fade-in"
@@ -151,27 +151,30 @@ useEffect(() => {
       {modalIndex !== null && (
         <div className="fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center">
           <button
-            className="absolute top-4 right-4 text-3xl text-white"
+            className="absolute top-4 right-4 text-5xl font-bold text-white hover:text-red-500 transition"
             onClick={closeModal}
+            aria-label="Close modal"
           >
             &times;
           </button>
           <button
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-3xl"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-5xl font-bold hover:scale-110 transition"
             onClick={goPrev}
+            aria-label="Previous"
           >
             &#10094;
           </button>
           <Image
             src={currentImages[modalIndex]}
-            alt={`Photo ${modalIndex + 1}`}
+            alt={`Professional ${selectedType !== "All" ? selectedType.toLowerCase() : "photography"} Barcelona - Full size portfolio ${modalIndex + 1}`}
             width={1000}
             height={800}
             className="max-w-full max-h-[90vh] object-contain"
           />
           <button
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-3xl"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-5xl font-bold hover:scale-110 transition"
             onClick={goNext}
+            aria-label="Next"
           >
             &#10095;
           </button>

@@ -105,7 +105,7 @@ export default function Gallery() {
       </Head>
 
       <section className="gallery-wrap">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-16 text-center">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-16 text-center tracking-tight">
           {menuItems[0]}
         </h2>
 
@@ -132,7 +132,7 @@ export default function Gallery() {
               role="button"
               aria-label={`Open photo ${img.id}`}
             >
-              <img src={img.src} alt={`Photo ${img.id}`} loading="lazy" />
+              <img src={img.src} alt={`Professional photography Barcelona - Love story couple photoshoot portfolio ${img.id}`} loading="lazy" />
             </div>
           ))}
         </div>

@@ -1,6 +1,7 @@
 
 import Script from "next/script";
 import { siteJsonLd, organizationJsonLd } from "./seo/loyout-jsonld"; 
+import { faqJsonLd } from "./seo/faq-jsonld";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import "./globals.css";
 import ErrorBoundary from "../app/components/ErrorBoundary/ErrorBoundary";
@@ -12,9 +13,12 @@ const SITE_URL =
 // ---------- Metadata (App Router) ----------
 export const metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Pic Best Moments — Photographer in Barcelona",
+  title: {
+    default: "Professional Photographer in Barcelona | Pic Best Moments",
+    template: "%s | Pic Best Moments",
+  },
   description:
-    "Professional photographer in Barcelona capturing love stories, family moments and portraits. Easy booking and transparent pricing.",
+    "Professional photographer in Barcelona specializing in love story, family, wedding, and portrait photography. Book your photo session at iconic Barcelona locations: Gothic Quarter, Sagrada Família, Barceloneta. Multilingual service in English, Spanish, French & Ukrainian.",
 
   verification: {
     google: "Ym-lDSsvY4ph2BQ0M7nKfXEBTvyBK2GtZVov3YvwnsU",
@@ -22,44 +26,109 @@ export const metadata = {
 
   applicationName: "Pic Best Moments",
   keywords: [
+    // Barcelona-specific keywords
     "Barcelona photographer",
-    "love story photoshoot",
-    "family photos",
-    "portrait photographer",
+    "photographer in Barcelona",
+    "Barcelona photography",
+    "fotógrafo Barcelona",
+    "photographe Barcelone",
+    
+    // Service-specific
+    "love story photoshoot Barcelona",
+    "couple photographer Barcelona",
+    "family photos Barcelona",
+    "wedding photographer Barcelona",
+    "portrait photographer Barcelona",
+    "engagement photos Barcelona",
+    
+    // Location-specific
+    "Gothic Quarter photoshoot",
+    "Sagrada Família photography",
+    "Barceloneta beach photos",
+    "Ciutadella Park photoshoot",
+    "Park Güell photographer",
+    
+    // General
+    "professional photographer Barcelona",
     "photo session Barcelona",
+    "Barcelona photo tour",
+    "best photographer Barcelona",
   ],
   authors: [{ name: "Pic Best Moments", url: SITE_URL }],
   creator: "Pic Best Moments",
   publisher: "Pic Best Moments",
 
+  // Geographic targeting
+  other: {
+    "geo.region": "ES-CT",
+    "geo.placename": "Barcelona",
+    "geo.position": "41.3851;2.1734",
+    "ICBM": "41.3851, 2.1734",
+  },
+
+  alternates: {
+    canonical: SITE_URL,
+    languages: {
+      en: `${SITE_URL}/en`,
+      es: `${SITE_URL}/es`,
+      fr: `${SITE_URL}/fr`,
+      uk: `${SITE_URL}/uk`,
+    },
+  },
+
   openGraph: {
     type: "website",
     url: SITE_URL,
     siteName: "Pic Best Moments",
-    title: "Pic Best Moments — Photographer in Barcelona",
+    title: "Professional Photographer in Barcelona | Pic Best Moments",
     description:
-      "Professional photo sessions in Barcelona: couples, love stories, families, portraits.",
+      "Professional photo sessions in Barcelona: love stories, families, weddings, portraits at iconic locations. Book your Barcelona photography experience today!",
     images: [
-      { url: "/logo-social.jpg", width: 1200, height: 628, alt: "Pic Best Moments" }
+      { 
+        url: "/logo-social.jpg", 
+        width: 1200, 
+        height: 628, 
+        alt: "Pic Best Moments - Professional Photographer in Barcelona",
+        type: "image/jpeg",
+      }
     ],
+    locale: "en_US",
+    alternateLocale: ["es_ES", "fr_FR", "uk_UA"],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Pic Best Moments — Photographer in Barcelona",
+    title: "Professional Photographer in Barcelona | Pic Best Moments",
     description:
-      "Professional photo sessions in Barcelona: couples, love stories, families, portraits.",
+      "Professional photo sessions in Barcelona: love stories, families, weddings, portraits at iconic locations.",
     images: ["/logo-social.jpg"],
+    creator: "@picbestmoments",
   },
 
-  robots: { index: true, follow: true },
+  robots: { 
+    index: true, 
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 
   icons: {
     icon: [
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
     ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
+
+  // Category for better indexing
+  category: "Photography Services",
 };
 
 // ---------- Root layout ----------
@@ -67,7 +136,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="h-full">
       <body className="h-full min-h-screen transition-colors">
-        {/* ✅ JSON-LD (server-rendered, без хардкодів домену) */}
+        {/* ✅ JSON-LD Structured Data for SEO */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
@@ -75,6 +144,10 @@ export default function RootLayout({ children }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
 
         {/* ✅ Google Analytics — підстав свій ID або забери блок якщо не потрібен */}

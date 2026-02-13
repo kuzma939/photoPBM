@@ -70,10 +70,10 @@ const ContactUs = () => {
       <SuccessMessage />
 
       <section className="bg-gray-100 text-black dark:bg-black dark:text-white text-center py-10 md:py-16">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6">
+        <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">
           {heroTitle[language === "UA" ? 1 : language === "FR" ? 2 : 0]}
         </h1>
-        <p className="text-md md:text-lg max-w-2xl mx-auto mb-10">
+        <p className="text-md md:text-lg font-medium max-w-2xl mx-auto mb-10 leading-relaxed">
           {heroSubtitle[language === "UA" ? 1 : language === "FR" ? 2 : 0]}
         </p>
 
@@ -81,8 +81,8 @@ const ContactUs = () => {
           {/* Фото фотографа */}
           <div className="w-full sm:w-1/2 lg:w-[56%] h-[450px] sm:h-[600px] dark:shadow-[0_0_20px_10px_rgba(59,130,246,0.4)]">
             <Image
-              src="/photographer/photo_2025-06-15_10-51-42.jpg" // ⚠️ заміни на реальний шлях до фото
-              alt="Photographer portrait"
+              src="/photographer/photo_2025-06-15_10-51-42.jpg"
+              alt="Professional photographer in Barcelona - Pic Best Moments portrait specializing in love story and family photography"
               width={400}
               height={600}
               className="w-full h-full object-cover rounded-lg shadow-lg"
@@ -92,15 +92,15 @@ const ContactUs = () => {
 
           {/* Контактна інформація + форма */}
           <article className="w-full sm:w-1/2 lg:w-1/3 space-y-6">
-            <address className="not-italic text-base md:text-lg leading-relaxed">
-              Available worldwide · Based in <strong>Barcelona</strong>
+            <address className="not-italic text-base md:text-lg font-semibold leading-relaxed">
+              Available worldwide · Based in <strong className="font-bold">Barcelona</strong>
               <br />
               📧{" "}
-              <a href="mailto:photographbusiness01@gmail.com" className="text-blue-400 hover:underline">
+              <a href="mailto:photographbusiness01@gmail.com" className="text-blue-500 dark:text-blue-400 hover:underline font-bold">
                 photographbusiness01@gmail.com
               </a>
               <br />
-              📱 +34 65 490 96 21
+              📱 <a href="tel:+34654909621" className="font-bold hover:underline">+34 65 490 96 21</a>
             </address>
 
             {searchParams.get("productName") && (

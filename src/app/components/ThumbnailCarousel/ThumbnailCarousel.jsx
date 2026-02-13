@@ -88,7 +88,7 @@ const ThumbnailCarousel = ({ images = [], onImageSelect }) => {
               ) : (
                 <Image
                   src={src}
-                  alt={`Thumbnail ${index + 1}`}
+                  alt={`Love story photography Barcelona - Portfolio thumbnail ${index + 1}`}
                   width={96}
                   height={96}
                   style={{ objectFit: "cover" }}

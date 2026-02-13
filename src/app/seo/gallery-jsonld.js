@@ -7,27 +7,48 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000")
  */
 const galleryJsonLd = (locations = []) => ({
   "@context": "https://schema.org",
-  "@type": "ItemList",
-  name: "Photo Gallery — Pic Best Moments",
+  "@type": "ImageGallery",
+  name: "Barcelona Photography Portfolio — Pic Best Moments",
   description:
-    "Explore beautiful photo spots and sessions captured in Barcelona by Pic Best Moments photographer.",
+    "Professional photography portfolio featuring love story, family, wedding and portrait sessions in Barcelona. Explore our work at iconic Barcelona locations including Gothic Quarter, Sagrada Família, Barceloneta, and more.",
   url: `${SITE_URL}/gallery`,
   itemListOrder: "https://schema.org/ItemListOrderAscending",
   numberOfItems: locations.length,
+  author: {
+    "@type": "Person",
+    name: "Pic Best Moments",
+    url: SITE_URL,
+    jobTitle: "Professional Photographer",
+  },
   itemListElement: locations.map((item, index) => ({
     "@type": "ListItem",
     position: index + 1,
     url: `${SITE_URL}/gallery/${item?.slug ?? index}`,
     item: {
-      "@type": "ImageObject",
-      name: item?.title || "Beautiful photo location",
-      description: item?.description || "Captured moment in Barcelona.",
+      "@type": "Photograph",
+      name: item?.title || `Barcelona Photography Session ${index + 1}`,
+      description: item?.description || `Professional ${item?.type || "photography"} session in ${item?.location || "Barcelona"}.`,
       contentUrl: `${SITE_URL}${item?.image || "/placeholder.jpg"}`,
+      thumbnailUrl: `${SITE_URL}${item?.image || "/placeholder.jpg"}`,
       width: 1200,
       height: 800,
-      author: { "@type": "Person", name: "Pic Best Moments Photographer" },
-      locationCreated: { "@type": "Place", name: item?.location || "Barcelona" },
-      datePublished: item?.date || "2025-01-01",
+      author: { 
+        "@type": "Person", 
+        name: "Pic Best Moments",
+        url: SITE_URL 
+      },
+      locationCreated: { 
+        "@type": "Place", 
+        name: item?.location || "Barcelona, Spain",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Barcelona",
+          addressRegion: "Catalonia",
+          addressCountry: "ES"
+        }
+      },
+      datePublished: item?.date || new Date().toISOString().split('T')[0],
+      keywords: `Barcelona photographer, ${item?.location || "Barcelona"} photography, ${item?.type || "professional"} photography Barcelona`,
     },
   })),
 });

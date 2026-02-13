@@ -22,17 +22,17 @@ export default function About() {
         {/* Layout for Tablets and Desktops */}
         <div className="hidden sm:flex flex-col md:flex-row items-center md:gap-8">
           {/* Text Content */}
-          <div className="flex-1 text-center text-gray-600 dark:text-gray-300">
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4 uppercase">
+          <div className="flex-1 text-center text-gray-700 dark:text-gray-200">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6 uppercase tracking-tight">
               {menuItems[0]}
             </h2>
-            <p className="text-lg md:text-xl leading-relaxed mb-4">
+            <p className="text-lg md:text-xl font-medium leading-relaxed mb-4">
               {menuItems[1]}
             </p>
-            <p className="text-lg md:text-xl leading-relaxed mb-4">
+            <p className="text-lg md:text-xl font-medium leading-relaxed mb-4">
               {menuItems[2]}
             </p>
-            <p className="text-xl md:text-2xl font-semibold text-gray-800 dark:text-white uppercase">
+            <p className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white uppercase tracking-wide">
               {menuItems[3]}
             </p>
           </div>
@@ -42,7 +42,7 @@ export default function About() {
             <div className="relative group w-full max-w-md h-[450px] md:h-[600px] rounded-lg overflow-hidden">
               <Image
                 src="/hoom/Propose.avif"
-                alt="About Image"
+                alt="Romantic marriage proposal photography Barcelona - Professional photographer capturing special moments at iconic Barcelona locations"
                 fill
                 style={{ objectFit: "cover" }}
                 className="rounded-lg transition-transform duration-300 ease-in-out group-hover:scale-110"
@@ -58,7 +58,7 @@ export default function About() {
             <div className="relative group w-full h-[450px] rounded-lg overflow-hidden">
               <Image
                 src="/hoom/Propose.avif"
-                alt="About Image"
+                alt="Professional photographer in Barcelona - Romantic proposal and engagement photography at iconic Barcelona locations"
                 fill
                 style={{ objectFit: "cover" }}
                 className="rounded-lg transition-transform duration-300 ease-in-out group-hover:scale-110"
@@ -67,15 +67,15 @@ export default function About() {
 
             {/* Text Overlay on Mobile */}
             <div
-              className="absolute bottom-[5%] left-0 w-full bg-white/90 dark:bg-gray-900/80 p-6 text-center transition-all duration-700"
+              className="absolute bottom-[5%] left-0 w-full bg-white/95 dark:bg-gray-900/90 p-6 text-center transition-all duration-700"
             >
-              <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-2 uppercase">
+              <h2 className="text-xl font-extrabold text-gray-900 dark:text-white mb-3 uppercase tracking-tight">
                 {menuItems[0]}
               </h2>
-              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+              <p className="text-gray-800 dark:text-gray-200 text-sm font-medium leading-relaxed">
                 {menuItems[1]}
               </p>
-              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mt-2">
+              <p className="text-gray-800 dark:text-gray-200 text-sm font-medium leading-relaxed mt-2">
                 {menuItems[2]}
               </p>
             </div>

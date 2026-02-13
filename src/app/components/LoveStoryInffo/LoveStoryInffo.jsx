@@ -358,7 +358,7 @@ const selId = selectedProduct?.id ?? null;
 >
   <Image
     src={product.image}
-    alt={product._name}
+    alt={`${product._name} - Love story photography ${product.location} Barcelona`}
     fill
     className="object-cover transition-transform duration-500 group-hover:scale-[1.07]"
     sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
@@ -380,10 +380,10 @@ const selId = selectedProduct?.id ?? null;
 
   {/* Bottom info on hover */}
   <div className="absolute inset-x-0 bottom-0 p-4 pointer-events-none">
-    <div className="rounded-xl bg-gradient-to-t from-black/70 to-transparent p-4 text-white 
+    <div className="rounded-xl bg-gradient-to-t from-black/80 to-transparent p-4 text-white 
                     opacity-0 translate-y-2 transition duration-300 group-hover:opacity-100 group-hover:translate-y-0">
-      <div className="text-sm/5 opacity-90">{product.location}</div>
-      <div className="text-lg font-semibold">{product._name}</div>
+      <div className="text-sm/5 font-semibold opacity-95">{product.location}</div>
+      <div className="text-lg font-bold">{product._name}</div>
     </div>
   </div>
 </div>
@@ -431,10 +431,10 @@ const selId = selectedProduct?.id ?? null;
          
     {/* Ім'я + локація по центру */}
     <div className="lg:col-span-12 text-center">
-      <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+      <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
         {selectedProduct.translations?.[language]?.name || selectedProduct.title}
       </h2>
-      <p className="mt-1 text-sm font-medium text-gray-600 dark:text-gray-300 italic">
+      <p className="mt-1 text-base font-bold text-gray-700 dark:text-gray-200 italic">
         📍 {selectedProduct.location}
       </p>
     </div>
@@ -462,10 +462,7 @@ const selId = selectedProduct?.id ?? null;
                   {typeof selectedImage === "string" ? (
                     <Image
                       src={selectedImage}
-                      alt={
-                        selectedProduct.translations?.[language]?.name ||
-                        selectedProduct.title || "Love photo"
-                      }
+                      alt={`${selectedProduct.translations?.[language]?.name || selectedProduct.title} - Love story photography ${selectedProduct.location} Barcelona`}
                       width={1600}
                       height={1600}
                       className="h-full w-full object-cover cursor-zoom-in"

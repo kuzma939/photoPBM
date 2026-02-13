@@ -8,7 +8,7 @@ const SocialLinks = () => (
         href={link.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-blue-400 hover:text-blue-600 focus:text-blue-600 underline"
+        className="text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 focus:text-blue-700 dark:focus:text-blue-300 underline font-bold text-base transition"
       >
         {link.name}
       </a>

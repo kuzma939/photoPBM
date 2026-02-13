@@ -10,13 +10,17 @@
 html,
 body {
   height: 100%;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-weight: 600;
+  line-height: 1.6;
   margin: 0;
   padding: 0;
-
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* Montserrat Font Family - Optimized for Accessibility */
 @font-face {
   font-family: "Montserrat";
   src: url("/fonts/Montserrat-Thin.woff2") format("woff2"),
@@ -34,6 +38,14 @@ body {
   font-style: italic;
   font-display: swap;
 }
+
+/* Note: Add these font files to /public/fonts/ for better typography:
+   - Montserrat-Regular (400)
+   - Montserrat-Medium (500)
+   - Montserrat-SemiBold (600)
+   - Montserrat-Bold (700)
+   Download from: https://fonts.google.com/specimen/Montserrat
+*/
 
 /*
 @media (prefers-color-scheme: dark) {
@@ -73,14 +85,56 @@ input, textarea {
   .content-wrapper {
     @apply max-w-7xl mx-auto;
   }
+  
+  /* Make all headings bolder and more visible */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  
+  /* Make paragraphs more readable */
+  p {
+    font-weight: 500;
+  }
+  
+  /* Make buttons and links more prominent */
+  button, a {
+    font-weight: 600;
+  }
 }
 @layer utilities {
   @media (max-width: 320px) {
     .mobile-320 {
-      @apply  text-xs leading-tight p-1;
+      @apply text-sm leading-relaxed p-2;
     }
   }
 }
+
+/* Screen reader only utility - Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only:focus,
+.sr-only:active {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
 /* Для Chrome, Safari, Edge */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
@@ -114,9 +168,43 @@ input[type="number"]:focus {
 }
 
 .fade-in {
-    animation: fancyGlowFadeIn 1.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  animation: fancyGlowFadeIn 1.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
   transform-origin: center;
   backface-visibility: hidden;
   will-change: transform, opacity, filter, box-shadow;
- 
+}
+
+/* Accessibility: Focus indicators for keyboard navigation */
+*:focus-visible {
+  outline: 3px solid #0066cc;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid #0066cc;
+  outline-offset: 3px;
+}
+
+/* Accessibility: Reduced motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Accessibility: High contrast mode support */
+@media (prefers-contrast: high) {
+  * {
+    border-color: currentColor;
+  }
 }

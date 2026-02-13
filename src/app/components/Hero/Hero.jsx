@@ -43,10 +43,30 @@ export default function Hero() {
 function HeroSlider({ compact = false }) {
   const slides = useMemo(
     () => [
-      { title: 'Barceloneta', description: 'Experience the mystical Highlands under twilight skies and misty lochs.', image: '/Barceloneta/10.avif', href: '/booking-info' },
-      { title: 'Sagrada', description: 'Chase the Northern Lights under star-lit skies along scenic fjord roads.', image: '/Sagrada/3.avif', href: '/booking-info' },
-      { title: 'New Zealand', description: 'Wander dramatic, mist-laden mountain paths that feel straight out of a dream.', image: 'https://images.unsplash.com/photo-1483982258113-b72862e6cff6?q=80&w=1170&auto=format&fit=crop', href: '/booking-info' },
-      { title: 'Japan', description: 'Discover serene mountain temples shrouded in dusk and ancient forest trails.', image: '/Gothic/JAPAN/1.avif', href: '/booking-info' },
+      { 
+        title: 'Barceloneta Beach', 
+        description: 'Capture stunning sunset moments at Barcelona\'s iconic beach. Perfect for romantic couple sessions and engagement photos.', 
+        image: '/Barceloneta/10.avif', 
+        href: '/contact' 
+      },
+      { 
+        title: 'Sagrada Família', 
+        description: 'Create timeless memories with Gaudí\'s masterpiece as your backdrop. Ideal for love story and wedding photography in Barcelona.', 
+        image: '/Sagrada/3.avif', 
+        href: '/contact' 
+      },
+      { 
+        title: 'Gothic Quarter', 
+        description: 'Step into medieval Barcelona\'s enchanting streets. Authentic and atmospheric photoshoots in the heart of historic Barcelona.', 
+        image: '/Gothic/JAPAN/1.avif', 
+        href: '/contact' 
+      },
+      { 
+        title: 'Park Güell', 
+        description: 'Vibrant colors and Gaudí\'s artistic vision. Unique and creative photography sessions with panoramic Barcelona city views.', 
+        image: 'https://images.unsplash.com/photo-1483982258113-b72862e6cff6?q=80&w=1170&auto=format&fit=crop', 
+        href: '/contact' 
+      },
     ],
     []
   );
@@ -82,13 +102,13 @@ function HeroSlider({ compact = false }) {
             className={`item pos-${i}`}
             style={{ backgroundImage: `url(${s.image})` }}
             role="img"
-            aria-label={s.title}
+            aria-label={`${s.title} - Professional couple photography in Barcelona - ${s.description.slice(0, 60)}...`}
           >
             <div className="content">
               <div className="name">{s.title}</div>
               <div className="des">{s.description}</div>
               <a className="seeMore" href={s.href}>
-                <button className="cta">Book a Session</button>
+                <button className="cta">Book Your Barcelona Session</button>
               </a>
             </div>
           </div>
@@ -162,9 +182,10 @@ function HeroSlider({ compact = false }) {
   .name {
     font-size: 40px;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 800;
     opacity: 0;
     animation: animate 1s forwards;
+    letter-spacing: 0.02em;
   }
 
   .des {
@@ -172,16 +193,19 @@ function HeroSlider({ compact = false }) {
     margin-bottom: 20px;
     opacity: 0;
     animation: animate 1s 0.3s forwards;
+    font-weight: 600;
   }
 
   .cta {
     padding: 10px 20px;
-    border: 1px solid rgba(255,255,255,0.4);
+    border: 2px solid rgba(255,255,255,0.6);
     border-radius: 10px;
     cursor: pointer;
     opacity: 0;
-    background: rgba(0,0,0,0.85);
+    background: rgba(0,0,0,0.9);
     color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.03em;
     transition: all 0.3s;
     animation: animate 1s 0.6s forwards;
   }
@@ -225,9 +249,9 @@ function HeroSlider({ compact = false }) {
     .name {
       font-size: 34px !important;
       line-height: 1.2 !important;
-      font-weight: 600 !important;
+      font-weight: 800 !important;
       text-transform: none !important;
-      letter-spacing: 0.3px !important;
+      letter-spacing: 0.5px !important;
       margin: 0 !important;
       opacity: 0;
       animation: animate 0.5s ease-out forwards;
@@ -236,8 +260,9 @@ function HeroSlider({ compact = false }) {
     .des {
       font-size: 26px !important;
       line-height: 1.3 !important;
+      font-weight: 600 !important;
       margin: 4px 0 10px !important;
-      color: #f2f2f2 !important;
+      color: #ffffff !important;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
@@ -248,11 +273,13 @@ function HeroSlider({ compact = false }) {
 
     .cta {
       font-size: 16px !important;
-      padding: 6px 10px !important;
+      padding: 8px 14px !important;
       border-radius: 8px !important;
-      background: rgba(0,0,0,0.9);
+      background: rgba(0,0,0,0.95);
       color: #fff;
-      border: 1px solid rgba(255,255,255,0.3);
+      font-weight: 700 !important;
+      letter-spacing: 0.5px !important;
+      border: 2px solid rgba(255,255,255,0.5);
     }
 
     .cta:hover {

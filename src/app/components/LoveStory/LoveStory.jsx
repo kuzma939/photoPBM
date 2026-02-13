@@ -24,7 +24,7 @@ export default function SpecialOffers() {
           <div className="w-full h-[450px] sm:h-[500px] md:h-[600px] lg:h-[1000px] sm:w-[80%] md:w-[60%] lg:w-[70%] relative rounded-lg overflow-hidden">
     <Image
       src="/Lovestory.avif"
-      alt="Special Offers Image"
+      alt="Romantic love story photography in Barcelona - Couple photoshoot at Gothic Quarter, Sagrada Família, and Park Güell"
       layout="responsive"
       width={800}    // Базова ширина для збереження пропорцій
       height={1000}  // Базова висота для збереження пропорцій (4:5)
@@ -46,27 +46,32 @@ export default function SpecialOffers() {
             `}
           >
             <h2
-              className={`text-base sm:text-3xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold mb-8 md:mb-8
+              className={`text-base sm:text-3xl md:text-5xl lg:text-6xl 2xl:text-7xl font-extrabold mb-8 md:mb-8 tracking-tight
                 dark:text-[#f5e8d6] text-black`}
             >
-              {menuItems[0] || "Special Offers"}
+              {menuItems[0]}
             </h2>
-         
-            <p
-              className={`text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl mb-4 sm:mb-8 md:mb-8 lg:mb-10 leading-relaxed 
-              dark:text-gray-400 text-black`}
+            <h3
+              className={`text-sm sm:text-2xl md:text-4xl lg:text-5xl 2xl:text-6xl font-bold mb-4 md:mb-6 tracking-tight
+                dark:text-[#f5e8d6] text-black`}
             >
-              {menuItems[2] || "Don't miss out on these exclusive deals."}
+              {menuItems[1]}
+            </h3>
+            <p
+              className={`text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold mb-4 sm:mb-8 md:mb-8 lg:mb-10 leading-relaxed 
+              dark:text-white text-black`}
+            >
+              {menuItems[2]}
             </p>
             <button
               onClick={handleClick}
               className={`py-2 px-4 sm:py-3 sm:px-6 md:py-4 md:px-8 lg:py-5 lg:px-10 xl:py-6 xl:px-12 rounded-full 
-              text-sm sm:text-lg md:text-xl lg:text-2xl 2xl:text-3xl transition-all duration-300 
+              text-sm sm:text-lg md:text-xl lg:text-2xl 2xl:text-3xl font-bold transition-all duration-300 
               dark:bg-[#f5e8d6] dark:text-[#2e1f14] dark:hover:bg-[#d1b79e]
               bg-gray-900 text-white hover:bg-gray-700`}
-              aria-label="View more special offers"
+              aria-label="View Barcelona love story photography portfolio"
             >
-              {menuItems[3] || "View More"}
+              View Portfolio
             </button>
           </div>
         </div>
