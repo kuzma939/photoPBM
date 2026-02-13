@@ -12,7 +12,7 @@ export default function GalleryInfo() {
   const searchParams = useSearchParams();
   
 const typesWithAll = [
-  { type: "All", label: { EN: "All", UA: "Усі", FR: "Tous" } },
+  { type: "All", label: { EN: "All", ES: "Todo", FR: "Tous" } },
   ...photoTypes
 ];
 
@@ -99,7 +99,7 @@ useEffect(() => {
   {/* затемнення + текст */}
 <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-20">
   <h1 className="text-3xl sm:text-5xl font-extrabold text-white drop-shadow-2xl tracking-tight">
-    {language === "EN" ? "Gallery" : language === "FR" ? "Galerie" : "Галерея"}
+    {language === "EN" ? "Gallery" : language === "ES" ? "Galería" : language === "FR" ? "Galerie" : "Gallery"}
   </h1>
 </div>
 

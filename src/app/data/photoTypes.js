@@ -3,7 +3,7 @@ const photoTypes = [
     type: "Family",
     label: {
       EN: "Family",
-      UA: "Сімейна зйомка",
+      ES: "Familia",
       FR: "Famille"
     },
     images: [
@@ -19,7 +19,7 @@ const photoTypes = [
     type: "Love story",
     label: {
       EN: "Love Story",
-      UA: "Історія кохання",
+      ES: "Historia de Amor",
       FR: "Histoire d’amour"
     },
     images: [
@@ -60,7 +60,7 @@ const photoTypes = [
     type: "Wedding",
     label: {
       EN: "Wedding",
-      UA: "Весільна зйомка",
+      ES: "Boda",
       FR: "Mariage"
     },
     images: [
@@ -75,7 +75,7 @@ const photoTypes = [
     type: "Portrait",
     label: {
       EN: "Portrait",
-      UA: "Портрет",
+      ES: "Retrato",
       FR: "Portrait"
     },
     images: [

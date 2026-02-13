@@ -22,7 +22,8 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
 
   const toggleLanguage = () => {
     setLanguage(prev =>
-      prev === 'EN' ? 'ES' : prev === 'ES' ? 'FR' : prev === 'FR' ? 'UA' : 'EN'
+      prev === 'EN' ? 'ES' : prev === 'ES' ? 'FR' : 'EN'
+      // UA language commented out: prev === 'FR' ? 'UA' : 'EN'
     );
   };
 
@@ -201,7 +202,7 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
           aria-label={`Switch language (current: ${language})`}
           className="p-1 sm:p-2 rounded-full border border-gray-300 hover:bg-gray-200 dark:border-gray-700 dark:hover:bg-gray-600 transition text-xs sm:text-sm md:text-base lg:text-lg"
         >
-          {language === 'EN' ? '🇬🇧 EN' : language === 'ES' ? '🇪🇸 ES' : language === 'FR' ? '🇫🇷 FR' : '🇺🇦 UA'}
+          {language === 'EN' ? '🇬🇧 EN' : language === 'ES' ? '🇪🇸 ES' : '🇫🇷 FR'}
         </button>
 
         <button
@@ -243,7 +244,7 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
             aria-label={`Switch language (current: ${language})`}
             className="p-1 sm:p-2 rounded-full border border-gray-300 hover:bg-gray-200 dark:border-gray-700 dark:hover:bg-gray-600 transition text-xs sm:text-sm md:text-base lg:text-lg"
           >
-            {language === 'EN' ? '🇬🇧 EN' : language === 'ES' ? '🇪🇸 ES' : language === 'FR' ? '🇫🇷 FR' : '🇺🇦 UA'}
+            {language === 'EN' ? '🇬🇧 EN' : language === 'ES' ? '🇪🇸 ES' : '🇫🇷 FR'}
           </button>
 
           <button

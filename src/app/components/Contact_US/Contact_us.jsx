@@ -71,10 +71,10 @@ const ContactUs = () => {
 
       <section className="bg-gray-100 text-black dark:bg-black dark:text-white text-center py-10 md:py-16">
         <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">
-          {heroTitle[language === "UA" ? 1 : language === "FR" ? 2 : 0]}
+          {heroTitle[language === "FR" ? 2 : language === "ES" ? 0 : 0]}
         </h1>
         <p className="text-md md:text-lg font-medium max-w-2xl mx-auto mb-10 leading-relaxed">
-          {heroSubtitle[language === "UA" ? 1 : language === "FR" ? 2 : 0]}
+          {heroSubtitle[language === "FR" ? 2 : language === "ES" ? 0 : 0]}
         </p>
 
         <section className="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-12 md:gap-16 lg:gap-28 bg-gray-200 dark:bg-[#111827] p-6 md:p-10 rounded-lg shadow-xl max-w-7xl mx-auto">

@@ -33,7 +33,7 @@ export default function GalleryPage() {
 
       {/* Контент праворуч */}
       <main className="flex-1 p-4">
-        <h1 className="text-2xl font-bold mb-4">Галерея</h1>
+        <h1 className="text-2xl font-bold mb-4">Gallery</h1>
 
         {/* Тут можеш використовувати category і location для фільтрації */}
         {/* Наприклад: */}
