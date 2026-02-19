@@ -66,32 +66,32 @@ const photoTypes = [
       
     ]
   },
-  {
-    type: "Wedding",
-    label: {
-      EN: "Wedding",
-      ES: "Boda",
-      FR: "Mariage"
-    },
-    images: [
-      "/1.avif",
-      "/2.avif",
-      "/3.avif",
-      "/4.avif",
-      "/5.avif"
-    ]
-  },
-  {
-    type: "Portrait",
-    label: {
-      EN: "Portrait",
-      ES: "Retrato",
-      FR: "Portrait"
-    },
-    images: [
-      "/Gothic/OLD USA/6.avif",
-    ]
-  },
+  // {
+  //   type: "Wedding",
+  //   label: {
+  //     EN: "Wedding",
+  //     ES: "Boda",
+  //     FR: "Mariage"
+  //   },
+  //   images: [
+  //     // "/1.avif",
+  //     // "/2.avif",
+  //     // "/3.avif",
+  //     // "/4.avif",
+  //     // "/5.avif"
+  //   ]
+  // },
+  // {
+  //   type: "Portrait",
+  //   label: {
+  //     EN: "Portrait",
+  //     ES: "Retrato",
+  //     FR: "Portrait"
+  //   },
+  //   images: [
+  //     "/Gothic/OLD USA/6.avif",
+  //   ]
+  // },
 ];
 
 export default photoTypes;

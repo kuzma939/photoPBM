@@ -25,12 +25,11 @@ const initialType = searchParams.get("type") || "All";
   const [currentImages, setCurrentImages] = useState([]);
   const descriptionRef = useRef(null);
   const banners = [
-  "/Gothic/2Q2A0672.avif",
-  "/Gothic/2Q2A0387.avif",
-  "/Gothic/2Q2A0974.avif",
-  "/4.avif",
-  "/5.avif",
-  "/6.avif",
+    "/Parc cuitadella/PIE AND JARON/52.avif",
+    "/Parc cuitadella/Propose/3.avif",
+    "/Gothic/OLD USA/2.avif",
+    "/Gothic/Moldova/40.avif",
+    "/Gothic/Moldova/62.avif",
   
 ];
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
@@ -75,36 +74,33 @@ useEffect(() => {
 
   return (
     <>
+      {/* 🔹 Банер - Full Width */}
+      <div className="relative w-full h-[300px] sm:h-[450px] mb-8 overflow-hidden">
+        {/* фон з fade transition */}
+        {banners.map((src, index) => (
+          <Image
+            key={index}
+            src={src}
+            alt={`Professional photography Barcelona - Love story and couple photoshoot portfolio banner ${index + 1}`}
+            fill
+            className={`absolute object-cover transition-opacity duration-1000 ease-in-out ${
+              index === currentBannerIndex
+                ? "opacity-100 animate-slow-zoom z-10"
+                : "opacity-0"
+            }`}
+            priority={index === 0}
+          />
+        ))}
+
+        {/* затемнення + текст */}
+        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-20">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-white drop-shadow-2xl tracking-tight">
+            {language === "EN" ? "Gallery" : language === "ES" ? "Galería" : language === "FR" ? "Galerie" : "Gallery"}
+          </h1>
+        </div>
+      </div>
+
       <div className="dark:bg-gray-800 bg-gray-100 text-black dark:text-white min-h-screen px-4 pb-12">
-
-        {/* 🔹 Банер */}
-        <div className="relative w-full h-[300px] sm:h-[450px] mb-8 overflow-hidden rounded-lg">
-  {/* фон з fade transition */}
-  {banners.map((src, index) => (
-    <Image
-      key={index}
-      src={src}
-      alt={`Professional photography Barcelona - Love story and couple photoshoot portfolio banner ${index + 1}`}
-      fill
-       className={`absolute object-cover transition-opacity duration-1000 ease-in-out ${
-      index === currentBannerIndex
-        ? "opacity-100 animate-slow-zoom z-10"
-        : "opacity-0"
-    }`}
-    priority={index === 0}
-     
-    />
-  ))}
-
-  {/* затемнення + текст */}
-<div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-20">
-  <h1 className="text-3xl sm:text-5xl font-extrabold text-white drop-shadow-2xl tracking-tight">
-    {language === "EN" ? "Gallery" : language === "ES" ? "Galería" : language === "FR" ? "Galerie" : "Gallery"}
-  </h1>
-</div>
-
-</div>
-
         {/* 🔘 Кнопки типів */}
       <div className="flex flex-wrap gap-4 justify-center mb-6">
   {typesWithAll.map((item) => (
