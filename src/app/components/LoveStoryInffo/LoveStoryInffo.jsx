@@ -39,7 +39,8 @@ function ReadMore({ text, collapsedLines = 10 }) {
         layout
         transition={spring}
         className={cx(
-          "prose dark:prose-invert prose-p:my-3 prose-li:my-1 max-w-none text-[15px]/7 sm:text-[16px]/8",
+          "max-w-none text-base sm:text-lg md:text-xl leading-relaxed font-semibold",
+          "text-gray-900 dark:text-gray-100",
           !open && "overflow-hidden"
         )}
         style={{ maxHeight: open ? undefined : `calc(${collapsedLines} * 1.75rem)` }}
@@ -53,14 +54,16 @@ function ReadMore({ text, collapsedLines = 10 }) {
       )}
 
       {isOverflowing && (
-        <div className="flex pt-3">
+        <div className="flex pt-4">
           <button
             onClick={() => setOpen((v) => !v)}
-            className="ml-auto inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium
-                       bg-white/60 backdrop-blur border-black/10 hover:bg-white dark:bg-white/5
-                       dark:hover:bg-white/10 dark:border-white/10 transition"
+            className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white
+                       bg-gradient-to-r from-rose-700 via-pink-600 to-purple-700
+                       hover:shadow-[0_0_24px_rgba(219,39,119,0.5)] hover:scale-105 active:scale-100
+                       border-2 border-transparent hover:border-pink-400/50
+                       transition-all duration-500"
           >
-            {open ? "Згорнути" : "Читати більше"}
+            {open ? "Read less" : "Read more"}
           </button>
         </div>
       )}
@@ -88,14 +91,14 @@ function LikeButton({ liked, count, onToggle }) {
   );
 }
 
-// Повноширинна панель дій
+// Story navigation & actions
 function ActionsToolbar({ onPrev, onNext, onBack, onLike, liked, count, onShare, copied }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35 }}
-      className="rounded-2xl border border-black/10 bg-white/70 p-4 shadow-[0_20px_80px_rgba(16,24,40,0.16)]
+      className="rounded-2xl border border-black/8 bg-white/80 p-4 shadow-[0_12px_48px_rgba(16,24,40,0.1)]
                  backdrop-blur dark:bg-white/10 dark:border-white/10"
     >
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
@@ -289,8 +292,27 @@ const selId = selectedProduct?.id ?? null;
 
   const tags = selectedProduct?.tags || ["Barcelona", "Candid", "Evening Light"];
 
+  // Gallery within current story: list of images and prev/next
+  const storyImages = useMemo(
+    () => (selectedProduct ? [selectedProduct.image, ...(selectedProduct.images || [])] : []),
+    [selectedProduct]
+  );
+  const currentImageIndex = selectedProduct && selectedImage != null
+    ? storyImages.findIndex((img) => img === selectedImage || (typeof img === "string" && typeof selectedImage === "string" && img === selectedImage) || (img?.src && selectedImage?.src && img.src === selectedImage.src))
+    : -1;
+  const hasMultipleImages = storyImages.length > 1;
+  const handlePrevImage = useCallback(() => {
+    if (!hasMultipleImages || currentImageIndex <= 0) return;
+    setSelectedImage(storyImages[currentImageIndex - 1]);
+  }, [hasMultipleImages, currentImageIndex, storyImages]);
+  const handleNextImage = useCallback(() => {
+    if (!hasMultipleImages) return;
+    const next = (currentImageIndex + 1) % storyImages.length;
+    setSelectedImage(storyImages[next]);
+  }, [hasMultipleImages, currentImageIndex, storyImages]);
+
   return (
-    <main className="relative min-h-screen overflow-x-hidden px-4 py-10 text-black dark:text-white">
+    <main className="relative min-h-screen overflow-x-hidden px-4 sm:px-6 py-8 sm:py-12 text-black dark:text-white">
       {/* анімований фон */}
       <motion.div
         aria-hidden
@@ -304,33 +326,37 @@ const selId = selectedProduct?.id ?? null;
         <div className="absolute inset-0 opacity-[0.06] mix-blend-overlay bg-[url('/noise.png')]" />
       </motion.div>
 
-      {/* Заголовок */}
+      {/* Hero header */}
       <motion.header
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="mx-auto mb-4 max-w-5xl text-center"
+        className="mx-auto mb-10 sm:mb-14 max-w-4xl text-center px-4"
       >
-        <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight drop-shadow-[0_10px_30px_rgba(219,39,119,0.3)]">
-          <span className="bg-gradient-to-r from-rose-700 via-pink-600 to-purple-700 bg-clip-text text-transparent">
+        <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-rose-600/90 dark:text-rose-400/90 mb-3">
+          Barcelona · Love Stories
+        </p>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">
+          <span className="bg-gradient-to-r from-rose-700 via-pink-600 to-purple-700 bg-clip-text text-transparent drop-shadow-[0_4px_20px_rgba(219,39,119,0.25)]">
             Love Story Photography
           </span>
         </h1>
-        <p className="text-sm sm:text-base font-bold text-gray-600 dark:text-gray-400 mt-2">
+        <div className="mt-4 h-px w-16 mx-auto bg-gradient-to-r from-transparent via-pink-500/60 to-transparent" aria-hidden />
+        <p className="text-sm sm:text-base font-medium text-gray-600 dark:text-gray-400 mt-4">
           📍 Barcelona, Spain
         </p>
-        <p className="mt-4 text-lg sm:text-xl font-bold text-transparent bg-gradient-to-r from-rose-700 via-pink-600 to-purple-700 dark:from-rose-400 dark:via-pink-400 dark:to-purple-400 bg-clip-text">
-          Romantic love story sessions at Barcelona's most iconic locations — Gothic Quarter, Sagrada Família, Barceloneta Beach, Park Güell. Intimate moments, timeless memories. 💕
+        <p className="mt-3 text-base sm:text-lg font-medium text-gray-700 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          Romantic sessions at Barcelona&apos;s most iconic spots — Gothic Quarter, Sagrada Família, Barceloneta Beach, Park Güell. Intimate moments, timeless memories. 💕
         </p>
       </motion.header>
 
-      {/* Прогрес-бар скролу */}
+      {/* Scroll progress */}
       <motion.div
         style={{ scaleX }}
-        className="origin-left mx-auto mb-6 h-1 max-w-6xl rounded-full bg-gradient-to-r from-rose-700 via-pink-600 to-purple-700"
+        className="origin-left mx-auto mb-8 sm:mb-10 h-1.5 max-w-6xl rounded-full bg-gradient-to-r from-rose-700 via-pink-600 to-purple-700 shadow-[0_0_12px_rgba(219,39,119,0.3)]"
       />
 
-      {/* Сітка карток (коли не вибрано продукт) */}
+      {/* Story cards grid */}
       <AnimatePresence mode="popLayout">
         {!selectedProduct && (
           <motion.section
@@ -339,7 +365,7 @@ const selId = selectedProduct?.id ?? null;
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 24 }}
             transition={{ duration: 0.4 }}
-            className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+            className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 px-4"
           >
             {gridItems.map((product, idx) => (
               <motion.article
@@ -348,49 +374,47 @@ const selId = selectedProduct?.id ?? null;
                 initial={{ opacity: 0, y: 24, scale: 0.98 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.45, delay: idx * 0.04 }}
-                className="group relative cursor-pointer overflow-hidden rounded-3xl border border-black/10 bg-white/70
-                           shadow-[0_10px_40px_rgba(16,24,40,0.10)] backdrop-blur
-                           hover:shadow-[0_25px_80px_rgba(16,24,40,0.18)] hover:bg-white transition
-                           dark:bg-white/10 dark:hover:bg-white/15 dark:border-white/10"
+                className="group relative cursor-pointer overflow-hidden rounded-2xl sm:rounded-3xl border border-black/8 bg-white/80
+                           shadow-[0_8px_32px_rgba(16,24,40,0.08)] backdrop-blur
+                           hover:shadow-[0_24px_64px_rgba(219,39,119,0.12)] hover:border-pink-400/20
+                           hover:bg-white transition-all duration-500 ease-out
+                           dark:bg-white/10 dark:border-white/10 dark:hover:bg-white/15 dark:hover:border-pink-500/20"
                 onClick={() => handleSelectProduct(product._i)}
               >
+                {/* Location badge — always visible */}
+                <div className="absolute top-4 left-4 z-10 rounded-full bg-black/50 backdrop-blur-sm px-3 py-1.5 text-xs font-semibold text-white/95">
+                  📍 {product.location}
+                </div>
+
                 <div
-  className="relative aspect-[4/5] overflow-hidden"
-  role="button"
-  aria-label={product._name}
->
-  <Image
-    src={product.image}
-    alt={`${product._name} - Love story photography ${product.location} Barcelona`}
-    fill
-    className="object-cover transition-transform duration-500 group-hover:scale-[1.07]"
-    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
-    priority={idx < 4}
-  />
+                  className="relative aspect-[4/5] overflow-hidden"
+                  role="button"
+                  aria-label={product._name}
+                >
+                  <Image
+                    src={product.image}
+                    alt={`${product._name} - Love story photography ${product.location} Barcelona`}
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                    priority={idx < 4}
+                  />
 
-  {/* Center hint on hover */}
-  <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 
-                  transition duration-300 group-hover:bg-black/35 group-hover:opacity-100">
-    <motion.div
-      initial={{ y: 8, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
-      className="rounded-full px-4 py-2 text-sm font-semibold text-white/95 
-                 ring-1 ring-white/40 backdrop-blur-md bg-white/10"
-    >
-      Click to view details
-    </motion.div>
-  </div>
+                  {/* Overlay on hover */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition duration-300 group-hover:bg-black/30 group-hover:opacity-100">
+                    <motion.span
+                      initial={{ y: 6, opacity: 0 }}
+                      className="rounded-full bg-white/95 dark:bg-gray-900/95 px-4 py-2 text-sm font-semibold text-gray-900 dark:text-white shadow-lg"
+                    >
+                      View story →
+                    </motion.span>
+                  </div>
 
-  {/* Bottom info on hover */}
-  <div className="absolute inset-x-0 bottom-0 p-4 pointer-events-none">
-    <div className="rounded-xl bg-gradient-to-t from-black/80 to-transparent p-4 text-white 
-                    opacity-0 translate-y-2 transition duration-300 group-hover:opacity-100 group-hover:translate-y-0">
-      <div className="text-sm/5 font-semibold opacity-95">{product.location}</div>
-      <div className="text-lg font-bold">{product._name}</div>
-    </div>
-  </div>
-</div>
-
+                  {/* Bottom: couple name */}
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/40 to-transparent p-5 pt-12">
+                    <p className="text-lg font-bold text-white drop-shadow-sm">{product._name}</p>
+                  </div>
+                </div>
               </motion.article>
             ))}
           </motion.section>
@@ -410,7 +434,7 @@ const selId = selectedProduct?.id ?? null;
     animate={{ opacity: 1, y: 0 }}
     exit={{ opacity: 0, y: 16 }}
     transition={{ duration: 0.35 }}
-    className="mx-auto mt-2 grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-12"
+    className="mx-auto mt-6 grid max-w-6xl grid-cols-1 gap-8 sm:gap-10 lg:grid-cols-12 lg:gap-12"
   >
       {/* Sticky панель ДІЙ — ТЕПЕР В СЕКЦІЇ */}
     <div className="lg:col-span-12">
@@ -432,24 +456,25 @@ const selId = selectedProduct?.id ?? null;
       </div>
     </div>
          
-    {/* Ім'я + локація по центру */}
-    <div className="lg:col-span-12 text-center">
-      <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+    {/* Story title + location */}
+    <div className="lg:col-span-12 text-center px-2">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-rose-800 via-pink-600 to-purple-800 dark:from-rose-200 dark:via-pink-300 dark:to-purple-200 bg-clip-text text-transparent">
         {selectedProduct.translations?.[language]?.name || selectedProduct.title}
       </h2>
-      <p className="mt-1 text-base font-bold text-gray-700 dark:text-gray-200 italic">
-        📍 {selectedProduct.location}
+      <div className="mt-3 h-px w-12 mx-auto bg-gradient-to-r from-transparent via-pink-400/70 to-transparent" aria-hidden />
+      <p className="mt-3 text-sm sm:text-base font-semibold text-gray-600 dark:text-gray-400 flex items-center justify-center gap-1.5">
+        <span aria-hidden>📍</span> {selectedProduct.location}
       </p>
     </div>
 
    
-            {/* Фото з лайtбоксом (ліворуч) */}
-            <div className="lg:col-span-7">
+            {/* Фото з лайtбоксом (ліворуч) — обмежена висота для кращого балансу з текстом */}
+            <div className="lg:col-span-7 lg:flex lg:items-start">
               <motion.div
                 layout
                 transition={spring}
                 whileHover={{ scale: 1.01 }}
-                className="relative sticky top-6 rounded-3xl border border-black/10 bg-white/70 p-2
+                className="sticky top-6 w-full rounded-3xl border border-black/10 bg-white/70 p-2
                            shadow-[0_25px_120px_rgba(16,24,40,0.18)] backdrop-blur
                            dark:bg-white/10 dark:border-white/10"
               >
@@ -460,15 +485,15 @@ const selId = selectedProduct?.id ?? null;
                   initial={{ opacity: 0, y: 12, clipPath: "inset(8% 8% 8% 8% round 24px)" }}
                   animate={{ opacity: 1, y: 0, clipPath: "inset(0% 0% 0% 0% round 24px)" }}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                  className="overflow-hidden rounded-2xl"
+                  className="relative overflow-hidden rounded-2xl w-full h-[42vh] min-h-[280px] max-h-[420px] lg:h-[380px] lg:max-h-[420px]"
                 >
                   {typeof selectedImage === "string" ? (
                     <Image
                       src={selectedImage}
                       alt={`${selectedProduct.translations?.[language]?.name || selectedProduct.title} - Love story photography ${selectedProduct.location} Barcelona`}
-                      width={1600}
-                      height={1600}
-                      className="h-full w-full object-cover cursor-zoom-in"
+                      fill
+                      className="object-cover cursor-zoom-in"
+                      sizes="(max-width: 1024px) 100vw, 58vw"
                       priority
                       onClick={() => setLightboxOpen(true)}
                     />
@@ -494,9 +519,9 @@ const selId = selectedProduct?.id ?? null;
               </motion.div>
             </div>
 
-            {/* Праворуч — лише опис */}
-            <div className="lg:col-span-5">
-              <div className="max-w-prose mx-auto lg:mx-0">
+            {/* Right column — story text, vertically centered */}
+            <div className="lg:col-span-5 lg:flex lg:items-center">
+              <div className="max-w-prose mx-auto lg:mx-0 w-full rounded-2xl border-l-4 border-rose-500/60 bg-gray-50/98 dark:bg-gray-800/95 dark:border-rose-400/50 pl-5 pr-4 py-5 shadow-[0_4px_24px_rgba(16,24,40,0.08)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.3)]">
                 <ReadMore
                   text={
                     selectedProduct.translations?.[language]?.description ||
@@ -510,20 +535,61 @@ const selId = selectedProduct?.id ?? null;
         )}
       </AnimatePresence>
 
-      {/* Зум-лайтбокс */}
+      {/* Full-view lightbox with prev/next */}
       <AnimatePresence>
         {lightboxOpen && (
           <motion.div
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center"
             onClick={() => setLightboxOpen(false)}
           >
-            <motion.img
-              src={typeof selectedImage === "string" ? selectedImage : selectedImage?.src}
-              alt="zoom"
-              initial={{ scale: 0.96 }} animate={{ scale: 1 }} exit={{ scale: 0.96 }}
-              className="max-h-[90vh] max-w-[92vw] rounded-xl shadow-2xl cursor-zoom-out"
-            />
+            <div
+              className="relative flex items-center justify-center w-full h-full max-w-[92vw] max-h-[90vh]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <motion.img
+                key={typeof selectedImage === "string" ? selectedImage : selectedImage?.src}
+                src={typeof selectedImage === "string" ? selectedImage : selectedImage?.src}
+                alt="Full size"
+                initial={{ scale: 0.96, opacity: 0.9 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.96, opacity: 0.9 }}
+                transition={{ duration: 0.2 }}
+                className="max-h-[90vh] max-w-[85vw] rounded-xl shadow-2xl cursor-zoom-out object-contain"
+              />
+
+              {hasMultipleImages && (
+                <>
+                  <button
+                    type="button"
+                    onClick={(e) => { e.stopPropagation(); handlePrevImage(); }}
+                    className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-14 h-14 md:w-16 md:h-16 text-white text-5xl md:text-6xl font-extrabold drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)] transition-all duration-500 hover:text-transparent hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:bg-clip-text hover:drop-shadow-[0_0_24px_rgba(219,39,119,0.9)] hover:scale-125 active:scale-110"
+                    aria-label="Previous image"
+                  >
+                    ‹
+                  </button>
+                  <button
+                    type="button"
+                    onClick={(e) => { e.stopPropagation(); handleNextImage(); }}
+                    className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-14 h-14 md:w-16 md:h-16 text-white text-5xl md:text-6xl font-extrabold drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)] transition-all duration-500 hover:text-transparent hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:bg-clip-text hover:drop-shadow-[0_0_24px_rgba(219,39,119,0.9)] hover:scale-125 active:scale-110"
+                    aria-label="Next image"
+                  >
+                    ›
+                  </button>
+                </>
+              )}
+
+              <button
+                type="button"
+                onClick={() => setLightboxOpen(false)}
+                className="absolute top-4 right-4 md:top-6 md:right-6 z-10 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-white text-3xl md:text-4xl font-extrabold drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)] transition-all duration-500 hover:text-transparent hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:bg-clip-text hover:drop-shadow-[0_0_24px_rgba(219,39,119,0.9)] hover:scale-125 active:scale-110"
+                aria-label="Close"
+              >
+                ×
+              </button>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

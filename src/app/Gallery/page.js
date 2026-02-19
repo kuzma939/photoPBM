@@ -48,6 +48,7 @@ export default function GalleryPage() {
       <Head>
         <title>{seo.title}</title>
         <meta name="description" content={seo.description} />
+        {seo.keywords && <meta name="keywords" content={seo.keywords} />}
         <meta property="og:title" content={og.title} />
         <meta property="og:description" content={og.description} />
         <meta property="og:url" content={og.url} />

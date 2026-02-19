@@ -26,33 +26,51 @@ export const metadata = {
 
   applicationName: "Pic Best Moments",
   keywords: [
-    // Barcelona-specific keywords
+    // Barcelona & brand
     "Barcelona photographer",
     "photographer in Barcelona",
     "Barcelona photography",
+    "Pic Best Moments",
     "fotógrafo Barcelona",
     "photographe Barcelone",
-    
-    // Service-specific
-    "love story photoshoot Barcelona",
-    "couple photographer Barcelona",
-    "family photos Barcelona",
-    "wedding photographer Barcelona",
-    "portrait photographer Barcelona",
-    "engagement photos Barcelona",
-    
-    // Location-specific
-    "Gothic Quarter photoshoot",
-    "Sagrada Família photography",
-    "Barceloneta beach photos",
-    "Ciutadella Park photoshoot",
-    "Park Güell photographer",
-    
-    // General
     "professional photographer Barcelona",
+    "best photographer Barcelona",
     "photo session Barcelona",
     "Barcelona photo tour",
-    "best photographer Barcelona",
+    // Love story & couples
+    "love story photoshoot Barcelona",
+    "love story photography Barcelona",
+    "couple photographer Barcelona",
+    "couple photoshoot Barcelona",
+    "engagement photos Barcelona",
+    "engagement photographer Barcelona",
+    "proposal photography Barcelona",
+    "proposal photos Barcelona",
+    "romantic photoshoot Barcelona",
+    // Family & wedding
+    "family photos Barcelona",
+    "family photographer Barcelona",
+    "wedding photographer Barcelona",
+    "wedding photos Barcelona",
+    "portrait photographer Barcelona",
+    // Locations
+    "Gothic Quarter photoshoot",
+    "Gothic Quarter photography",
+    "Sagrada Família photography",
+    "Sagrada Família photoshoot",
+    "Barceloneta beach photos",
+    "Barceloneta photographer",
+    "Parc Ciutadella photoshoot",
+    "Parc de la Ciutadella proposal",
+    "Ciutadella Park photos",
+    "Park Güell photographer",
+    "Park Güell photoshoot",
+    "Montjuïc photography Barcelona",
+    // Intent
+    "book photographer Barcelona",
+    "hire photographer Barcelona",
+    "Barcelona photoshoot locations",
+    "best photo spots Barcelona",
   ],
   authors: [{ name: "Pic Best Moments", url: SITE_URL }],
   creator: "Pic Best Moments",

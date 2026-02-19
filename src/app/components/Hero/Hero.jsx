@@ -18,7 +18,7 @@ export default function Hero() {
     <>
       <Head>
         <meta name="description" content="PBM — Professional photographer in Barcelona" />
-        <meta name="keywords" content="photographer Barcelona, photo session, portrait, love story, professional photography" />
+        <meta name="keywords" content="Barcelona photographer, love story photography Barcelona, couple photoshoot Barcelona, engagement photos Barcelona, Gothic Quarter photoshoot, Sagrada Família photography, Barceloneta photos, professional photographer Barcelona" />
         <meta property="og:title" content="PBM — Photographer in Barcelona" />
         <meta property="og:description" content="Book your professional photoshoot in Barcelona with PBM." />
         <meta property="og:image" content="/hoom/hero2.avif" />

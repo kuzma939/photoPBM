@@ -16,6 +16,7 @@ export default function ContactPage() {
        <Head>
         <title>{seo.title}</title>
         <meta name="description" content={seo.description} />
+        {seo.keywords && <meta name="keywords" content={seo.keywords} />}
         <meta property="og:title" content={seo.openGraph.title} />
         <meta property="og:description" content={seo.openGraph.description} />
         <meta property="og:type" content={seo.openGraph.type} />
