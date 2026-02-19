@@ -10,13 +10,13 @@ import { useLanguage } from '../../Functions/useLanguage';
 const IMAGES = [
   { id: 1, src: '/1.avif' },
   { id: 2, src: '/2.avif' },
-  { id: 3, src: '/3.avif' },
+  // { id: 3, src: '/3.avif' },
   { id: 4, src: '/4.avif' },
-  { id: 5, src: '/5.avif' },
+  // { id: 5, src: '/5.avif' },
   { id: 6, src: '/6.avif' },
   { id: 7, src: '/7.avif' },
   { id: 8, src: '/8.avif' },
-  { id: 9, src: '/9.avif' },
+  // { id: 9, src: '/9.avif' },
   { id: 10, src: '/10.avif' },
 ];
 

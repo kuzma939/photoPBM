@@ -14,26 +14,25 @@ export default function FollowUs() {
 
   const images = [
     { src: "/1.avif", link: Insta },
-    // { src: "/17.avif", link: Insta },
-    // { src: "/18.avif", link: Insta },
+    { src: "/Manjuic/1.avif", link: Insta },
+    { src: "/Sagrada/15.avif", link: Insta },
     { src: "/2.avif", link: Insta },
     // { src: "/20.avif", link: Insta },
     // { src: "/21.avif", link: Insta },
-    { src: "/3.avif", link: Insta },
+    // { src: "/3.avif", link: Insta },
     // { src: "/23.avif", link: Insta },
     // { src: "/24.avif", link: Insta },
-    { src: "/4.avif", link: Insta },
-    // { src: "/26.avif", link: Insta },
+    { src: "/Manjuic/2.avif", link: Insta },    // { src: "/26.avif", link: Insta },
     // { src: "/27.avif", link: Insta },
-    { src: "/5.avif", link: Insta },
+    // { src: "/5.avif", link: Insta },
     // { src: "/29.avif", link: Insta },
     // { src: "/30.avif", link: Insta },
-    { src: "/6.avif", link: Insta },
+    // { src: "/6.avif", link: Insta },
     // { src: "/32.avif", link: Insta },
     // { src: "/33.avif", link: Insta },
-    { src: "/7.avif", link: Insta },
+    // { src: "/7.avif", link: Insta },
     { src: "/8.avif", link: Insta },
-    { src: "/9.avif", link: Insta },
+    // { src: "/9.avif", link: Insta },
     { src: "/10.avif", link: Insta },
     
   ];
@@ -93,9 +92,9 @@ export default function FollowUs() {
             alignItems: "center",
           }}
         >
-          {displayedImages.map((imageIndex) => (
+          {displayedImages.map((imageIndex, index) => (
             <Link
-              key={imageIndex}
+              key={`follow-${index}-${imageIndex}`}
               href={images[imageIndex].link}
               target="_blank"
               rel="noopener noreferrer"

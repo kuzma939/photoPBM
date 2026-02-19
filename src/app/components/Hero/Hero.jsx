@@ -65,15 +65,9 @@ function HeroSlider({ compact = false }) {
         href: '/contact' 
       },
       { 
-        title: t[5], // 'Gothic Quarter'
-        description: t[9], // Gothic Quarter description
+        title: t[5], // 'Gothic Old Town'
+        description: t[9], // Gothic Old Town description
         image: '/Gothic/JAPAN/1.avif', 
-        href: '/contact' 
-      },
-      { 
-        title: t[6], // 'Park Güell'
-        description: t[10], // Park Güell description
-        image: 'https://images.unsplash.com/photo-1483982258113-b72862e6cff6?q=80&w=1170&auto=format&fit=crop', 
         href: '/contact' 
       },
     ],
