@@ -27,7 +27,7 @@ const loveJsonLd = (stories = []) => ({
         "Romantic couple photo session in Barcelona.",
       image: {
         "@type": "ImageObject",
-        url: `${SITE_URL}${story.image || "/logo-social.jpg"}`,
+        url: `${SITE_URL}${story.image || "/logo.jpg"}`,
         width: 1200,
         height: 800,
         caption:

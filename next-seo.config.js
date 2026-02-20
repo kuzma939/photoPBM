@@ -4,7 +4,7 @@ const SITE_URL =
   (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, "");
 
 const url = (path = "/") => `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
-const img = (path = "/logo-social.jpg") => url(path);
+const img = (path = "/logo.jpg") => url(path);
 
 const BRAND = "Pic Best Moments";
 
@@ -22,7 +22,7 @@ const BRAND = "Pic Best Moments";
         "Capture your best moments in Barcelona with professional photography services. Love stories, families, weddings & portraits at iconic locations.",
       type: "website",
       images: [{ 
-        url: img("/logo-social.jpg"), 
+        url: img("/logo.jpg"), 
         width: 1200, 
         height: 628, 
         alt: `${BRAND} - Barcelona Professional Photographer` 
@@ -115,7 +115,7 @@ const BRAND = "Pic Best Moments";
       description: "Best photo spots in Barcelona.",
       type: "website",
       images: [
-        { url: `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/logo-social.jpg`, width: 1200, height: 628, alt: "PBM" }
+        { url: `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/logo.jpg`, width: 1200, height: 628, alt: "PBM" }
       ]
     },
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/favorite-spots`,

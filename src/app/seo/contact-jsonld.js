@@ -48,7 +48,7 @@ const contactJsonLd = {
   url: `${SITE_URL}/contact`,
   image: {
     "@type": "ImageObject",
-    url: `${SITE_URL}/logo-social.jpg`,
+    url: `${SITE_URL}/logo.jpg`,
     width: 1200,
     height: 628,
     caption: "Contact Pic Best Moments — Professional Photographer in Barcelona",

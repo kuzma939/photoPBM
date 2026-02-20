@@ -103,7 +103,7 @@ export const metadata = {
       "Professional photo sessions in Barcelona: love stories, families, weddings, portraits at iconic locations. Book your Barcelona photography experience today!",
     images: [
       { 
-        url: "/logo-social.jpg", 
+        url: "/logo.jpg", 
         width: 1200, 
         height: 628, 
         alt: "Pic Best Moments - Professional Photographer in Barcelona",
@@ -119,7 +119,7 @@ export const metadata = {
     title: "Professional Photographer in Barcelona | Pic Best Moments",
     description:
       "Professional photo sessions in Barcelona: love stories, families, weddings, portraits at iconic locations.",
-    images: ["/logo-social.jpg"],
+    images: ["/logo.jpg"],
     creator: "@picbestmoments",
   },
 

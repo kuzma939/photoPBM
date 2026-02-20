@@ -59,7 +59,7 @@ export default function AllProducts({ locationSlug }) {
     : null;
 
   const currentBanner =
-    current?.banner || "/Gothic/9DAF9EC6-F105-4A2B-AA15-0C7A7A34A9D6-2.avif";
+    current?.banner || "/Parc cuitadella/Propose/1.avif";
 
   const currentImages = useMemo(
     () =>
@@ -96,7 +96,7 @@ export default function AllProducts({ locationSlug }) {
       slug: loc.location,
       title: loc.translations?.EN?.name || loc.location,
       description: loc.translations?.EN?.description || "",
-      image: (loc.images && loc.images[0]) || "/logo-social.jpg",
+      image: (loc.images && loc.images[0]) || "/logo.jpg",
       location: loc.location,
       date: loc.date,
     }));

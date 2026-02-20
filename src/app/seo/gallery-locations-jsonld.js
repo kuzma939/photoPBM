@@ -26,7 +26,7 @@ const generateGalleryLocationsJsonLd = (locations = []) => ({
         "@type": "ImageObject",
         name: item?.title || `Barcelona Photo Location ${index + 1}`,
         description: item?.description || `Professional photography location in ${item?.location || "Barcelona"} - perfect for love stories, family sessions and portraits.`,
-        contentUrl: `${SITE_URL}${item?.image || "/logo-social.jpg"}`,
+        contentUrl: `${SITE_URL}${item?.image || "/logo.jpg"}`,
         width: 1200,
         height: 800,
         author: { 

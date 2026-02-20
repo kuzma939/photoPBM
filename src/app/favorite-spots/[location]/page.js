@@ -42,7 +42,7 @@ export default function LocationPage({ params }) {
     slug: locationSlug,
     title: location.translations?.EN?.name || location.location,
     description: `Professional photography at ${location.location}, Barcelona`,
-    image: location.banner || location.images?.[0] || "/logo-social.jpg",
+    image: location.banner || location.images?.[0] || "/logo.jpg",
     location: location.location,
   }]);
 
