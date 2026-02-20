@@ -103,11 +103,11 @@ export const metadata = {
       "Professional photo sessions in Barcelona: love stories, families, weddings, portraits at iconic locations. Book your Barcelona photography experience today!",
     images: [
       { 
-        url: "/logo.jpg", 
+        url: "/Logo.webp", 
         width: 1200, 
         height: 628, 
         alt: "Pic Best Moments - Professional Photographer in Barcelona",
-        type: "image/jpeg",
+        type: "image/webp",
       }
     ],
     locale: "en_US",
@@ -119,7 +119,7 @@ export const metadata = {
     title: "Professional Photographer in Barcelona | Pic Best Moments",
     description:
       "Professional photo sessions in Barcelona: love stories, families, weddings, portraits at iconic locations.",
-    images: ["/logo.jpg"],
+    images: ["/Logo.webp"],
     creator: "@picbestmoments",
   },
 
@@ -137,11 +137,11 @@ export const metadata = {
 
   icons: {
     icon: [
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/Logo.webp", sizes: "32x32", type: "image/webp" },
+      { url: "/Logo.webp", sizes: "16x16", type: "image/webp" },
     ],
     apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/Logo.webp", sizes: "180x180", type: "image/webp" },
     ],
   },
 

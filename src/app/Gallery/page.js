@@ -33,7 +33,7 @@ export default function GalleryPage() {
         "Explore beautiful photo spots and sessions captured in Barcelona by Pic Best Moments.",
       url: "/gallery",
       type: "website",
-      images: [{ url: "/logo.jpg" }],
+      images: [{ url: "/Logo.webp" }],
     },
     canonical: "/gallery",
     robots: "index, follow",

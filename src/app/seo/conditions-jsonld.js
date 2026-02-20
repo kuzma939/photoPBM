@@ -5,7 +5,7 @@ const BRAND_NAME = "Pic Best Moments";
 const generateConditionsJsonLd = () => {
   const pageUrl = `${SITE_URL}/conditions`;
   // Заміни шлях на свій фактичний OG/соціальний банер, якщо інший:
-  const imageUrl = `${SITE_URL}/logo.jpg`;
+  const imageUrl = `${SITE_URL}/Logo.webp`;
 
   return {
     "@context": "https://schema.org",

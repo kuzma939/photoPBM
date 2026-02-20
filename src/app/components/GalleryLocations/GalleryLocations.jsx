@@ -96,7 +96,7 @@ export default function AllProducts({ locationSlug }) {
       slug: loc.location,
       title: loc.translations?.EN?.name || loc.location,
       description: loc.translations?.EN?.description || "",
-      image: (loc.images && loc.images[0]) || "/logo.jpg",
+      image: (loc.images && loc.images[0]) || "/Logo.webp",
       location: loc.location,
       date: loc.date,
     }));

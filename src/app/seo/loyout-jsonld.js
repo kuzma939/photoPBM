@@ -13,7 +13,7 @@ export const siteJsonLd = {
   url: SITE_URL,
   description:
     "Professional photographer in Barcelona capturing love stories, family moments, and portrait sessions with a unique style.",
-  image: `${SITE_URL}/logo.jpg`,
+  image: `${SITE_URL}/Logo.webp`,
   potentialAction: {
     "@type": "SearchAction",
     target: `${SITE_URL}/search?q={search_term_string}`,
@@ -31,8 +31,8 @@ export const organizationJsonLd = {
   name: "Pic Best Moments",
   alternateName: "PBM Photography Barcelona",
   url: SITE_URL,
-  logo: `${SITE_URL}/logo.jpg`,
-  image: `${SITE_URL}/logo.jpg`,
+  logo: `${SITE_URL}/Logo.webp`,
+  image: `${SITE_URL}/Logo.webp`,
   description:
     "Professional photography service in Barcelona specializing in love stories, weddings, family photo sessions, and portrait photography. Capturing your best moments at iconic Barcelona locations.",
   
