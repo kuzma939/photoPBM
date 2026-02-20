@@ -2,12 +2,15 @@ const products = [
   {
     id: 117,
     location: "Parc Ciutadella, Barcelona",
-    image: "/Gothic/2Q2A0387.avif",
+    image: "/Parc cuitadella/Propose/1.avif",
     images: [
-      "/Dress/Elodie Dress/2.avif",
-      "/Dress/Elodie Dress/3.avif",
-      "/Dress/Elodie Dress/4.avif",
-      "/Dress/Elodie Dress/5.avif",
+      "/Parc cuitadella/Propose/2.avif",
+      "/Parc cuitadella/Propose/3.avif",
+      "/Parc cuitadella/Propose/4.avif",
+      "/Parc cuitadella/Propose/5.avif",
+      "/Parc cuitadella/Propose/6.avif",
+      
+
     ],
     translations: {
       EN: {
@@ -21,6 +24,10 @@ const products = [
       FR: {
         name: "Élodie et Marc",
         description: `Une demande en mariage surprise au cœur de Barcelone — au parc de la Ciutadella. Marc a choisi l'un des endroits les plus romantiques de la ville pour sa séance photo de fiançailles : sous les arbres et près de la fontaine emblématique, où la lumière de l'après-midi a transformé l'instant en magie. Cette séance de photographie de demande en mariage à Barcelone a capté chaque émotion — la question, le oui et la joie de deux cœurs qui décident de construire leur avenir ensemble. Les photos de fiançailles d'Élodie et Marc au parc de la Ciutadella racontent une histoire d'amour dans l'un des plus beaux espaces verts de Barcelone. Idéal pour les couples en quête d'une séance photo de demande en mariage à Barcelone ou d'une séance de fiançailles intimiste au parc de la Ciutadella.`,
+      },
+      ES: {
+        name: "Elodie y Marc",
+        description: `Una propuesta de matrimonio sorpresa en el corazón de Barcelona — en el parque de la Ciutadella. Marc eligió uno de los lugares más románticos de la ciudad para su sesión de fotos de compromiso: bajo los árboles y junto a la fuente icónica, donde la luz de la tarde convirtió el momento en magia. Esta sesión de fotografía de propuesta en Barcelona capturó cada emoción — la pregunta, el sí y la alegría de dos corazones que deciden construir un futuro juntos. Las fotos de compromiso de Elodie y Marc en el parque de la Ciutadella son una historia de amor en uno de los espacios verdes más bonitos de Barcelona. Perfecto para parejas que buscan fotografía de propuesta en Barcelona o una sesión de compromiso íntima en el parque de la Ciutadella.`,
       },
     },
   },
@@ -52,6 +59,10 @@ const products = [
       FR: {
         name: "Chloé et Antoine",
         description: `Chloé et Antoine sont venus des États-Unis à Barcelone pour leur séance love story — un shooting de rêve dans deux des lieux les plus emblématiques de la ville. Nous avons commencé à la Sagrada Família, où le chef-d'œuvre de Gaudí a encadré leurs rires et leurs moments complices dans une lumière dorée. Puis nous avons arpenté le Quartier Gothique : ruelles médiévales, places cachées et la magie que seul le cœur historique de Barcelone peut offrir. Cette séance couple à Barcelone a capté leur complicité — authentique, joyeuse et intemporelle. Une histoire d'amour entre deux cœurs qui ont choisi Barcelone pour célébrer la leur.`,
+      },
+      ES: {
+        name: "Chloé y Antoine",
+        description: `Chloé y Antoine viajaron desde EE. UU. a Barcelona para su sesión de love story — una sesión de ensueño en dos de los lugares más icónicos de la ciudad. Empezamos en la Sagrada Família, donde la obra maestra de Gaudí enmarcó sus risas y momentos íntimos con una luz dorada. Luego paseamos por el Barrio Gótico: calles medievales, plazas escondidas y la magia que solo el casco antiguo de Barcelona puede ofrecer. Esta sesión de pareja en Barcelona captó su conexión — auténtica, alegre y atemporal. Una historia de amor entre dos corazones que eligieron Barcelona para celebrar su historia.`,
       },
     },
   },
