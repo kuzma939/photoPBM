@@ -171,7 +171,7 @@ export default function Gallery() {
 
         .gallery-container {
           width: 100%;
-          padding: 2rem 0;
+          padding: 0.5rem 0 2rem 0;
         }
 
         .gallery-wrap {
@@ -180,7 +180,7 @@ export default function Gallery() {
           height: min(70vh, 800px);
           overflow: hidden;
           background: transparent;
-          margin-top: -1rem;
+          margin-top: 0;
         }
 
         .boxes {
