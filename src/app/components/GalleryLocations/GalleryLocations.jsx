@@ -69,20 +69,49 @@ export default function AllProducts({ locationSlug }) {
     [selectedLocation, current]
   );
 
-  // modal
+  // modal / gallery viewer
   const [modalImageIndex, setModalImageIndex] = useState(null);
+  const [transitionFromIndex, setTransitionFromIndex] = useState(null);
+  const [incomingReady, setIncomingReady] = useState(false);
+
   const openModal = (i) => {
     setModalImageIndex(i);
+    setTransitionFromIndex(null);
+    setIncomingReady(false);
     document.body.style.overflow = "hidden";
   };
   const closeModal = () => {
     setModalImageIndex(null);
+    setTransitionFromIndex(null);
+    setIncomingReady(false);
     document.body.style.overflow = "auto";
   };
-  const goNext = () =>
-    setModalImageIndex((prev) => (prev + 1) % currentImages.length);
-  const goPrev = () =>
-    setModalImageIndex((prev) => (prev - 1 + currentImages.length) % currentImages.length);
+
+  const goToIndex = (nextIndex) => {
+    if (currentImages.length === 0) return;
+    const from = modalImageIndex;
+    setTransitionFromIndex(from);
+    setIncomingReady(false);
+    setModalImageIndex(nextIndex);
+  };
+  const goNext = () => goToIndex((modalImageIndex + 1) % currentImages.length);
+  const goPrev = () => goToIndex((modalImageIndex - 1 + currentImages.length) % currentImages.length);
+
+  // Trigger incoming slide-up after mount; clear transition after animation
+  useEffect(() => {
+    if (transitionFromIndex === null) return;
+    const start = requestAnimationFrame(() => {
+      requestAnimationFrame(() => setIncomingReady(true));
+    });
+    const t = setTimeout(() => {
+      setTransitionFromIndex(null);
+      setIncomingReady(false);
+    }, 450);
+    return () => {
+      cancelAnimationFrame(start);
+      clearTimeout(t);
+    };
+  }, [transitionFromIndex]);
 
   // JSON-LD payload (build from what you actually render)
   const jsonLdPayload = useMemo(() => {
@@ -183,33 +212,65 @@ export default function AllProducts({ locationSlug }) {
         </div>
       </div>
 
-      {/* Modal */}
+      {/* Gallery viewer modal (blur bg + main image slide + thumbnails) */}
       {modalImageIndex !== null && (
-        <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center">
-          <button className="absolute top-4 right-4 text-5xl font-bold text-white hover:text-transparent hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:bg-clip-text active:text-transparent active:bg-gradient-to-r active:from-rose-700 active:via-pink-600 active:to-purple-700 active:bg-clip-text transition-all duration-500 hover:drop-shadow-[0_0_20px_rgba(219,39,119,0.9)] active:drop-shadow-[0_0_20px_rgba(219,39,119,0.9)] hover:scale-125 active:scale-125" onClick={closeModal} aria-label="Close">
-            &times;
-          </button>
-          <button
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-5xl font-bold hover:text-transparent hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:bg-clip-text active:text-transparent active:bg-gradient-to-r active:from-rose-700 active:via-pink-600 active:to-purple-700 active:bg-clip-text transition-all duration-500 hover:drop-shadow-[0_0_20px_rgba(219,39,119,0.9)] active:drop-shadow-[0_0_20px_rgba(219,39,119,0.9)] hover:scale-150 active:scale-150"
-            onClick={goPrev}
-            aria-label="Previous"
-          >
-            &#10094;
-          </button>
-          <Image
-            src={currentImages[modalImageIndex]}
-            alt={`Professional couple photoshoot ${selectedLocation !== "all" ? `at ${getTranslatedName(selectedLocation)}` : "Barcelona"} - Portfolio ${modalImageIndex + 1}`}
-            width={1000}
-            height={800}
-            className="max-w-full max-h-[90vh] object-contain"
-          />
-          <button
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-white text-5xl font-bold hover:text-transparent hover:bg-gradient-to-r hover:from-rose-700 hover:via-pink-600 hover:to-purple-700 hover:bg-clip-text active:text-transparent active:bg-gradient-to-r active:from-rose-700 active:via-pink-600 active:to-purple-700 active:bg-clip-text transition-all duration-500 hover:drop-shadow-[0_0_20px_rgba(219,39,119,0.9)] active:drop-shadow-[0_0_20px_rgba(219,39,119,0.9)] hover:scale-150 active:scale-150"
-            onClick={goNext}
-            aria-label="Next"
-          >
-            &#10095;
-          </button>
+        <div className="gallery-viewer-overlay">
+          <div className="gallery-viewer">
+            <div className="gallery-viewer__bg" aria-hidden="true">
+              <Image
+                src={currentImages[modalImageIndex]}
+                alt=""
+                fill
+                className="gallery-viewer__bg-img"
+                sizes="100vw"
+              />
+            </div>
+            <div className="gallery-viewer__main">
+              <div className="gallery-viewer__photo">
+                <button type="button" className="gallery-viewer__close" onClick={closeModal} aria-label="Close">
+                  &times;
+                </button>
+                <div className="gallery-viewer__core">
+                  {transitionFromIndex !== null && (
+                    <Image
+                      src={currentImages[transitionFromIndex]}
+                      alt=""
+                      fill
+                      className="gallery-viewer__core-img gallery-viewer__core-img--out"
+                      sizes="(max-width: 640px) 100vw, 640px"
+                    />
+                  )}
+                  <Image
+                    src={currentImages[modalImageIndex]}
+                    alt={`Professional couple photoshoot ${selectedLocation !== "all" ? `at ${getTranslatedName(selectedLocation)}` : "Barcelona"} - Portfolio ${modalImageIndex + 1}`}
+                    fill
+                    className={`gallery-viewer__core-img gallery-viewer__core-img--in ${incomingReady || transitionFromIndex === null ? "gallery-viewer__core-img--in-active" : ""}`}
+                    sizes="(max-width: 640px) 100vw, 640px"
+                  />
+                </div>
+                <button type="button" className="gallery-viewer__nav gallery-viewer__nav--prev" onClick={goPrev} aria-label="Previous">
+                  &#10094;
+                </button>
+                <button type="button" className="gallery-viewer__nav gallery-viewer__nav--next" onClick={goNext} aria-label="Next">
+                  &#10095;
+                </button>
+              </div>
+              <div className="gallery-viewer__track">
+                {currentImages.map((src, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    className={`gallery-viewer__track-item ${i === modalImageIndex ? "gallery-viewer__track-item--active" : ""}`}
+                    onClick={() => i !== modalImageIndex && goToIndex(i)}
+                    aria-label={`Photo ${i + 1}`}
+                    aria-current={i === modalImageIndex}
+                  >
+                    <Image src={src} alt="" width={43} height={43} className="gallery-viewer__track-img" />
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </section>
