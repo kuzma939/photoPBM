@@ -1,5 +1,4 @@
 'use client';
-
 import { useEffect, useRef, useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/navigation';
@@ -15,7 +14,6 @@ const IMAGES = [
   { id: 8, src: '/8.avif' },
   { id: 10, src: '/10.avif' },
 ];
-
 export default function Gallery() {
   const trackRef = useRef(null);
   const tweenRef = useRef(null);
