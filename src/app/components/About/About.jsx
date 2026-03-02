@@ -19,7 +19,7 @@ export default function About() {
         />
       </Head>
       <div className="max-w-7xl mx-auto relative">
-        {/* Layout for Tablets and Desktops */}
+   
         <div className="hidden sm:flex flex-col md:flex-row items-center md:gap-8">
           {/* Text Content */}
           <div className="flex-1 text-center text-gray-700 dark:text-gray-200">
