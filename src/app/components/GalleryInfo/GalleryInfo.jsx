@@ -16,8 +16,6 @@ const typesWithAll = [
   ...photoTypes
 ];
 
-
-  //const initialType = searchParams.get("type") || photoTypes[0].type;
 const initialType = searchParams.get("type") || "All";
 
   const [selectedType, setSelectedType] = useState(initialType);
