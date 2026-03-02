@@ -1,114 +1,59 @@
 'use client';
-
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/navigation';
 import gsap from 'gsap';
 import { useLanguage } from '../../Functions/useLanguage';
 
-// твої фото з /public
 const IMAGES = [
   { id: 1, src: '/1.avif' },
   { id: 2, src: '/2.avif' },
-  // { id: 3, src: '/3.avif' },
   { id: 4, src: '/4.avif' },
-  // { id: 5, src: '/5.avif' },
   { id: 6, src: '/6.avif' },
   { id: 7, src: '/7.avif' },
   { id: 8, src: '/8.avif' },
-  // { id: 9, src: '/9.avif' },
   { id: 10, src: '/10.avif' },
 ];
-
 export default function Gallery() {
-  const boxesRef = useRef(null);
-  const nextBtnRef = useRef(null);
-  const prevBtnRef = useRef(null);
+  const trackRef = useRef(null);
+  const tweenRef = useRef(null);
   const router = useRouter();
   const [isPaused, setIsPaused] = useState(false);
 
   const { translateList } = useLanguage();
   const menuItems = translateList('home', 'top_products');
 
-  const images = useMemo(() => IMAGES.slice(0, 10), []);
-
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const boxes = gsap.utils.toArray('.box');
-      if (!boxes.length) return;
+    const track = trackRef.current;
+    if (!track) return;
 
-      gsap.set(boxes, { yPercent: -50, willChange: 'transform' });
+    const setWidth = track.scrollWidth / 2;
+    const duration = 35;
 
-      // плавність “черги”
-      const STAGGER = 0.12;
+    tweenRef.current = gsap.fromTo(
+      track,
+      { x: 0 },
+      {
+        x: -setWidth,
+        duration,
+        repeat: -1,
+        ease: 'none',
+      }
+    );
 
-      // будуємо “безкінечний” цикл, але керуємо ним лише вручну
-      const loop = gsap.timeline({ repeat: -1, paused: true, ease: 'none' });
-      const shifts = [...boxes, ...boxes, ...boxes];
-
-      shifts.forEach((BOX, index) => {
-        const tl = gsap
-          .timeline()
-          .set(BOX, { xPercent: 250, rotateY: -45, opacity: 0, scale: 0.5 })
-          .to(BOX, { opacity: 1, scale: 1, duration: 0.18 }, 0)
-          .to(BOX, { opacity: 0, scale: 0.5, duration: 0.18 }, 0.82)
-          .fromTo(BOX, { xPercent: 250 }, { xPercent: -350, duration: 1, ease: 'power1.inOut' }, 0)
-          .fromTo(BOX, { rotateY: -45 }, { rotateY: 45, duration: 1, ease: 'power2.inOut' }, 0)
-          .to(BOX, { z: 80, scale: 1.18, duration: 0.12, repeat: 1, yoyo: true }, 0.4)
-          .fromTo(BOX, { zIndex: 1 }, { zIndex: boxes.length, duration: 0.5, repeat: 1, yoyo: true, ease: 'none' }, 0);
-
-        loop.add(tl, index * STAGGER);
-      });
-
-      const cycle = STAGGER * boxes.length;      // повний цикл
-      const step = 1 / boxes.length;             // крок на 1 картку
-
-      // стартуємо з середини, щоб кадр одразу гарно виглядав
-      loop.totalTime(cycle);
-
-      const nudge = (dir = 1, dur = 0.5) => {
-        const t = loop.totalTime();
-        gsap.to(loop, {
-          totalTime: t + dir * step * cycle,
-          duration: dur,
-          ease: 'power2.out',
-          overwrite: true,
-        });
-      };
-
-      const onNext = () => nudge(-1);
-      const onPrev = () => nudge(1);
-
-      nextBtnRef.current?.addEventListener('click', onNext);
-      prevBtnRef.current?.addEventListener('click', onPrev);
-
-      const onKey = (ev) => {
-        if (ev.code === 'ArrowLeft' || ev.code === 'KeyA') onNext();
-        if (ev.code === 'ArrowRight' || ev.code === 'KeyD') onPrev();
-      };
-      document.addEventListener('keydown', onKey);
-
-      return () => {
-        document.removeEventListener('keydown', onKey);
-        nextBtnRef.current?.removeEventListener('click', onNext);
-        prevBtnRef.current?.removeEventListener('click', onPrev);
-        loop.kill();
-      };
-    }, boxesRef);
-
-    return () => ctx.revert();
+    return () => {
+      tweenRef.current?.kill();
+    };
   }, []);
 
-  // Auto-advance every 2 seconds
   useEffect(() => {
-    if (isPaused) return;
-    
-    const interval = setInterval(() => {
-      nextBtnRef.current?.click();
-    }, 2000); // 2 seconds
-    
-    return () => clearInterval(interval);
+    const tween = tweenRef.current;
+    if (!tween) return;
+    if (isPaused) tween.pause();
+    else tween.play();
   }, [isPaused]);
+
+  const duplicate = [...IMAGES, ...IMAGES];
 
   return (
     <>
@@ -117,182 +62,128 @@ export default function Gallery() {
       </Head>
 
       <div className="gallery-container">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-0 text-center tracking-tight">
+        <h2 className="gallery-title">
           {menuItems[0]}
         </h2>
 
-        <section 
+        <section
           className="gallery-wrap"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          {/* кнопки по боках */}
-          <svg width="0" height="0" style={{ position: 'absolute' }}>
-            <defs>
-              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#be123c" />
-                <stop offset="50%" stopColor="#db2777" />
-                <stop offset="100%" stopColor="#7c3aed" />
-              </linearGradient>
-            </defs>
-          </svg>
-          <button ref={prevBtnRef} className="nav-btn side left" aria-label="Previous">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="15 18 9 12 15 6" />
-            </svg>
-          </button>
-          <button ref={nextBtnRef} className="nav-btn side right" aria-label="Next">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="9 18 15 12 9 6" />
-            </svg>
-          </button>
-
-          {/* сцена */}
-          <div ref={boxesRef} className="boxes" aria-label="GSAP gallery">
-            {[...images, ...images, ...images].map((img, idx) => (
-              <div
-                key={`${img.id}-${idx}`}
-                className="box"
-                style={{ ['--src']: `url(${img.src})` }}
-                onClick={() => router.push(`/Gallery?product=${img.id}`)}
-                role="button"
-                aria-label={`Open photo ${img.id}`}
-              >
-                <img src={img.src} alt={`Professional photography Barcelona - Love story couple photoshoot portfolio ${img.id}`} loading="lazy" />
-              </div>
-            ))}
+          <div ref={trackRef} className="gallery-track" aria-label="Gallery carousel">
+            <div className="gallery-set">
+              {duplicate.map((img, idx) => (
+                <div
+                  key={`a-${img.id}-${idx}`}
+                  className="gallery-card"
+                  onClick={() => router.push(`/Gallery?product=${img.id}`)}
+                  role="button"
+                  aria-label={`Open photo ${img.id}`}
+                >
+                  <img
+                    src={img.src}
+                    alt={`Professional photography Barcelona - Portfolio ${img.id}`}
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="gallery-set" aria-hidden="true">
+              {duplicate.map((img, idx) => (
+                <div
+                  key={`b-${img.id}-${idx}`}
+                  className="gallery-card"
+                  onClick={() => router.push(`/Gallery?product=${img.id}`)}
+                  role="button"
+                  aria-label={`Open photo ${img.id}`}
+                >
+                  <img
+                    src={img.src}
+                    alt=""
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       </div>
 
       <style jsx>{`
-        .boxes { will-change: transform; }
-        .box   { will-change: transform; }
-
         .gallery-container {
           width: 100%;
-          padding: 2rem 0;
+          padding: 0.5rem 0 1.25rem 0;
+        }
+
+        .gallery-title {
+          font-size: clamp(1.5rem, 4vw, 2.25rem);
+          font-weight: 800;
+          margin: 0 0 0.75rem 0;
+          text-align: center;
+          letter-spacing: -0.02em;
         }
 
         .gallery-wrap {
           position: relative;
           width: 100%;
-          height: min(70vh, 800px);
+          height: min(52vh, 540px);
           overflow: hidden;
-          background: transparent;
-          margin-top: -1rem;
+          margin-top: 0;
+          mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+          -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
         }
 
-        .boxes {
+        .gallery-track {
+          display: flex;
+          width: max-content;
           height: 100%;
-          width: 100%;
-          position: absolute;
-          inset: 0;
-          overflow: hidden;
-          transform-style: preserve-3d;
-          perspective: 800px;
-          touch-action: none;
+          align-items: center;
+          will-change: transform;
         }
 
-        .box {
-          transform-style: preserve-3d;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          height: 20vmin;
-          width: 20vmin;
-          min-height: 200px;
-          min-width: 200px;
-          display: block;
-          background: linear-gradient(135deg, rgba(190, 18, 60, 0.15), rgba(219, 39, 119, 0.15), rgba(124, 58, 237, 0.15));
-          cursor: pointer;
-          border-radius: 12px;
-          overflow: hidden;
-        }
-        .box:nth-of-type(even) { 
-          background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(219, 39, 119, 0.15), rgba(190, 18, 60, 0.15));
-        }
-
-        .box::after {
-          content: '';
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          height: 100%;
-          width: 100%;
-          background-image: var(--src);
-          background-size: cover;
-          background-position: 50% 50%;
-          transform: translate(-50%, -50%) rotate(180deg) translate(0, -100%) translate(0, -0.5vmin);
-          opacity: 0.3;
-        }
-        .box::before {
-          content: '';
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          height: 100%;
-          width: 100%;
-          background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, transparent 50%);
-          transform: translate(-50%, -50%) rotate(180deg) translate(0, -100%) translate(0, -0.5vmin) scale(1.01);
-          z-index: 2;
-        }
-        .box img {
-          position: absolute;
-          height: 100%;
-          width: 100%;
-          top: 0;
-          left: 0;
-          object-fit: cover;
-          transition: transform 0.3s ease;
-        }
-        .box:hover img {
-          transform: scale(1.05);
-        }
-        .box:hover {
-          box-shadow: 0 0 30px rgba(219, 39, 119, 0.5);
-        }
-
-        /* кнопки по боках */
-        .nav-btn.side {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          z-index: 10;
-          background: transparent;
-          border: none;
-          color: #fff;
-          width: auto;
-          height: auto;
+        .gallery-set {
           display: flex;
           align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          transition: all 0.5s ease;
+          gap: clamp(0.75rem, 2vw, 1.25rem);
+          padding: 0 1rem;
+          flex-shrink: 0;
+          height: 100%;
         }
-        .nav-btn.side.left  { left: 1rem; }
-        .nav-btn.side.right { right: 1rem; }
 
-        .nav-btn.side:hover,
-        .nav-btn.side:active {
-          filter: drop-shadow(0 0 20px rgba(219, 39, 119, 0.9));
-          transform: translateY(-50%) scale(1.4);
+        .gallery-card {
+          flex: 0 0 auto;
+          width: 28vmin;
+          min-width: 280px;
+          height: 28vmin;
+          min-height: 280px;
+          border-radius: 1rem;
+          overflow: hidden;
+          cursor: pointer;
+          background: linear-gradient(145deg, rgba(190, 18, 60, 0.08), rgba(124, 58, 237, 0.08));
+          box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.06);
+          transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
         }
-        .nav-btn.side:hover svg,
-        .nav-btn.side:active svg {
-          stroke: url(#gradient);
+
+        .gallery-card:hover {
+          transform: scale(1.04);
+          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(255, 255, 255, 0.08);
         }
-        .nav-btn svg { 
-          width: 48px; 
-          height: 48px; 
-          stroke-width: 2.5;
-          transition: all 0.5s ease;
+
+        .gallery-card img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
         }
-        .nav-btn.side:hover svg,
-        .nav-btn.side:active svg {
-          width: 64px;
-          height: 64px;
-          stroke-width: 3;
+
+        @media (min-width: 1024px) {
+          .gallery-card {
+            width: 36vmin;
+            min-width: 360px;
+            height: 36vmin;
+            min-height: 360px;
+          }
         }
       `}</style>
     </>
